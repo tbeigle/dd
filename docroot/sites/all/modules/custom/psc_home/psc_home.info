@@ -1,0 +1,16 @@
+name = Home
+description = Packaged contents to manage the homepage.
+core = 7.x
+package = PSC
+version = 7.x-1.0
+project = psc_home
+dependencies[] = context
+dependencies[] = ctools
+dependencies[] = menu
+dependencies[] = metatag
+dependencies[] = psc_site
+features[context][] = home_blocks
+features[ctools][] = context:context:3
+features[features_api][] = api:1
+features[metatag][] = global:frontpage
+project path = sites/all/modules/custom

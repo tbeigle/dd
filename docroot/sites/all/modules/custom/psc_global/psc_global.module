@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the PSC Global feature.
+ */
+
+include_once 'psc_global.features.inc';

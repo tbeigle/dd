@@ -1,0 +1,196 @@
+<?php
+/**
+ * @file
+ * Code for the Ministries feature.
+ */
+
+include_once 'psc_ministries.features.inc';
+
+/**
+ * Implements hook_field_formatter_info()
+ */
+function psc_ministries_field_formatter_info() {
+  return array(
+    'psc_ministry_slide_formatter' => array(
+      'label' => t('Ministry Slides'),
+      'field types' => array('field_collection'),
+      'settings' =>  array(
+        'edit' => t('Edit'),
+        'delete' => t('Delete'),
+        'add' => t('Add'),
+        'description' => TRUE,
+        'view_mode' => 'full',
+      ),
+    ),
+    'psc_ministry_slide_image_formatter' => array(
+      'label' => t('Ministry Slide Image'),
+      'field types' => array('image'),
+    ),
+    'psc_ministry_slide_text_formatter' => array(
+      'label' => t('Ministry Slide Text'),
+      'field types' => array('text_long','text'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function psc_ministries_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $elements = array();
+  
+  if ($display['type'] == 'psc_ministry_slide_formatter') {
+    $elements['edit'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Edit link title'),
+      '#default_value' => $settings['edit'],
+      '#description' => t('Leave the title empty, to hide the link.'),
+    );
+    $elements['delete'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Delete link title'),
+      '#default_value' => $settings['delete'],
+      '#description' => t('Leave the title empty, to hide the link.'),
+    );
+    $elements['add'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Add link title'),
+      '#default_value' => $settings['add'],
+      '#description' => t('Leave the title empty, to hide the link.'),
+    );
+    $elements['description'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Show the field description beside the add link.'),
+      '#default_value' => $settings['description'],
+      '#description' => t('If enabled and the add link is shown, the field description is shown in front of the add link.'),
+    );
+    
+    // Add a select form element for view_mode if viewing the rendered field_collection.
+    $entity_type = entity_get_info('field_collection_item');
+    $options = array();
+    foreach ($entity_type['view modes'] as $mode => $info) {
+      $options[$mode] = $info['label'];
+    }
+    
+    $elements['view_mode'] = array(
+      '#type' => 'select',
+      '#title' => t('View mode'),
+      '#options' => $options,
+      '#default_value' => $settings['view_mode'],
+      '#description' => t('Select the view mode'),
+    );
+  }
+  
+  return $elements;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function psc_ministries_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $output = array();
+  
+  if ($display['type'] == 'psc_ministry_slide_formatter') {
+    $links = array_filter(array_intersect_key($settings, array_flip(array('add', 'edit', 'delete'))));
+    if ($links) {
+      $output[] = t('Links: @links', array('@links' => check_plain(implode(', ', $links))));
+    }
+    else {
+      $output[] = t('Links: none');
+    }
+  
+    $entity_type = entity_get_info('field_collection_item');
+    if (!empty($entity_type['view modes'][$settings['view_mode']]['label'])) {
+      $output[] =  t('View mode: @mode', array('@mode' => $entity_type['view modes'][$settings['view_mode']]['label']));
+    }
+  }
+
+  return implode('<br>', $output);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function psc_ministries_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array();
+  $settings = $display['settings'];
+  
+  switch ($display['type']) {
+    case 'psc_ministry_slide_formatter': {
+      $element['#attached']['css'][] = drupal_get_path('module', 'field_collection') . '/field_collection.theme.css';
+      $view_mode = !empty($display['settings']['view_mode']) ? $display['settings']['view_mode'] : 'full';
+      
+      foreach ($items as $delta => $item) {
+        if ($fc = field_collection_field_get_entity($item)) {
+          $attributes = array();
+          
+          if (!empty($fc->field_ministry_image_pos[LANGUAGE_NONE][0]['value'])) {
+            $img_pos = $fc->field_ministry_image_pos[LANGUAGE_NONE][0]['value'];
+          } else {
+            $img_pos = 'bg';
+          }
+          
+          $attributes['class'] = array(
+            'img-as-' . $img_pos,
+          );
+          
+          if (!empty($fc->field_ministry_slide_text[LANGUAGE_NONE][0]['value'])) {
+            $attributes['class'][] = 'has-text';
+          }
+          
+          if (!empty($fc->field_ministry_slide_image[LANGUAGE_NONE][0]['uri'])) {
+            $attributes['class'][] = 'has-img';
+          }
+          
+          $element[$delta] = array(
+            //'#prefix' => '<li' . drupal_attributes($attributes) . '>',
+            //'#suffix' => '</li>',
+            'entity' => $fc->view($view_mode),
+          );
+        }
+      }
+      
+      break;
+    }
+    case 'psc_ministry_slide_image_formatter': {
+      foreach ($items as $delta => $item) {
+        if (!empty($item['uri'])) {
+          $attributes = array(
+            'src' => file_create_url($item['uri']),
+          );
+          
+          $attributes['alt'] = !empty($item['alt']) ? $item['alt'] : 'Slideshow banner image';
+          
+          if (!empty($item['title'])) {
+            $attributes['title'] = $item['title'];
+          }
+          
+          $element[$delta] = array(
+            '#markup' => '<img' . drupal_attributes($attributes) . ' />'
+          );
+        }
+      }
+      
+      break;
+    }
+    case 'psc_ministry_slide_text_formatter': {
+      foreach ($items as $delta => $item) {
+        if (!empty($item['safe_value'])) {
+          $element[$delta] = array(
+            '#markup' => trim($item['safe_value']),
+            '#prefix' => '<div class="slide-text">',
+            '#suffix' => '</div>',
+          );
+        }
+      }
+      
+      break;
+    }
+  }
+  
+  return $element;
+}

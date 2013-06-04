@@ -1,0 +1,17 @@
+name = PSC Give / Serve
+description = Packaged contents for the Give and Serve pages
+core = 7.x
+package = PSC
+php = 5.2.4
+version = 7.x-1.0
+project = psc_give_serve
+dependencies[] = boxes
+dependencies[] = context
+dependencies[] = ctools
+features[box][] = box_bottom_cta_give_serve
+features[box][] = masthead_give_serve
+features[context][] = blocks_give_serve
+features[context][] = page_tpl_give_serve
+features[ctools][] = boxes:box:1
+features[ctools][] = context:context:3
+features[features_api][] = api:1

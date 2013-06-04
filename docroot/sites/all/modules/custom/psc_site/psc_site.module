@@ -1,0 +1,566 @@
+<?php
+/**
+ * @file
+ * Custom PSC Site module
+ *
+ * Handles miscellaneous custom elements for parkstreet.org
+ */
+
+/**
+ * Include required files
+ */
+foreach (glob(dirname(__FILE__) . '/includes/*.inc') as $filename) {
+  include_once($filename);
+}
+
+/**
+ * Implements hook_theme()
+ */
+/*function psc_site_theme($existing, $type, $theme, $path) {
+  return array(
+    
+  );
+}*/
+
+/**
+ * Implements hook_field_group_formatter_info().
+ *
+ * Define the information on formatters. The formatters are
+ * separated by view mode type. We have "form" for all form elements
+ * and "display" will be the real view modes (full, teaser, sticky, ...)
+ *
+ * structure:
+ * @code
+ * array(
+ *   'form' => array(
+ *     'fieldset' => array(
+ *       // required, String with the name of the formatter type.
+ *       'label' => t('Fieldset'),
+ *       // optional, String description of the formatter type.
+ *       'description' => t('This is field group that ...'),
+ *       // required, Array of available formatter options.
+ *       'format_types' => array('open', 'collapsible', 'collapsed'),
+ *       // required, String with default value of the style.
+        'default_formatter' => 'collapsible',
+ *       // optional, Array with key => default_value pairs.
+ *       'instance_settings' => array('key' => 'value'),
+ *     ),
+ *   ),
+ *   'display' => array(
+ *     'fieldset' => array(
+ *       // required, String with the name of the formatter type.
+ *       'label' => t('Fieldset'),
+ *       // optional, String description of the formatter type.
+ *       'description' => t('This is field group that ...'),
+ *       // required, Array of available formatter options.
+ *       'format_types' => array('open', 'collapsible', 'collapsed'),
+ *       // required, String with default value of the style.
+        'default_formatter' => 'collapsible',
+ *       // optional, Array with key => default_value pairs.
+ *       'instance_settings' => array('key' => 'value'),
+ *     ),
+ *   ),
+ * ),
+ * @endcode
+ *
+ * @return $formatters
+ *   A collection of available formatting html controls for form
+ *   and display overview type.
+ *
+ * @see field_group_field_group_formatter_info()
+ */
+function psc_site_field_group_formatter_info() {
+  return array(
+    'display' => array(
+      'psc_contact_methods' => array(
+        'label' => t('Contact Methods Container'),
+        'description' => t('This fieldgroup renders the inner content in a custom PSC contact methods list.'),
+        'instance_settings' => array('div_classes' => 'contact-info contact-info-alt col col-2 capless-children', 'list_classes' => ''),
+      ),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_group_format_settings().
+ *
+ * Defines configuration widget for the settings on a field group
+ * formatter. Eache formatter can have different elements and storage.
+ *
+ * @params Object $group The group object.
+ * @return Array $form The form element for the format settings.
+ */
+function psc_site_field_group_format_settings($group) {
+  // Add a wrapper for extra settings to use by others.
+  $form = array(
+    'instance_settings' => array(
+      '#tree' => TRUE,
+      '#weight' => 2,
+    ),
+  );
+
+  $field_group_types = field_group_formatter_info();
+  $mode = $group->mode == 'form' ? 'form' : 'display';
+  $formatter = $field_group_types[$mode][$group->format_type];
+  
+  // Add optional instance_settings.
+  switch ($group->format_type) {
+    case 'psc_contact_methods': {
+      if (isset($formatter['instance_settings']['div_classes'])) {
+        $form['instance_settings']['div_classes'] = array(
+          '#title' => t('Extra CSS classes for the div wrapper'),
+          '#type' => 'textfield',
+          '#default_value' => isset($group->format_settings['instance_settings']['div_classes']) ? $group->format_settings['instance_settings']['div_classes'] : (isset($formatter['instance_settings']['div_classes']) ? $formatter['instance_settings']['div_classes'] : ''),
+          '#weight' => 3,
+          '#element_validate' => array('field_group_validate_css_class'),
+        );
+      }
+      
+      if (isset($formatter['instance_settings']['list_classes'])) {
+        $form['instance_settings']['list_classes'] = array(
+          '#title' => t('Extra CSS classes for the list'),
+          '#type' => 'textfield',
+          '#default_value' => isset($group->format_settings['instance_settings']['list_classes']) ? $group->format_settings['instance_settings']['list_classes'] : (isset($formatter['instance_settings']['list_classes']) ? $formatter['instance_settings']['list_classes'] : ''),
+          '#weight' => 3,
+          '#element_validate' => array('field_group_validate_css_class'),
+        );
+      }
+      
+      break;
+    }
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_field_group_pre_render().
+ *
+ * This function gives you the oppertunity to create the given
+ * wrapper element that can contain the fields.
+ * In the example beneath, some variables are prepared and used when building the
+ * actual wrapper element. All elements in drupal fapi can be used.
+ *
+ * Note that at this point, the field group has no notion of the fields in it.
+ *
+ * There is also an alternative way of handling this. The default implementation
+ * within field_group calls "field_group_pre_render_<format_type>".
+ * @see field_group_pre_render_fieldset.
+ *
+ * @param Array $elements by address.
+ * @param Object $group The Field group info.
+ */
+function field_group_pre_render_psc_contact_methods(&$element, $group) {
+  $div_classes = isset($group->format_settings['instance_settings']['div_classes']) ? $group->format_settings['instance_settings']['div_classes'] : '';
+  $list_classes = isset($group->format_settings['instance_settings']['list_classes']) ? $group->format_settings['instance_settings']['list_classes'] : '';
+  
+  $element += array(
+    '#type' => 'markup',
+    '#prefix' => '<div class="' . $div_classes . '"><ul class="' . $list_classes . '">',
+    '#suffix' => '</ul></div>',
+  );
+}
+
+/**
+ * Custom item list theming function because Drupal's adds unwanted markup
+ */
+function _psc_site_theme_item_list($variables) {
+  $items = $variables['items'];
+  $title = $variables['title'];
+  $type = $variables['type'];
+  $attributes = $variables['attributes'];
+
+  // Only output the list container and title, if there are any list items.
+  // Check to see whether the block title exists before adding a header.
+  // Empty headers are not semantic and present accessibility challenges.
+  // $output = '<div class="item-list">';
+  $output = '';
+  if (isset($title) && $title !== '') {
+    $output .= '<h3>' . $title . '</h3>';
+  }
+
+  if (!empty($items)) {
+    $output .= "<$type" . drupal_attributes($attributes) . '>';
+    $num_items = count($items);
+    $i = 0;
+    foreach ($items as $item) {
+      $attributes = array();
+      $children = array();
+      $data = '';
+      $i++;
+      if (is_array($item)) {
+        foreach ($item as $key => $value) {
+          if ($key == 'data') {
+            $data = $value;
+          }
+          elseif ($key == 'children') {
+            $children = $value;
+          }
+          else {
+            $attributes[$key] = $value;
+          }
+        }
+      }
+      else {
+        $data = $item;
+      }
+      if (count($children) > 0) {
+        // Render nested list.
+        $data .= theme_item_list(array('items' => $children, 'title' => NULL, 'type' => $type, 'attributes' => $attributes));
+      }
+      if ($i == 1) {
+        $attributes['class'][] = 'first';
+      }
+      if ($i == $num_items) {
+        $attributes['class'][] = 'last';
+      }
+      $output .= '<li' . drupal_attributes($attributes) . '>' . $data . "</li>\n";
+    }
+    $output .= "</$type>";
+  }
+  
+  return $output;
+}
+
+/**
+ * implement hook_page_alter()
+ *
+ * used for region context
+ */
+function psc_site_page_alter(&$page) {
+  $plugin_data = array(
+    'reaction' => array(
+      'first_segment_class',
+      'section_class',
+      'section_nav',
+    ),
+  );
+  
+  foreach ($plugin_data as $type => $plugins) {
+    foreach ($plugins as $plugin_name) {
+      if ($plugin = context_get_plugin($type, $plugin_name)) {
+        $plugin->execute($page);
+      }
+    }
+  }
+}
+
+/**
+ * Implement template_preprocess_page()
+ */
+function psc_site_preprocess_page(&$vars) {
+  if ($plugin = context_get_plugin('reaction', 'page_tpl')) {
+    $plugin->execute($vars);
+  }
+  
+  if (!empty($vars['page_tpl'])) {
+    $vars['theme_hook_suggestions'][] = $vars['page_tpl'];
+    unset($vars['page_tpl']);
+  }
+}
+
+/**
+ * Implements hook_field_formatter_info()
+ */
+function psc_site_field_formatter_info() {
+  return array(
+    'psc_contact_name_formatter' => array(
+      'label' => t('More Information Contact Name'),
+      'field types' => array('text'),
+      'description' => t('Renders the field with the "For more information" prefix and styling.'),
+    ),
+    'psc_email_with_icon_formatter' => array(
+      'label' => t('Envelope Icon'),
+      'field types' => array('email'),
+      'description' => t('Renders the field as an email link featuring an envelope icon'),
+      'settings' => array(
+        'wrapper' => '',
+        'classes' => '',
+      ),
+    ),
+    'psc_phone_formatter' => array(
+      'label' => t('Phone Icon'),
+      'field types' => array('text'),
+      'description' => t('Renders the field as a phone number with a phone icon.'),
+      'settings' => array(
+        'wrapper' => '',
+        'classes' => '',
+      ),
+    ),
+    'psc_download_button_formatter' => array(
+      'label' => t('Download Icon Button'),
+      'field types' => array('file', 'image'),
+      'description' => t('Renders a button to download a file.'),
+      'settings' => array(
+        'text' => t('Learn More'),
+      ),
+    ),
+    'psc_columnar_content_formatter' => array(
+      'label' => t('PSC Columns'),
+      'field types' => array('field_collection'),
+      'description' => t('Renders content sections as columns.'),
+    ),
+    'psc_columnar_content_column_formatter' => array(
+      'label' => t('PSC Column'),
+      'field types' => array('field_collection'),
+      'description' => t('Renders content section columns.'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_field_formatter_settings_form().
+ */
+function psc_site_field_formatter_settings_form($field, $instance, $view_mode, $form, &$form_state) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $elements = array();
+  
+  if ($display['type'] == 'psc_download_button_formatter') {
+    $elements['text'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Button Text'),
+      '#default_value' => $settings['text'],
+      '#description' => t('If you leave this blank the field label will be used instead.'),
+    );
+  } elseif ($display['type'] == 'psc_email_with_icon_formatter' || $display['type'] == 'psc_phone_formatter') {
+    $elements['wrapper'] = array(
+      '#type' => 'select',
+      '#title' => t('HTML Wrapper'),
+      '#default_value' => $settings['wrapper'],
+      '#options' => array(
+        '' => 'none',
+        'li' => 'li',
+        'div' => 'div',
+      ),
+    );
+    
+    $elements['classes'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Wrapper Classes'),
+      '#default_value' => $settings['classes'],
+      '#description' => t('Optionally enter a space-separated list of CSS classes to apply to the wrapper, if one exists.'),
+    );
+  }
+  
+  return $elements;
+}
+
+/**
+ * Implements hook_field_formatter_settings_summary().
+ */
+function psc_site_field_formatter_settings_summary($field, $instance, $view_mode) {
+  $display = $instance['display'][$view_mode];
+  $settings = $display['settings'];
+  $output = array();
+  
+  if ($display['type'] == 'psc_download_button_formatter') {
+    $output[] = t('Button Text: @text', array('@text' => check_plain($settings['text'])));
+  } elseif ($display['type'] == 'psc_email_with_icon_formatter' || $display['type'] == 'psc_phone_formatter') {
+    $wrapper = !empty($settings['wrapper']) ? check_plain($settings['wrapper']) : 'None';
+    $classes = !empty($settings['classes']) ? check_plain($settings['classes']) : 'None';
+    $output[] = t('HTML Wrapper: @wrapper', array('@wrapper' => $wrapper));
+    $output[] = t('Wrapper Classes: @classes', array('@classes' => $classes));
+  }
+
+  return implode('<br>', $output);
+}
+
+/**
+ * Implements hook_field_formatter_view().
+ */
+function psc_site_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+  $element = array(); // Initialize the var
+  $settings = $display['settings'];
+  
+  switch ($display['type']) {
+    case 'psc_contact_name_formatter': {
+      foreach ($items as $delta => $item) {
+        $name = !empty($item['safe_value']) ? $item['safe_value'] : $item['value'];
+        $element[$delta] = array(
+          '#markup' => t('For more information contact') . ': <strong class="brand-alpha-black brand-standout">' . $name . '</strong>',
+          /*'#prefix' => '<p>',
+          '#suffix' => '</p>',*/
+        );
+      }
+      
+      break;
+    }
+    case 'psc_email_with_icon_formatter': {
+      foreach ($items as $delta => $item) {
+        $email = !empty($item['email']) ? $item['email'] : $item['value'];
+        $link = 'mailto:' . $email;
+        $markup = '<i class="icon-sprite sprite-icon-email"></i>' . $email;
+        $options = array(
+          'html' => TRUE,
+        );
+        
+        $element[$delta] = array(
+          '#markup' => l($markup, $link, $options),
+        );
+        
+        if (!empty($settings['wrapper'])) {
+          $element[$delta]['#prefix'] = '<' . $settings['wrapper'];
+          
+          if (!empty($settings['classes'])) {
+            $element[$delta]['#prefix'] .= ' class="' . $settings['classes'] . '"';
+          }
+          
+          $element[$delta]['#prefix'] .= '>';
+          $element[$delta]['#suffix'] = '</' . $settings['wrapper'] . '>';
+        }
+      }
+      
+      break;
+    }
+    case 'psc_phone_formatter': {
+      foreach ($items as $delta => $item) {
+        $value = !empty($item['safe_value']) ? $item['safe_value'] : $item['value'];
+        $number = preg_replace('/[^0-9]/', '', $value);
+        $length = strlen($number);
+        $markup = '<i class="icon-sprite sprite-icon-phone"></i>';
+        
+        if ($length >= 10) {
+          $p_parts = array(
+            substr($number, 0, 3),
+            substr($number, 3, 3),
+            substr($number, 6, 4),
+            substr($number, 10),
+          );
+          
+          $markup .= '(' . $p_parts[0] . ') ' . $p_parts[1] . '-' . $p_parts[2];
+          
+          if (!empty($p_parts[3])) {
+            $markup .= ' ext. ' . $p_parts[3];
+          }
+        } else {
+          $markup .= 'ext. ' . $number;
+        }
+        
+        $element[$delta] = array(
+          '#markup' => $markup,
+        );
+        
+        if (!empty($settings['wrapper'])) {
+          $element[$delta]['#prefix'] = '<' . $settings['wrapper'];
+          
+          if (!empty($settings['classes'])) {
+            $element[$delta]['#prefix'] .= ' class="' . $settings['classes'] . '"';
+          }
+          
+          $element[$delta]['#prefix'] .= '>';
+          $element[$delta]['#suffix'] = '</' . $settings['wrapper'] . '>';
+        }
+      }
+      
+      break;
+    }
+    // Download button
+    case 'psc_download_button_formatter': {
+      foreach ($items as $delta => $item) {
+        if (!empty($item['uri'])) {
+          $url = file_create_url($item['uri']);
+          $text = !empty($settings['text']) ? t('@text', array('@text' => $settings['text'])) : t('Learn More');
+          $text .= '<i class="sprite-icon-download"></i>';
+          
+          $options = array(
+            'attributes' => array(
+              'class' => array(
+                'button',
+                'button-with-icon',
+              ),
+            ),
+            'html' => TRUE,
+          );
+          
+          $element[$delta] = array(
+            '#markup' => l($text, $url, $options),
+          );
+        }
+      }
+      
+      break;
+    }
+    // Columnar content column
+    case 'psc_columnar_content_column_formatter': {
+      $element['#attached']['css'][] = drupal_get_path('module', 'field_collection') . '/field_collection.theme.css';
+      $view_mode = !empty($display['settings']['view_mode']) ? $display['settings']['view_mode'] : 'full';
+      
+      foreach ($items as $delta => $item) {
+        if ($fc = field_collection_field_get_entity($item)) {
+          $fc_view = $fc->view($view_mode);
+          
+          $element[$delta] = array(
+            '#markup' => print_r($fc_view, TRUE),
+            '#prefix' => '<pre style="font: 12px Arial, Helvetica, sans-serif; text-align: left;">',
+            '#suffix' => '</pre>',
+          );
+        }
+      }
+      
+      break;
+    }
+    // Columnar content
+    case 'psc_columnar_content_formatter': {
+      $element['#attached']['css'][] = drupal_get_path('module', 'field_collection') . '/field_collection.theme.css';
+      $view_mode = !empty($display['settings']['view_mode']) ? $display['settings']['view_mode'] : 'full';
+      
+      /*dpm($entity);
+      dpm($field);
+      dpm($instance);
+      dpm($items);
+      $field_name = $instance['field_name'];
+      
+      foreach ($entity->{$instance['field_name']}[LANGUAGE_NONE] as $it) {
+        if (empty($it['value'])) continue;
+        
+        
+      }*/
+      $content_sections = '';
+      
+      foreach ($items as $delta => $item) {
+        if ($fc = field_collection_field_get_entity($item)) {
+          $fc_view = $fc->view($view_mode);
+          
+          $element[$delta] = array(
+            'entity' => $fc_view,
+          );
+          /*$fields = array();
+          
+          foreach ($fc_view as $fc_item => $fc_item_data) {
+            foreach ($fc_item_data as $fc_item_id => $fc_item_fields) {
+              foreach ($fc_item_fields as $field_name => $fc_section) {
+                if (!is_array($fc_section)) continue;
+                if (empty($fc_section['#items'])) continue;
+                //dpm($fc_section);
+                
+                foreach ($fc_section['#items'] as $item_key => $item_info) {
+                  $fc_entity_id = !empty($item_info['value']) ? $item_info['value'] : 0;
+                  
+                  if (!empty($fc_entity_id)) {
+                    if (!empty($fc_section[$item_key]['entity']['field_collection_item'][$fc_entity_id]['#entity'])) {
+                      $fc = $fc_section[$item_key]['entity']['field_collection_item'][$fc_entity_id];
+                      dpm($fc);
+                      if (!empty($fc['field_content_section_col']['#items'])) {
+                        $section = _psc_build_col_section($fc, $type);
+                        if (!empty($section)) $content_sections .= theme('columnar_content_section', $section);
+                      }
+                    }
+                  }
+                  //dpm($content_sections);
+                  if (!empty($content_sections)) {
+                    $element[$delta] = $content_sections;
+                  }
+                }
+              }
+            }
+          }*/
+        }
+      }
+      
+      break;
+    }
+  }
+  
+  return $element;
+}

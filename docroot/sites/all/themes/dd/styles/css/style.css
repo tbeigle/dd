@@ -1,0 +1,109 @@
+.logo-links {
+  display: inline-block; }
+
+div.messages {
+  border: none;
+  padding: 0.29412em 0.88235em;
+  margin: 0; }
+
+.form-item,
+.form-actions {
+  margin-top: 0;
+  margin-bottom: 0; }
+
+label {
+  font-weight: normal; }
+
+/**
+ * Home
+ */
+.front #psc-home-main-banner {
+  background: url("../../i2i/assets/images/masthead-hero.jpg") center center no-repeat; }
+.front .masthead-hero-message a:link, .front .masthead-hero-message a:visited {
+  color: #fff; }
+
+.js .masthead-hero-message {
+  cursor: pointer; }
+
+.typekit-badge {
+  display: none !important; }
+
+.nav-main li ul {
+  display: none; }
+
+.flexslider {
+  border: none;
+  border-radius: 0;
+  -moz-border-radius: 0;
+  box-shadow: 0px 0px 0px black;
+  -moz-box-shadow: 0px 0px 0px black; }
+
+/**
+ * Those annoying admin tabs
+ */
+#psc-tabs-wrapper {
+  position: relative; }
+
+div.tabs {
+  position: absolute;
+  left: 0; }
+  div.tabs .tabs.primary {
+    border-bottom: none; }
+    div.tabs .tabs.primary li {
+      /*display: block;
+      margin: {
+        bottom: 0.5em;
+      }*/ }
+      div.tabs .tabs.primary li a {
+        border-bottom-style: solid;
+        border-bottom-color: #bbb; }
+      div.tabs .tabs.primary li.active a {
+        border-bottom-color: #bbb; }
+
+.action-links {
+  position: absolute;
+  /*left: 0;
+  bottom: 0;*/ }
+
+#first-segment {
+  padding-top: 2.35294em; }
+
+.header-search-form input.form-submit.icon-search {
+  float: right;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: none; }
+
+#admin-menu {
+  font-size: 13px; }
+
+.page .col-wrapper-1 {
+  padding-bottom: 2.05882em; }
+
+.flexslider .flex-direction-nav .flex-next,
+.flexslider .flex-direction-nav .flex-prev,
+.flex-masthead .flex-direction-nav .flex-next,
+.flex-masthead .flex-direction-nav .flex-prev {
+  background-color: rgba(255, 255, 255, 0.5);
+  -webkit-transition-duration: 0.8s;
+  -moz-transition-duration: 0.8s;
+  -o-transition-duration: 0.8s;
+  transition-duration: 0.8s; }
+.flexslider:hover .flex-direction-nav .flex-next,
+.flexslider:hover .flex-direction-nav .flex-prev,
+.flex-masthead:hover .flex-direction-nav .flex-next,
+.flex-masthead:hover .flex-direction-nav .flex-prev {
+  background-color: #fff; }
+
+/**
+ * System li.leaf override
+ */
+ul li.leaf {
+  /* Original */
+  /*list-style-image: url(../../misc/menu-leaf.png);
+  list-style-type: square;*/
+  list-style: none; }
+
+li.expanded, li.collapsed, li.leaf {
+  padding: 0; }

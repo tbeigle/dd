@@ -1,0 +1,4 @@
+name = PSC Site Module
+description = Custom module for parkstreet.org, handles miscellaneous functionality not available in core or contributed modules.
+core = 7.x
+package = OHO

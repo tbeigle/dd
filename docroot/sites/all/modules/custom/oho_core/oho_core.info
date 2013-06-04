@@ -1,0 +1,4 @@
+name = OHO Core
+description = General overrides and helpers for OHO sites
+core = 7.x
+package = OHO
