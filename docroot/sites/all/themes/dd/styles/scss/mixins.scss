@@ -1,0 +1,45 @@
+// Colors
+$logoDark: #202a5d;
+$logoDarkLt: #533a65;
+$logoLight: #00abd6;
+$logoLight25: #40c0e0;
+$logoLightDrk: #0089ab;
+$headLight: #80d5eb;
+$headBttm: #999;
+
+// Spacing
+$spVertical: 20px;
+$spHorizontal: 2.5%;
+
+// Borders
+$brdrThin: 2px;
+$brdrMed: 3px;
+$brdrThick: 4px;
+
+// Mixins
+@mixin borderRadius($br) {
+  -webkit-border-radius: $br;
+  -moz-border-radius: $br;
+  border-radius: $br;
+}
+
+@mixin linearGradBasic($from, $to) {
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from($from), to($to));
+  background: -webkit-linear-gradient(top, $from, $to);
+  background: -moz-linear-gradient(top, $from, $to);
+  background: -ms-linear-gradient(top, $from, $to);
+  background: -o-linear-gradient(top, $from, $to);
+}
+
+@mixin boxShadow($shad) {
+  -moz-box-shadow: $shad;
+  -webkit-box-shadow: $shad;
+  box-shadow: $shad;
+}
+
+@mixin cssTransition($trans) {
+  -webkit-transition: $trans;
+  -moz-transition: $trans;
+  -o-transition: $trans;
+  transition: $trans;
+}

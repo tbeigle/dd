@@ -1,0 +1,196 @@
+@import "mixins";
+
+form {
+  width: 100%;
+  max-width: 600px;
+  min-width: 400px;
+  margin: $spVertical auto 0;
+  border: $brdrThin solid $logoDark;
+  @include borderRadius(10px);
+  
+  &> div {
+    padding: 0 $spHorizontal $spVertical;
+    b//order: $brdrMed solid $logoDark;
+    
+    &> .form-item {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+label {
+  cursor: pointer;
+  color: $logoLight;
+  margin: 0;
+}
+
+select {
+  height: 30px;
+  padding: 4px 14px;
+  overflow: hidden;
+  margin: 0;
+  border: none;
+  @include borderRadius(10px);
+  background: $logoLight;
+  outline: none;
+  font-size: 16px;
+  line-height: 22px;
+  color: #fff;
+  
+  &:active,
+  &:focus {
+    outline: none;
+    background: $logoDark;
+  }
+}
+
+input {
+  &[type="checkbox"],
+  &[type="radio"] {
+    margin: 0;
+    vertical-align: middle;
+  }
+}
+
+.webform-component-radios > label {
+  cursor: default;
+}
+
+.form-radios label {
+  color: $logoDark;
+}
+
+.webform-container-inline label {
+  margin: 0;
+}
+
+.form-checkboxes,
+.form-radios {
+  .form-item {
+    margin: 2px;
+    
+    input[type="radio"] {
+    }
+    label {
+    }
+  }
+}
+
+.form-item,
+.form-actions {
+  margin: $spVertical 0 0;
+}
+
+.form-item {
+  &.webform-component,
+  &.webform-container-inline {
+    overflow: hidden;
+    
+    &> label {
+      float: left;
+      width: 24%;
+      padding: 7px 0 0;
+      margin: 0;
+      line-height: 16px;
+    }
+    
+    &> {
+      input[type="text"],
+      input[type="email"],
+      .webform-container-inline,
+      .form-radios {
+        float: right;
+        width: 74%;
+        margin: 0;
+      }
+      
+      input[type="text"],
+      input[type="email"] {
+        height: 30px;
+        padding: 4px 14px;
+        border: none;
+        @include borderRadius(10px);
+        background: $logoLight;
+        font-size: 16px;
+        line-height: 22px;
+        color: #fff;
+        
+        outline: none;
+        
+        &:active,
+        &:focus {
+          background: $logoDark;
+        }
+      }
+    }
+  }
+  
+  &.webform-component-radios {
+    .form-radios {
+      &> .form-item {
+        display: inline-block;
+        margin-right: 5px;
+        
+        label {
+          position: relative;
+          top: 2px;
+          font-style: italic;
+        }
+      }
+    }
+  }
+  
+  &.webform-component-webform_time {
+    .form-radios {
+      .form-type-radio {
+        margin-right: 5px;
+        
+        &:first-child {
+          margin-left: 10px;
+        }
+        
+        label {
+          position: relative;
+          top: 2px;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+
+.form-actions {
+  text-align: center;
+  
+  input {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 14px 9px;
+    border: none;
+    @include borderRadius(40px);
+    background: $logoLight;
+    @include boxShadow(0 0 5px $logoDark);
+    text-shadow: 2px 2px 3px rgba(32, 42, 93, 0.4);
+    
+    font: {
+      weight: bold;
+      size: 20px;
+    }
+    
+    //color: #fff;
+    color: #fff;
+    line-height: 1;
+    text-transform: uppercase;
+    
+    &:hover,
+    &:active {
+      //background: $headLight;
+      background: $logoDark;
+      text-shadow: 2px 2px 3px rgba(0, 171, 214, 0.75);
+      //@include linearGradBasic($headLight, $logoLight);
+      @include boxShadow(0 0 0 $logoDark);
+    }
+  }
+}
