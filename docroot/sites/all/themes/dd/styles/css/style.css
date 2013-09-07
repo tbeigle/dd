@@ -78,9 +78,5 @@ select {
     border-bottom: 2px solid white;
     background: #00abd6; }
 
-#logo img {
-  height: 100px;
-  width: auto; }
-
 .copyright {
   font-size: 12px; }
