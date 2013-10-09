@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Functions for integrating Silverpop API
+ */
+
+/**
+ * Implements hook_menu()
+ */
+function tv_silverpop_menu() {
+  $items = array();
+  
+  $items['admin/targetedvictory/settings/tv-silverpop'] = array(
+    'title' => 'Silverpop',
+    'description' => 'Targeted Victory settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('tv_silverpop_admin_settings'),
+    'file' => 'tv_silverpop.admin.inc',
+    'access arguments' => array('administer site configuration'),
+    'type' => MENU_NORMAL_ITEM,
+    'weight' => 100,
+  );
+  
+  return $items;
+}

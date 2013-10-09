@@ -1,0 +1,10 @@
+name = TV Silverpop
+description = Custom module to integrate Silverpop API
+core = 7.x
+;dependencies[] = tv_core
+;dependencies[] = eck
+package = Targeted Victory
+configure = admin/config/services/tv-silverpop
+php = 5.2.4
+version = 7.x-1.0
+project = tv_silverpop
