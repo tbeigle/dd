@@ -1,21 +1,12 @@
-<?php
-
-/**
- * @file
- * The PHP page that serves all page requests on a Drupal installation.
- *
- * The routines here dispatch control to the appropriate handler, which then
- * prints the appropriate page.
- *
- * All Drupal code is released under the GNU General Public License.
- * See COPYRIGHT.txt and LICENSE.txt.
- */
-
-/**
- * Root directory of Drupal installation.
- */
-define('DRUPAL_ROOT', getcwd());
-
-require_once DRUPAL_ROOT . '/includes/bootstrap.inc';
-drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
-menu_execute_active_handler();
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Designated Developers | Site Coming Soon</title>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
+    <link href="/styles/css/rebuild-lp.css" rel="stylesheet">
+  </head>
+  <body>
+    <img class="rebuild-logo" src="/sites/all/themes/dd/images/logo-watermark.png">
+    <h1 class="rebuild-copy">Website Launching <strong>May, 2014</strong></h1>
+  </body>
+</html>
