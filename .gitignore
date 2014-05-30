@@ -3,3 +3,5 @@
 *.sass-cache
 docs
 ddinc*
+.DS_Store
+*.DS_Store
