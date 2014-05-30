@@ -5,3 +5,5 @@ docs
 ddinc*
 .DS_Store
 *.DS_Store
+testing*
+*testing*
