@@ -1,0 +1,160 @@
+@import "mixins";
+
+// Portfolio
+#portfolio-container {
+  width: 100%;
+  background:  url('../../images/bg-portfolio-shadow.png') center 324px no-repeat;
+}
+
+.portfolio-top-text {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 0;
+  font-size: 33px;
+  line-height: 1.2;
+  text-align: center;
+  
+  &#portfolio-title {
+    margin-bottom: 3px;
+  }
+  
+  strong {
+    font-weight: $weightSSPBold;
+  }
+}
+
+#portfolio-slider-wrapper {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 1102px;
+  //height: 570px;
+  padding-bottom: 76px;
+  margin: 0 auto;
+  overflow: hidden;
+  @include noText();
+  
+  .slider-wrapper {
+    position: absolute;
+    z-index: 2;
+    top: 100px;
+    width: 100%;
+    
+    .slider {
+      position: relative;
+      left: 2px;
+      //width: 48.0943%;
+      //max-width: 530px;
+      width: 530px;
+      height: 331px;
+      padding: 0;
+      margin: auto;
+      overflow: hidden;
+      background: #000;
+      
+      .slides {
+        display: block;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+      }
+      
+      .slide {
+        display: inline-block;
+        position: relative;
+      }
+    }
+    
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+.slider-caption {
+  padding: 10px 20px 0;
+  text-align: center;
+  font-family: $fontFamMain;
+  color: #000;
+  line-height: normal;
+  
+  .slide-title,
+  .slide-caption {
+    margin: 0;
+  }
+  
+  .slide-title {
+    font: {
+      weight: $weightSSPSemiBold;
+      size: 18px;
+    }
+  }
+  
+  .slide-caption {
+    font: {
+      weight: $weightSSPExtraLight;
+      size: 14px;
+    }
+  }
+}
+
+.slider-nav {
+  display: none;
+  position: absolute;
+  top: 120px;
+  width: 100%;
+  
+  .arrows {
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    padding: 0 10px;
+    margin: 0 auto;
+    
+    .slider-nav-item {
+      list-style: none;
+      width: 38px;
+      height: 60px;
+      padding: 0;
+      margin: 0;
+      font: 200px/1 $fontFamGlyph;
+      
+      a {
+        display: block;
+        width: 100%;
+        height: 60px;
+        background: url('../../images/sprite-slide-nav-arrows.png') no-repeat;
+        @include vendorize(transition, none);
+        @include linkTextOffscreen();
+      }
+      
+      &.previous {
+        float: left;
+        
+        a {
+          background-position: left top;
+          @include hoverActiveFocus(background-position, left bottom);
+        }
+      }
+      
+      &.next {
+        float: right;
+        
+        a {
+          background-position: right top;
+          @include hoverActiveFocus(background-position, right bottom);
+        }
+      }
+    }
+  }
+}
+
+#portfolio-slider-bg {
+  position: relative;
+  z-index: 1;
+  width: 766px;
+  padding: 75px 0 0;
+  margin: auto;
+}
