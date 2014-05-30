@@ -7,3 +7,5 @@ ddinc*
 *.DS_Store
 testing*
 *testing*
+private*
+*private
