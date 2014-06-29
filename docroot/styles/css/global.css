@@ -132,8 +132,8 @@ a {
   position: relative;
   z-index: 5;
   width: 100%;
-  max-width: 370px;
-  padding: 22px 0 0;
+  max-width: 490px;
+  padding: 22px 60px 0;
   overflow: hidden;
   margin: 0 auto 70px; }
   #logo-title .title-text {
@@ -163,8 +163,6 @@ a {
     #wwd-container .section-text p {
       margin: 30px 0 0;
       font-weight: 300; }
-      #wwd-container .section-text p:first-child {
-        margin-top: 40px; }
 
 #wwa-container {
   padding-top: 40px;

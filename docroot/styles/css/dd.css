@@ -132,8 +132,8 @@ a {
   position: relative;
   z-index: 5;
   width: 100%;
-  max-width: 370px;
-  padding: 22px 0 0;
+  max-width: 490px;
+  padding: 22px 60px 0;
   overflow: hidden;
   margin: 0 auto 70px; }
   #logo-title .title-text {
@@ -163,8 +163,6 @@ a {
     #wwd-container .section-text p {
       margin: 30px 0 0;
       font-weight: 300; }
-      #wwd-container .section-text p:first-child {
-        margin-top: 40px; }
 
 #wwa-container {
   padding-top: 40px;
@@ -336,8 +334,8 @@ textarea {
   #fixed-menu-buttons .menu-buttons {
     display: block;
     width: 100%;
-    max-width: 980px;
-    padding: 0;
+    max-width: 1020px;
+    padding: 0 20px 0;
     margin: 0 auto;
     pointer-events: none; }
     #fixed-menu-buttons .menu-buttons a {
@@ -431,7 +429,8 @@ textarea {
 
 #portfolio-container {
   width: 100%;
-  background: url("../../images/bg-portfolio-shadow.png") center 324px no-repeat; }
+  background: url("../../images/bg-portfolio-shadow.png") center 324px no-repeat;
+  overflow: hidden; }
 
 .portfolio-top-text {
   width: 100%;
@@ -450,21 +449,23 @@ textarea {
   z-index: 5;
   width: 100%;
   max-width: 1102px;
+  min-height: 570px;
   padding-bottom: 76px;
   margin: 0 auto;
-  overflow: hidden;
   font-size: 0;
   line-height: 0; }
   #portfolio-slider-wrapper .slider-wrapper {
-    position: absolute;
+    position: relative;
     z-index: 2;
-    top: 100px;
-    width: 100%; }
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    padding: 100px 0 63px; }
     #portfolio-slider-wrapper .slider-wrapper .slider {
       position: relative;
       left: 2px;
-      width: 530px;
-      height: 331px;
+      width: 100%;
+      max-width: 530px;
       padding: 0;
       margin: auto;
       overflow: hidden;
@@ -477,6 +478,8 @@ textarea {
       #portfolio-slider-wrapper .slider-wrapper .slider .slide {
         display: inline-block;
         position: relative; }
+        #portfolio-slider-wrapper .slider-wrapper .slider .slide img {
+          width: 100%; }
     #portfolio-slider-wrapper .slider-wrapper li {
       list-style: none;
       padding: 0;
@@ -501,13 +504,13 @@ textarea {
 .slider-nav {
   display: none;
   position: absolute;
-  top: 120px;
+  top: 222px;
   width: 100%; }
   .slider-nav .arrows {
     display: block;
     width: 100%;
-    max-width: 900px;
-    padding: 0 10px;
+    max-width: 1020px;
+    padding: 0 60px;
     margin: 0 auto; }
     .slider-nav .arrows .slider-nav-item {
       list-style: none;
@@ -546,8 +549,102 @@ textarea {
             background-position: right bottom; }
 
 #portfolio-slider-bg {
-  position: relative;
+  position: absolute;
+  top: 75px;
   z-index: 1;
-  width: 766px;
-  padding: 75px 0 0;
-  margin: auto; }
+  width: 100%;
+  height: 394px;
+  background: url("../../images/laptop.png") center 0 no-repeat; }
+
+@media screen and (min-width: 661px) and (max-width: 920px) {
+  #wwa-bios {
+    padding: 0 63px 50px; } }
+@media only screen and (min-width: 791px) and (max-width: 920px) {
+  .wwa-name {
+    font-size: 30px; } }
+@media only screen and (min-width: 661px) and (max-width: 790px) {
+  #wwd-container {
+    padding: 0 63px; } }
+@media only screen and (max-width: 529px) {
+  #portfolio-slider-bg {
+    display: none; }
+
+  #portfolio-slider-wrapper .slider-wrapper {
+    padding-left: 10px;
+    padding-right: 10px; } }
+@media only screen and (min-width: 481px) and (max-width: 790px) {
+  #wwa-bios .column {
+    text-align: left; } }
+@media only screen and (max-width: 790px) {
+  .slider-nav {
+    top: auto;
+    bottom: -104px; }
+
+  #wwa-bios {
+    background: none; }
+    #wwa-bios .column {
+      float: none;
+      clear: both;
+      width: 100%; }
+      #wwa-bios .column.six {
+        padding-right: 0; }
+      #wwa-bios .column.right {
+        padding-left: 0; }
+      #wwa-bios .column:first-child {
+        padding-top: 40px;
+        border-bottom: 3px solid #00abd6;
+        margin-bottom: 1em; } }
+@media screen and (max-width: 765px) {
+  #portfolio-container {
+    background: #fff; }
+
+  /*#portfolio-slider-bg {
+    display: none;
+  }*/
+  #portfolio-slider-wrapper {
+    padding-bottom: 70px; }
+    #portfolio-slider-wrapper .slider-wrapper {
+      position: relative;
+      top: 0;
+      overflow: visible; }
+      #portfolio-slider-wrapper .slider-wrapper .slider {
+        left: 0; }
+
+  .slider-nav {
+    bottom: -66px; }
+    .slider-nav .arrows {
+      max-width: none;
+      padding: 0 10px; } }
+@media screen and (max-width: 710px) {
+  #wwd-container .section-title,
+  #wwd-container .section-text {
+    float: none;
+    clear: both;
+    width: 100%;
+    max-width: none;
+    padding: 0; }
+  #wwd-container .section-title {
+    font-size: 72px; } }
+@media screen and (max-width: 660px) {
+  #fixed-menu-buttons {
+    display: none; } }
+@media screen and (max-width: 450px) {
+  .wwa-name {
+    font-size: 30px; } }
+@media screen and (max-width: 430px) {
+  #wwd-container .section-title {
+    font-size: 50px;
+    text-align: center; }
+
+  #ttu-container {
+    padding-bottom: 20px; }
+
+  #ttu-title {
+    margin-bottom: 45px; }
+
+  .portfolio-top-text {
+    font-size: 23px; } }
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  .slider-caption {
+    padding-right: 60px;
+    padding-left: 60px; } }

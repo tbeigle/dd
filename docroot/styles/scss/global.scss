@@ -173,8 +173,8 @@ a {
   position: relative;
   z-index: 5;
   width: 100%;
-  max-width: 370px;
-  padding: 22px 0 0;
+  max-width: 490px;
+  padding: 22px 60px 0;
   overflow: hidden;
   margin: 0 auto 70px;
   
@@ -220,7 +220,7 @@ a {
       font-weight: $weightSSPLight;
       
       &:first-child {
-        margin-top: 40px;
+        //margin-top: 40px;
       }
     }
   }
