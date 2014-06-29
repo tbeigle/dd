@@ -24,7 +24,9 @@
         slide_count = 0,
         base_markup = '',
         nav_markup = '',
-        slide_horizontal = (settings.view == 'horizontal');
+        slide_horizontal = (settings.view == 'horizontal'),
+        slider_width = settings.slider_width,
+        slider_height = settings.slider_height;
     
     base_markup += '<div id="' + slider_id + '" class="slider-wrapper"><div class="slider"><ul class="slides" style="display: none;"></ul></div></div>';
     
@@ -35,9 +37,11 @@
     $this.append(base_markup);
     
     var $sliderWrapper = $('#' + slider_id),
+        $sliderOuter = $sliderWrapper.find('.slider-wrapper .slider'),
         $slider = $sliderWrapper.find('.slider .slides'),
         $caption = $this.children('.slider-caption'),
-        slide_markup = '';
+        slide_markup = '',
+        $slides;
     
     // Load the XML file
     $.get(xml_path, function(xml) {
@@ -58,12 +62,30 @@
         ++slide_count;
       });
       
-      if (slide_count > 1) {
-        if (slide_horizontal) {
-          var slides_width = settings.slider_width * slide_count;
-          $slider.width(slides_width);
+      if ($('body').width() < settings.slider_width) {
+        slider_width = $('body').width();
+      }
+      
+      var slides_width = slider_width * slide_count;
+      
+      $slider.width(slides_width);
+      
+      $(window).resize(function() {
+        if ($('body').width() < settings.slider_width) {
+          slider_width = $('body').width();
+        }
+        else {
+          slider_width = settings.slider_width;
         }
         
+        $slides.css({'max-width': slider_width});
+        //slider_height = $slides.height();
+        slides_width = slider_width * slide_count;
+        //$slider.height(slider_height);
+        $slider.width(slides_width);
+      });
+      
+      if (slide_count > 1) {
         nav_markup += '<nav class="slider-nav">' + "\n\t";
         nav_markup += '<ul class="arrows">' + "\n\t\t";
         nav_markup += '<li class="slider-nav-item previous">' + "\n\t\t\t";
@@ -117,8 +139,7 @@
             });
           }
           
-          var animate_options = slide_horizontal ? {left: animate_operator + settings.slider_width} : {top: animate_operator + settings.slider_height};
-          $slider.children('.slide').animate(animate_options, settings.spd);
+          $slider.children('.slide').animate({left: animate_operator + slider_width}, settings.spd);
           
           $caption.fadeOut(settings.spd, function() {
             $caption.find('.slide-title').text($newSlide.attr('data-title'));
@@ -132,14 +153,23 @@
       }
       
       $slider.append(slide_markup);
+      $slides = $slider.find('.slide');
+      
       var $activeSlide = $slider.children('li:first-child');
       $activeSlide.addClass('active');
       
       $caption.find('.slide-title').text($activeSlide.attr('data-title'));
       $caption.find('.slide-caption').text($activeSlide.attr('data-caption'));
       
+      $slides.css({'max-width': slider_width});
+      
       $slider.fadeIn(settings.spd);
       $caption.fadeIn(settings.spd);
+      
+      if (slider_width < settings.slider_width) {
+        //slider_height = $slides.height();
+        //$slider.height(slider_height);
+      }
     });
   }
 })(jQuery);

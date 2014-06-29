@@ -1,30 +1,48 @@
 (function($) {
+  $.fn.ddNavToggle = function(options) {
+    var $this = this,
+        settings = $.extend({
+          commonClass: 'main-nav-link',
+          activeClass: 'active'
+        }, options);
+    
+    $('.' + settings.commonClass).removeClass(settings.activeClass).trigger('blur');
+    $('.main-nav-link[href="' + $this.attr('href') + '"]').addClass(settings.activeClass);
+    
+  }
+})(jQuery);
+(function($) {
   $(document).ready(function() {
     $('body').addClass('scrolling');
-    var $overlayMenu = $('#overlay-menu'),
+    
+    var is_string = window.is_string,
+        $overlayMenu = $('#overlay-menu'),
         dur_toggle = 250,
-        win_height = $(window).outerHeight();
+        win_height = $(window).outerHeight(),
+        win_width = $(window).outerWidth(),
+        width_cutoff_1 = 765;
     
     $('html').removeClass('no-js');
     $overlayMenu.css({'min-height': win_height + 'px'}).hide();
     
     $('a[href*=#]:not([href=#])').on('click', function() {
+      var $this = $(this);
+      
       if (!$(this).hasClass('no-scroll')) {
         if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[id=' + this.hash.slice(1) +']');
-          if (target.length) {
+          var $target = $(this.hash);
+          $target = $target.length ? $target : $('[id=' + this.hash.slice(1) +']');
+          if ($target.length) {
             if ($('body').hasClass('scrolling')) return false;
             
             $('body').addClass('scrolling');
-            $('.main-nav-link').removeClass('active').trigger('blur');
-            $('.main-nav-link[href="#' + target.attr('id') + '"]').addClass('active');
+            $this.ddNavToggle();
             $overlayMenu.fadeOut(dur_toggle, function() {
               $('body').addClass('no-overlay');
             });
             
             $('html,body').animate({
-              scrollTop: target.offset().top
+              scrollTop: $target.offset().top
             }, 250, function() {
               $('body').removeClass('scrolling');
             });
@@ -43,25 +61,40 @@
     }
     
     var last_scrolltop = $(document).scrollTop(),
+        $sections = $('body > section[id]'),
+        $sectionFirst = $('body > section[id]:first'),
+        $sectionLast = $('body > section[id]:last'),
         sections_data = [],
         last_up = 0;
     
-    $('body > section[id]:first').addClass('section-first');
-    $('body > section[id]:last').addClass('section-last');
-    $('body > section[id]').each(function(index, value) {
-      var $this = $(this),
-          section_key = $this.attr('id').replace(/-[a-z]*$/, ''),
-          section_top = parseInt($this.offset().top),
-          section_height = $this.outerHeight(true);
-      
-      sections_data[index] = new pageSection(section_key, section_top, section_height);
-      
-      if ($this.hasClass('section-first')) {
-        sections_data[index].down = 0;
-      }
-      else if ($this.hasClass('section-last')) {
-        sections_data[index].up = 0;
-      }
+    $sectionFirst.addClass('section-first');
+    $sectionLast.addClass('section-last');
+    
+    var set_section_data = function() {
+      $sections.each(function(index, value) {
+        var $this = $(this),
+            section_key = $this.attr('id').replace(/-[a-z]*$/, ''),
+            section_top = parseInt($this.offset().top),
+            section_height = $this.outerHeight(true);
+        
+        sections_data[index] = new pageSection(section_key, section_top, section_height);
+        
+        if ($this.hasClass('section-first')) {
+          sections_data[index].down = 0;
+        }
+        else if ($this.hasClass('section-last')) {
+          sections_data[index].up = 0;
+        }
+      });
+    }
+    
+    set_section_data();
+    
+    $(window).resize(function() {
+      win_height = $(window).outerHeight();
+      win_width = $(window).outerWidth();
+      $overlayMenu.css({'min-height': win_height + 'px'});
+      set_section_data();
     });
     
     var last_section_key = 'portfolio';
@@ -85,13 +118,18 @@
           
           to_trigger = sections_data[i].key;
           last_section_key = to_trigger;
-          console.log(to_trigger);
           break;
         }
       }
       
-      if (to_trigger.length) {
-        $('#fixed-menu-buttons .button-link.' + to_trigger).trigger('click');
+      if (is_string(to_trigger)) {
+        var $triggerLink = $('#fixed-menu-buttons .button-link.' + to_trigger);
+        /*if (win_width > width_cutoff_1) {
+          $triggerLink.trigger('click');
+        }
+        else {*/
+          $triggerLink.ddNavToggle();
+        //}
       }
     });
     
