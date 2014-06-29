@@ -57,7 +57,7 @@
       <a class="scroll-nav-link portfolio block-auto glyph scroll-link" href="#wwd-container" tabindex="6">&iacute;</a>
       
       <div id="portfolio-slider-wrapper">
-        <img id="portfolio-slider-bg" class="block-auto" src="/images/laptop.png" alt="A picture of a laptop, used to frame the slides">
+        <div id="portfolio-slider-bg"></div>
       </div> <!-- /#portfolio-slider-wrapper -->
     </section> <!-- /#portfolio-container /.container -->
     
