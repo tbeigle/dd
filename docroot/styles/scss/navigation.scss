@@ -8,6 +8,10 @@
   top: 0;
   width: 100%;
   @include vendorize(transition, all 0.5s ease);
+  
+  a {
+    @include vendorize(transition, none);
+  }
 }
 
 #popout-nav-toggle-wrapper {

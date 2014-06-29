@@ -308,6 +308,12 @@ textarea {
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease; }
+  #popout-nav a {
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    transition: none; }
 
 #popout-nav-toggle-wrapper {
   width: 100%;
