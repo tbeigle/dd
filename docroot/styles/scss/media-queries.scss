@@ -21,6 +21,10 @@
 }
 
 @media only screen and (max-width: 529px) {
+  #portfolio-container {
+    background: #fff;
+  }
+  
   #portfolio-slider-bg {
     display: none;
   }
@@ -76,19 +80,14 @@
 }
 
 @media screen and (max-width: 765px) {
-  #portfolio-container {
-    background: #fff;
-  }
-  /*#portfolio-slider-bg {
-    display: none;
-  }*/
-  
   #portfolio-slider-wrapper {
+    min-height: 400px;
     padding-bottom: 70px;
     
     .slider-wrapper {
       position: relative;
       top: 0;
+      padding: 0 10px 20px;
       overflow: visible;
       
       .slider {
@@ -157,6 +156,12 @@
   
   .portfolio-top-text {
     font-size: 23px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #popout-nav-toggle-wrapper {
+    padding-top: 50px;
   }
 }
 
