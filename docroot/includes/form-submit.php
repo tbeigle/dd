@@ -4,6 +4,10 @@ if (empty($_POST) || !empty($_POST['subject'])) {
   return;
 }
 
+require_once('../../ddinc/mail-config.php');
+require_once('../../PHPMailer/PHPMailerAutoload.php');
+require_once('../../ddinc/ddMailer.php');
+
 $form = new ddForm($_POST);
 $form->validate();
 
@@ -63,6 +67,20 @@ class ddForm {
           '`message` = "' . $this->message . '";';
       $this->result = $db->q($query);
     }
+    
+    // Send the email
+    $m = new ddMailer();
+    $m->Subject = 'DD Contact form submission from ' . $this->name;
+    $m->Body = 'Contact form submission by ' . $this->name . ' (' . $this->email . '): ' . "\n\n" . $this->message;
+    $m->addAddress('tom@designated-developers.com', 'Tom Beigle');
+    //$m->addAddress('sara@designated-developers.com', 'Sara Beigle');
+    
+    if (!$m->Send()) {
+      // Whoops. Something went wrong.
+    }
+    
+    $m->ClearAddresses();
+    $m->ClearAttachments();
   }
   
   private function _test_input($val) {
@@ -73,4 +91,3 @@ class ddForm {
     return $val;
   }
 }
-?>
