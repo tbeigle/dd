@@ -65,10 +65,13 @@
       <div class="row">
         <h2 id="wwd-title" class="column five section-title">What We Do</h2>
         <div id="wwd-text" class="column right seven section-text">
-          <p>Maecenas suscipit nulla ligula, dapibus scelerisque lorem mattis et. Sed molestie neque eu dapibus interdum. Aenean sagittis, lorem molestie faucibus pretium, enim lacus pharetra mauris, at semper ipsum justo at arcu. Nulla pulvinar, dolor sit amet elementum varius, sem mauris vestibulum justo, eget consectetur dolor felis bibendum nunc. Curabitur id faucibus massa. Proin consequat orci ut lobortis consequat. Maecenas tristique mollis arcu, sed dignissim dui fermentum sit amet. Curabitur volutpat sodales aliquam. </p>
+          <p>Designated Developers is a Web development firm focused on swift, detail-oriented delivery of market-facing websites. The sites we build typically feature content management systems (CMS), usually Drupal, and often with custom developed modules/plug-ins and themes.</p>
           
-          <p>usce mollis laoreet tellus, vestibulum porttitor est bibendum ut. Nulla facilisi. Nulla nec urna id purus accumsan imperdiet. Donec vel ante sed lacus condimentum elementum vel sit. Curabitur mattis volutpat erat vitae vulputate. Donec congue orci massa, ut mollis velit euismod nec. In massa mauris, ullamcorper ac velit et, imperdiet ornare felis.</p>
+          <p>We are well-versed in current e-commerce platforms, we excel at each level of the LAMP stack (Linux, Apache, MySQL and PHP), and we use version control for all our development.</p>
           
+          <p>We are strong communicators, comfortable speaking with other developers and tech-industry members in the jargon they know best while having no trouble transitioning into common vernacular for project managers, designers, and clients.</p>
+          
+          <p>If you can dream it, we can code it.</p>
           <a class="scroll-nav-link wwd block-auto glyph scroll-link" href="#wwa-container" tabindex="7">&iacute;</a>
         </div> <!-- /#wwd-text /.column /.right /.seven /.section-text -->
       </div> <!-- /.row -->
@@ -83,14 +86,14 @@
           
           <h2 class="wwa-name">Sara Beigle</h2>
           
-          <p class="wwa-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque semper tellus, vel euismod sapien interdum mattis. Proin et arcu enim. Morbi auctor, libero in molestie posuere, nulla orci pulvinar ipsum, ut condimentum risus arcu in nisi. Pellentesque sed consequat neque, ac semper odio. Phasellus mattis est lectus, vitae hendrerit nunc hendrerit et. Curabitur volutpat sodales aliquam. Fusce mollis laoreet tellus, vestibulum porttitor est bibendum ut.</p>
+          <p class="wwa-bio">Artist, writer, project manager, publicist, communications director. Sara’s career would be hard to sum up in one job title, and those touch on just a few. As a co-founder of Designated Developers she focuses on client relations, business growth, and project management. She holds an undergraduate degree from University of California, San Diego in Literatures in English and Language Studies in Spanish, and a Masters of Arts from Emerson College in Writing, Literature, and Publishing. While Sara was at Emerson, Tom was working his first Web development job and dinner conversation began to include confusing jargon and long-winded explanations. Sara enrolled in several graduate level survey courses so that she’d know what it was that Tom was talking about all the time. She quickly figured out that the Internet is a fascinating, dynamic base for a career, and took to learning basic Web theory as well as HTML and CSS with gusto. Her formal background in light Web development coupled with her true expertise in communications helps her serve clients flexibly.</p>
         </div> <!-- /.column /.six -->
         <div class="column right six">
           <h4 class="wwa-heading">Who We Are</h4>
           
           <h2 class="wwa-name">Thomas Beigle</h2>
           
-          <p class="wwa-bio">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque semper tellus, vel euismod sapien interdum mattis. Proin et arcu enim. Morbi auctor, libero in molestie posuere, nulla orci pulvinar ipsum, ut condimentum risus arcu in nisi. Pellentesque sed consequat neque, ac semper odio. Phasellus mattis est lectus, vitae hendrerit nunc hendrerit et. Curabitur volutpat sodales aliquam. Fusce mollis laoreet tellus, vestibulum porttitor est bibendum ut.</p>
+          <p class="wwa-bio">Thomas began coding for fun at the start of this century, before YouTube and Instagram and literally all of the social media we use and admire now came into being. One of his first projects was a parody website dedicated to llamas (soundtrack included). He used coding as a hobby for many years, embarking on several career paths before penultimately deciding to be a journalist. He studied journalism at Chapman University but upon graduating immediately went into Web development instead. Thomas finds that the same critical thinking skills and love for problem-solving that he cultivated as a journalist are invaluably useful tools in website development, and help him to enjoy tackling the challenging, backend-focused web projects he loves most. His writing background helps him speak fluidly with clients and break down development terms to a level that even the least tech-savvy find easy to understand.</p>
         </div> <!-- /.column /.right /.six -->
       </div> <!-- /#wwa-bios /.row -->
       
