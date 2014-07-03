@@ -1,2 +1,5 @@
 .lte-ie-9 #portfolio-container {
   background-image: url("../../images/lte-ie-9_bg-portfolio-shadow.jpg"); }
+.lte-ie-9 .ie-placeholder {
+  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif;
+  color: #cbcbcb; }
