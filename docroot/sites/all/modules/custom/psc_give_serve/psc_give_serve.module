@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the PSC Give / Serve feature.
- */
-
-include_once 'psc_give_serve.features.inc';

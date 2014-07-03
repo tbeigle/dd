@@ -1,0 +1,191 @@
+@import "mixins";
+
+#popout-nav {
+  display: block;
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  @include vendorize(transition, all 0.5s ease);
+  
+  a {
+    @include vendorize(transition, none);
+  }
+}
+
+#popout-nav-toggle-wrapper {
+  width: 100%;
+  max-width: 980px;
+  padding-top: 85px;
+  text-align: right;
+  @include noText();
+  
+  a {
+    font-size: 63px;
+    line-height: 1;
+    
+    @include linkVisited(color, $colHdLt);
+    @include hoverActiveFocus(color, $colArrwTp);
+  }
+}
+
+#fixed-menu-buttons {
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 230px;
+  width: 100%;
+  pointer-events: none;
+  
+  .menu-buttons {
+    display: block;
+    width: 100%;
+    max-width: 1020px;
+    padding: 0 20px 0;
+    margin: 0 auto;
+    pointer-events: none;
+    
+    a {
+      @include vendorize(transition, none);
+      @include linkAllStates(color, #fff);
+      @include linkAllStates(outline, none);
+      pointer-events: all;
+    }
+    
+    li {
+      display: block;
+      width: 23px;
+      margin: 30px 0 0 auto;
+      
+      &:first-child {
+        margin-top: 0;
+      }
+      
+      a {
+        display: block;
+        width: 23px;
+        height: 23px;
+        background: $colMenuBttns;
+        background-clip: content-box;
+        border: 5px solid transparent;
+        overflow: hidden;
+        text-indent: -9999px;
+        
+        @include vendorize(border-radius, 50%);
+        
+        &.active,
+        &:hover,
+        &:active,
+        &:focus {
+          background: $colBgMO;
+          border-color: $colMenuBttns;
+        }
+      }
+    }
+  }
+}
+
+.no-overlay #fixed-menu-buttons {
+  .menu-buttons {
+    li {
+      a {
+        border-color: transparent;
+        
+        &.active,
+        &:hover,
+        &:active,
+        &:focus {
+          background: $colBgMO;
+          border-color: $colMenuBttns;
+        }
+      }
+    }
+  }
+}
+
+#overlay-menu {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  background: $colBgMO;
+  color: #fff;
+  
+  a {
+    @include linkAllStates(color, #fff);
+  }
+  
+  &> .inner {
+    position: relative;
+    width: 100%;
+    //max-width: 1142px;
+    max-width: 1020px;
+    padding: 0 20px;
+    margin: auto;
+  }
+  
+  .close-me {
+    position: absolute;
+    right: 20px;
+    top: 63px;
+    
+    font: {
+      weight: $weightSSPLight;
+      size: 62px;
+    }
+    
+    text-transform: lowercase;
+  }
+  
+  ul {
+    padding: 0;
+    margin: 0;
+    
+    li {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+  
+  .menu-buttons {
+  }
+  
+  .menu {
+    padding-top: 72px;
+    
+    li {
+      margin-bottom: 111px;
+      
+      font: {
+        weight: $weightSSPLight;
+        size: 48px;
+      }
+      
+      line-height: 52px;
+      
+      text: {
+        align: center;
+        transform: uppercase;
+      }
+      
+      a {
+        &.active,
+        &:hover,
+        &:active,
+        &:focus {
+          font-weight: $weightSSPSemiBold;
+        }
+      }
+    }
+  }
+}
+
+.nav-popout-link {
+  width: 100%;
+  max-width: 980px;
+}

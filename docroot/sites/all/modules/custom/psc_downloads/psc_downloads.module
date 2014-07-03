@@ -1,7 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Downloads feature.
- */
-
-include_once 'psc_downloads.features.inc';
