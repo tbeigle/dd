@@ -120,10 +120,10 @@
     <!--[if lt IE 9]>
       <script type="text/javascript" src="/scripts/js/vendor/html5shiv.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="/scripts/js/vendor/jquery-1.11.0.min.js"></script>
     <!--[if lte IE 9]>
       <script type="text/javascript" src="/scripts/js/lte-ie-9.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="/scripts/js/vendor/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="/scripts/js/common-functions.js"></script>
     <script type="text/javascript" src="/scripts/js/jquery.ddxmlslider.js"></script>
     <script type="text/javascript" src="/scripts/js/main.js"></script>
