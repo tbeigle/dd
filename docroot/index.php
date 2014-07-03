@@ -3,7 +3,8 @@
 <!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html dir="ltr" lang="en-US" class="no-js"><!--<![endif]-->
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Designated Developers | Site Coming Soon</title>
+    <title>Designated Developers</title>
+    <meta name="description" content="Designated Developers is a Web development firm focused on swift, detail-oriented delivery of market-facing Drupal websites.">
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
     <link href="/styles/css/dd.css" rel="stylesheet">
     <script>
