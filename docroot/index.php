@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 9]> <html class="lt-ie-9 no-js"> <![endif]-->
+<!--[if lte IE 9]> <html class="lte-ie-9 no-js"> <![endif]-->
 <!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html dir="ltr" lang="en-US" class="no-js"><!--<![endif]-->
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -119,6 +119,9 @@
     <!-- JS files -->
     <!--[if lt IE 9]>
       <script type="text/javascript" src="/scripts/js/vendor/html5shiv.js"></script>
+    <![endif]-->
+    <!--[if lte IE 9]>
+      <script type="text/javascript" src="/scripts/js/lte-ie-9.js"></script>
     <![endif]-->
     <script type="text/javascript" src="/scripts/js/vendor/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="/scripts/js/common-functions.js"></script>

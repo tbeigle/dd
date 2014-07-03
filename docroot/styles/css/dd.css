@@ -662,3 +662,5 @@ textarea {
   .slider-caption {
     padding-right: 60px;
     padding-left: 60px; } }
+.lte-ie-9 #portfolio-container {
+  background-image: url("../../images/lte-ie-9_bg-portfolio-shadow.jpg"); }
