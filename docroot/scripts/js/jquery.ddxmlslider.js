@@ -102,13 +102,26 @@
         var $sliderNav = $sliderWrapper.find('.slider-nav');
         $sliderNav.fadeIn(settings.spd);
         
-        $('#' + slider_id + ' .slider-nav-item a').on('click', function() {
+        $('#' + slider_id + ' .slider-nav-item a, #' + slider_id + ' .slider .slides').on('click', function() {
           var $this = $(this),
-              slide_direction = $this.attr('data-direction'),
+              slider_clicked = $this.is('.slides'),
               $curSlide = $('.slide.active'),
+              $curLink = $('#' + slider_id + ' .slider-nav-item.next .slider-nav-arrow'),
+              $firstSlide = $('.slide:first-child'),
               $newSlide,
               $otherLink,
-              animate_operator = '-=';
+              animate_operator = '-=',
+              on_last_slide = $curSlide.is('li:last-child'),
+              slide_direction = 'next';
+          
+          if ($this.attr('data-direction')) {
+            slide_direction = $this.attr('data-direction');
+            $curLink = $this;
+          }
+          else if ($curSlide.is('li:last-child')) {
+            slide_direction = 'previous';
+            $curLink = $('#' + slider_id + ' .slider-nav-item.previous .slider-nav-arrow');
+          }
           
           switch (slide_direction) {
             case 'previous':
@@ -122,14 +135,16 @@
               break;
           }
           
+          if (on_last_slide && slider_clicked) $newSlide = $firstSlide;
+          
           if (typeof $newSlide == 'undefined') return false;
           
           $curSlide.removeClass('active');
           $newSlide.addClass('active');
           
           if ((slide_direction == 'previous' && $newSlide.is('li:first-child')) || (slide_direction == 'next' && $newSlide.is('li:last-child'))) {
-            $this.fadeOut(settings.spd, function() {
-              $this.addClass('hidden');
+            $curLink.fadeOut(settings.spd, function() {
+              $curLink.addClass('hidden');
             });
           }
           
@@ -139,7 +154,12 @@
             });
           }
           
-          $slider.children('.slide').animate({left: animate_operator + slider_width}, settings.spd);
+          if (on_last_slide && slider_clicked) {
+            $slider.children('.slide').animate({left: 0}, settings.spd);
+          }
+          else {
+            $slider.children('.slide').animate({left: animate_operator + slider_width}, settings.spd);
+          }
           
           $caption.fadeOut(settings.spd, function() {
             $caption.find('.slide-title').text($newSlide.attr('data-title'));

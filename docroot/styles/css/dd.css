@@ -483,7 +483,8 @@ textarea {
         margin: 0; }
       #portfolio-slider-wrapper .slider-wrapper .slider .slide {
         display: inline-block;
-        position: relative; }
+        position: relative;
+        z-index: 1000; }
         #portfolio-slider-wrapper .slider-wrapper .slider .slide img {
           width: 100%; }
     #portfolio-slider-wrapper .slider-wrapper li {
