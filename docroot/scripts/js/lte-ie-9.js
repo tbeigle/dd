@@ -1,29 +1,20 @@
 (function($) {
-  $.fn.ieplaceholder = function(h) {
-    var $input = this,
-        ph_class = 'ie-placeholder';
+  $(document).ready(function() {
+    var ph_class = 'ie-placeholder';
     
-    if (h == 'keydown' || ($input.val() != $input.attr('placeholder') && $input.val() != '')) {
-      $input.removeClass(ph_class);
+    $('[placeholder]').focus(function() {
+      var $input = $(this);
       
       if ($input.val() == $input.attr('placeholder')) {
-        $input.val('');
+        $(this).removeClass(ph_class).val('');
       }
-    }
-    else if ($input.val() == '') {
-      $input.addClass(ph_class).val($input.attr('placeholder'));
-    }
-  };
-  
-  $(document).ready(function() {
-    $('[placeholder]').keydown(function() {
-      $(this).ieplaceholder('keydown');
-    })
-    .keyup(function() {
-      $(this).ieplaceholder();
     })
     .blur(function() {
-      $(this).ieplaceholder();
+      var $input = $(this);
+      
+      if ($input.val() == '') {
+        $input.addClass(ph_class).val($input.attr('placeholder'));
+      }
     })
     .blur();
   });
