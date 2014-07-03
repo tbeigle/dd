@@ -54,7 +54,7 @@
       <h2 id="portfolio-title" class="portfolio-top-text">We create <strong>amazing</strong> things.</h2>
       <h3 id="portfolio-subhead" class="portfolio-top-text">See them in action.</h3>
       
-      <a class="scroll-nav-link portfolio block-auto glyph scroll-link" href="#wwd-container" tabindex="6">&iacute;</a>
+      <a class="scroll-nav-link portfolio block-auto glyph scroll-link" href="#portfolio-slider-wrapper" tabindex="6">&iacute;</a>
       
       <div id="portfolio-slider-wrapper">
         <div id="portfolio-slider-bg"></div>
