@@ -26,6 +26,11 @@ DirectoryIndex index.php index.html index.htm
   php_flag mbstring.encoding_translation    off
 </IfModule>
 
+# Redirects
+<IfModule mod_alias.c>
+  Redirect 301 /sites/all/themes/dd/images/logos/dd-logo-full-102x102.jpg http://designated-developers.com/images/logo-102x102.jpg
+</IfModule>
+
 # Various rewrite rules.
 <IfModule mod_rewrite.c>
   RewriteEngine on
