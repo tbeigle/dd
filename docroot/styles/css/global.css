@@ -218,7 +218,7 @@ p.wwa-bio {
   line-height: normal;
   color: #00abd6; }
 
-#contact-form {
+form.block-auto {
   max-width: 460px; }
 
 .textfield,
@@ -258,19 +258,22 @@ textarea {
   #field-submit:hover, #field-submit:active, #field-submit:focus {
     outline: none; }
 
-#form-messages {
+.form-messages {
   display: none;
   width: 100%;
   padding: 10px 0;
   text-align: center;
   color: #00abd6;
   font-weight: 600; }
-  #form-messages p {
+  .form-messages p {
     margin: 0; }
-    #form-messages p.success {
+    .form-messages p.success {
       font-weight: 200;
       font-size: 30px;
       line-height: normal; }
+
+#intern-form {
+  margin-top: 100px; }
 
 ::-webkit-input-placeholder {
   font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }

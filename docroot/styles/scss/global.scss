@@ -299,7 +299,7 @@ p.wwa-bio {
   color: $colHdLt;
 }
 
-#contact-form {
+form.block-auto {
   max-width: 460px;
 }
 
@@ -344,7 +344,7 @@ textarea {
   @include hoverActiveFocus(outline, none);
 }
 
-#form-messages {
+.form-messages {
   display: none;
   width: 100%;
   padding: 10px 0;
@@ -365,6 +365,10 @@ textarea {
       line-height: normal;
     }
   }
+}
+
+#intern-form {
+  margin-top: 100px;
 }
 
 @include vendorizePlaceholder(font, $weightSSPExtraLight 30px/normal $fontFamMain);
