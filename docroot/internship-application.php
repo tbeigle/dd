@@ -50,7 +50,7 @@
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="5" selected="selected">5</option>
           <option value="6">6</option>
           <option value="7">7</option>
           <option value="8">8</option>
@@ -64,7 +64,7 @@
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="5" selected="selected">5</option>
           <option value="6">6</option>
           <option value="7">7</option>
           <option value="8">8</option>
@@ -78,7 +78,7 @@
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="5" selected="selected">5</option>
           <option value="6">6</option>
           <option value="7">7</option>
           <option value="8">8</option>
@@ -92,7 +92,7 @@
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="5" selected="selected">5</option>
           <option value="6">6</option>
           <option value="7">7</option>
           <option value="8">8</option>
@@ -106,7 +106,7 @@
           <option value="2">2</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option value="5">5</option>
+          <option value="5" selected="selected">5</option>
           <option value="6">6</option>
           <option value="7">7</option>
           <option value="8">8</option>
@@ -157,7 +157,7 @@
         <textarea name="reason" id="field-reason" class="placeholder-label block-auto required" placeholder="Why are you interested in this internship?"></textarea>
         
         <label for="field-resume" class="block-auto file-label">R&eacute;sum&eacute;:</label>
-        <input type="file" name="file-resume" id="field-resume" class="block-auto required">
+        <input type="file" name="file-resume" id="field-resume" class="required">
         
         <a id="field-submit" class="block-auto no-scroll form-submit" href="#intern-form" tabindex="12" data-messages="#intern-form .form-messages">apply</a>
       </form> <!-- /#contact-form -->

@@ -34,12 +34,15 @@
       base_markup += '<div class="slider-caption" style="display: none;"><h2 class="slide-title"></h2>' + "\n" + '<h3 class="slide-caption"></h3></div>';
     }
     
+    base_markup += '<div class="slider-testimonial" style="display: none;"></div>';
+    
     $this.append(base_markup);
     
     var $sliderWrapper = $('#' + slider_id),
         $sliderOuter = $sliderWrapper.find('.slider-wrapper .slider'),
         $slider = $sliderWrapper.find('.slider .slides'),
         $caption = $this.children('.slider-caption'),
+        $testimonial = $this.children('.slider-testimonial'),
         slide_markup = '',
         $slides;
     
@@ -51,11 +54,20 @@
           slide_class = '';
       
       $slideshow.find('slide').each(function(index, value) {
-        var $slide = $(value);
+        var $slide = $(value),
+            $title = $slide.find('title');
         
         slide_class = 'slide-' + index;
         slide_markup += '<li class="slide ' + slide_class + '" ';
-        slide_markup += 'data-title="' + $slide.find('title').text() + '" ';
+        slide_markup += 'data-title="' + $title.text() + '" ';
+        slide_markup += 'data-url="' + $title.attr('url') + '" ';
+        
+        if ($slide.find('testimonial').length) {
+          var $testimonial = $slide.find('testimonial');
+          slide_markup += 'data-tquote="' + $testimonial.find('quote').text() + '" ';
+          slide_markup += 'data-tsource="' + $testimonial.find('source').text() + '" ';
+        }
+        
         slide_markup += 'data-caption="' + $slide.find('caption').text() + '">';
         slide_markup += '<img src="' + $slide.attr('src') + '" alt="' + $slide.attr('alt') + '">';
         slide_markup += '</li>';
@@ -161,8 +173,31 @@
             $slider.children('.slide').animate({left: animate_operator + slider_width}, settings.spd);
           }
           
+          $tesimonial.fadeOut(settings.spd, function() {
+            var has_quote = (typeof $newSlide.attr('data-tquote') !== undefined && typeof $newSlide.attr('data-tquote') !== false && $newSlide.attr('data-tquote').length);
+            var has_source = (typeof $newSlide.attr('data-tsource') !== undefined && typeof $newSlide.attr('data-tsource') !== false && $newSlide.attr('data-tsource').length);
+            var thtml = '';
+            
+            if (has_quote && has_source) {
+              $testimonial.addClass('show-testimonial');
+              thtml = '<em>"' + $newSlide.attr('data-tquote') + '"</em> <strong>- ' + $newSlide.attr('data-tsource') + '</strong>';
+            }
+            else {
+              $testimonial.removeClass('show-testimonial');
+            }
+            
+            $testimonial.html(thtml);
+          });
           $caption.fadeOut(settings.spd, function() {
-            $caption.find('.slide-title').text($newSlide.attr('data-title'));
+            var new_title = '';
+            if ($newSlide.attr('data-url').length) {
+              new_title = '<a href="' + $newSlide.attr('data-url') + '" target="_blank">' + $newSlide.attr('data-title') + '</a>';
+            }
+            else {
+              new_title = $newSlide.attr('data-title');
+            }
+            
+            $caption.find('.slide-title').text(new_title);
             $caption.find('.slide-caption').text($newSlide.attr('data-caption'));
             
             $caption.fadeIn(settings.spd);
@@ -174,12 +209,38 @@
       
       $slider.append(slide_markup);
       $slides = $slider.find('.slide');
+      $slides.mouseenter(function() {
+        if($testimonial.hasClass('show-testimonial')) {
+          $testimonial.fadeIn(settings.spd)
+        }
+      })
+      .mouseleave(function() {
+        $testimonial.fadeOut(settings.spd);
+      });
       
       var $activeSlide = $slider.children('li:first-child');
       $activeSlide.addClass('active');
       
-      $caption.find('.slide-title').text($activeSlide.attr('data-title'));
-      $caption.find('.slide-caption').text($activeSlide.attr('data-caption'));
+      var new_title = '';
+      if ($activeSlide.attr('data-url').length) {
+        new_title = '<a href="' + $activeSlide.attr('data-url') + '" target="_blank">' + $activeSlide.attr('data-title') + '</a>';
+      }
+      else {
+        new_title = $activeSlide.attr('data-title');
+      }
+      
+      $caption.find('.slide-title').html(new_title);
+      $caption.find('.slide-caption').html($activeSlide.attr('data-caption'));
+      
+      var has_quote = (typeof $activeSlide.attr('data-tquote') !== undefined && typeof $activeSlide.attr('data-tquote') !== false && $activeSlide.attr('data-tquote').length);
+      var has_source = (typeof $activeSlide.attr('data-tsource') !== undefined && typeof $activeSlide.attr('data-tsource') !== false && $activeSlide.attr('data-tsource').length);
+      var thtml = '';
+      
+      if (has_quote && has_source) {
+        $testimonial.addClass('show-testimonial');
+        thtml = '<em>"' + $activeSlide.attr('data-tquote') + '"</em> <strong>- ' + $activeSlide.attr('data-tsource') + '</strong>';
+      }
+      $testimonial.html(thtml);
       
       $slides.css({'max-width': slider_width});
       

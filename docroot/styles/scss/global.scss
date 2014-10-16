@@ -371,5 +371,57 @@ textarea {
   margin-top: 100px;
 }
 
+.form-sec-title {
+  margin: {
+    top: 36px;
+    bottom: 0.5em;
+  }
+  font: $weightSSPSemiBold 16px/normal $fontFamMain;
+  color: $colBgWWD;
+}
+
+label {
+  font: $weightSSPExtraLight 30px/normal $fontFamMain;
+  color: $colBgWWD;
+  cursor: pointer;
+}
+
 @include vendorizePlaceholder(font, $weightSSPExtraLight 30px/normal $fontFamMain);
 @include vendorizePlaceholder(color, $colPlaceholder);
+
+select,
+select.block-auto {
+  width: 100%;
+  margin-bottom: 1em;
+  font: $weightSSPExtraLight 30px/normal $fontFamMain;
+  color: $colBgWWD;
+}
+
+@include vendorizePlaceholder(font-style, italic, ".sub-question");
+
+.radios-overview.block-auto {
+  margin-top: 36px;
+}
+
+.radios-wrapper {
+  margin-bottom: 36px;
+}
+
+.radio-wrapper {
+  label {
+    padding-left: 10px;
+    font-size: 1.5em;
+    vertical-align: middle;
+  }
+}
+
+.file-label {
+  margin-top: 36px;
+}
+
+input[type="file"] {
+}
+
+input[type="radio"] {
+  vertical-align: middle;
+}

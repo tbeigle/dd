@@ -41,17 +41,17 @@ $padWWACols: 8.637%;
   #{$property}: $value;
 }
 
-@mixin vendorizePlaceholder($property, $value) {
-  ::-webkit-input-placeholder {
+@mixin vendorizePlaceholder($property, $value, $pre: '') {
+  #{$pre}::-webkit-input-placeholder {
     #{$property}: $value;
   }
-  :-moz-placeholder {
+  #{$pre}:-moz-placeholder {
     #{$property}: $value;
   }
-  ::-moz-placeholder {
+  #{$pre}::-moz-placeholder {
     #{$property}: $value;
   }
-  :-ms-input-placeholder {
+  #{$pre}:-ms-input-placeholder {
     #{$property}: $value;
   }
 }
