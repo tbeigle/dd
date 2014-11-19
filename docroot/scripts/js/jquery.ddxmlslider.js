@@ -1,4 +1,27 @@
 (function($) {
+  $.fn.hasTestimonial = function() {
+    var $this = this,
+        $tdata = {
+          q: {
+            k: 'tquote',
+            has: false
+          },
+          s: {
+            k: 'tsource',
+            has: false
+          }
+        };
+    
+    for (i in $tdata) {
+      var dk = 'data-' + $tdata[i].k;
+      if (typeof $this.attr(dk) !== 'undefined' && typeof $this.attr(dk) !== false) {
+        $tdata[i].has = $this.attr(dk).length;
+      }
+    }
+    
+    return ($tdata.q.has && $tdata.s.has);
+  }
+  
   $.fn.ddXMLSlider = function(xml_path, options) {
     var is_string = window.is_string;
     
@@ -68,7 +91,7 @@
           slide_markup += 'data-tsource="' + $testimonial.find('source').text() + '" ';
         }
         
-        slide_markup += 'data-caption="' + $slide.find('caption').text() + '">';
+        slide_markup += 'data-caption="' + $slide.find('caption').html() + '">';
         slide_markup += '<img src="' + $slide.attr('src') + '" alt="' + $slide.attr('alt') + '">';
         slide_markup += '</li>';
         ++slide_count;
@@ -173,21 +196,18 @@
             $slider.children('.slide').animate({left: animate_operator + slider_width}, settings.spd);
           }
           
-          $tesimonial.fadeOut(settings.spd, function() {
-            var has_quote = (typeof $newSlide.attr('data-tquote') !== undefined && typeof $newSlide.attr('data-tquote') !== false && $newSlide.attr('data-tquote').length);
-            var has_source = (typeof $newSlide.attr('data-tsource') !== undefined && typeof $newSlide.attr('data-tsource') !== false && $newSlide.attr('data-tsource').length);
+          $testimonial.fadeOut(settings.spd, function() {
             var thtml = '';
-            
-            if (has_quote && has_source) {
+            if ($newSlide.hasTestimonial()) {
               $testimonial.addClass('show-testimonial');
               thtml = '<em>"' + $newSlide.attr('data-tquote') + '"</em> <strong>- ' + $newSlide.attr('data-tsource') + '</strong>';
             }
             else {
               $testimonial.removeClass('show-testimonial');
             }
-            
             $testimonial.html(thtml);
           });
+          
           $caption.fadeOut(settings.spd, function() {
             var new_title = '';
             if ($newSlide.attr('data-url').length) {
@@ -197,8 +217,8 @@
               new_title = $newSlide.attr('data-title');
             }
             
-            $caption.find('.slide-title').text(new_title);
-            $caption.find('.slide-caption').text($newSlide.attr('data-caption'));
+            $caption.find('.slide-title').html(new_title);
+            $caption.find('.slide-caption').html($newSlide.attr('data-caption'));
             
             $caption.fadeIn(settings.spd);
           });
@@ -232,16 +252,14 @@
       $caption.find('.slide-title').html(new_title);
       $caption.find('.slide-caption').html($activeSlide.attr('data-caption'));
       
-      var has_quote = (typeof $activeSlide.attr('data-tquote') !== undefined && typeof $activeSlide.attr('data-tquote') !== false && $activeSlide.attr('data-tquote').length);
-      var has_source = (typeof $activeSlide.attr('data-tsource') !== undefined && typeof $activeSlide.attr('data-tsource') !== false && $activeSlide.attr('data-tsource').length);
+      // Testimonial
       var thtml = '';
-      
-      if (has_quote && has_source) {
+      if ($activeSlide.hasTestimonial()) {
         $testimonial.addClass('show-testimonial');
         thtml = '<em>"' + $activeSlide.attr('data-tquote') + '"</em> <strong>- ' + $activeSlide.attr('data-tsource') + '</strong>';
       }
       $testimonial.html(thtml);
-      
+
       $slides.css({'max-width': slider_width});
       
       $slider.fadeIn(settings.spd);

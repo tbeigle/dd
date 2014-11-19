@@ -34,6 +34,8 @@ a {
   transition: all 0.25s ease; }
   a:link, a:visited, a:hover, a:active, a:focus {
     text-decoration: none; }
+  a:link, a:visited, a:hover, a:active, a:focus {
+    color: black; }
 
 .row {
   width: 100%;

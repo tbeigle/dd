@@ -40,6 +40,7 @@ h1,h2,h3,h4 {
 a {
   @include vendorize(transition, all 0.25s ease);
   @include linkAllStates(text-decoration, none);
+  @include linkAllStates(color, #000);
 }
 
 .row {
