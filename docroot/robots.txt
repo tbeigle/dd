@@ -4,3 +4,4 @@ Disallow: /includes/
 Disallow: /scripts/
 Disallow: /styles/
 Disallow: /xml/
+Disallow: /internship-application.php

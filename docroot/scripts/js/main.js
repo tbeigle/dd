@@ -155,7 +155,8 @@
     // Contact form
     $('.form-submit').on('click', function() {
       var $button = $(this),
-          $form = $($button.attr('href'));
+          $form = $($button.attr('href'))
+          $mssgDiv = $($button.attr('data-messages'));
       
       if (!$form.length) {
         return false;
@@ -172,26 +173,26 @@
           var obj = $.parseJSON(data);
           
           $form.find('*').removeClass('error');
-          $('#form-messages').html('').slideUp(150);
+          $mssgDiv.html('').slideUp(150);
           
           if (typeof obj.errors == 'object') {
             $.each(obj.errors, function(index, value) {
               var $field = $form.find('*[name="' + index + '"]');
               $field.addClass('error');
-              $('#form-messages').append('<p class="error-' + index + '">' + value + '</p>');
+              $mssgDiv.append('<p class="error-' + index + '">' + value + '</p>');
               $field.on('keyup', function() {
                 $field.removeClass('error');
-                $('#form-messages .error-' + $field.attr('name')).remove();
+                $mssgDiv.find('.error-' + $field.attr('name')).remove();
               });
             });
             
-            $('#form-messages').slideDown(150);
+            $mssgDiv.slideDown(150);
           }
           else if (typeof obj.message == 'string') {
             $form.fadeOut(150, function() {
-              $form.html('<div id="form-messages"><p class="success">' + obj.message + '</p></div> <!-- /#form-messages -->');
+              $form.html('<div class="form-messages"><p class="success">' + obj.message + '</p></div> <!-- /.form-messages -->');
               $form.fadeIn(150, function() {
-                $('#form-messages').fadeIn(150);
+                $mssgDiv.fadeIn(150);
               });
             });
           }

@@ -34,6 +34,8 @@ a {
   transition: all 0.25s ease; }
   a:link, a:visited, a:hover, a:active, a:focus {
     text-decoration: none; }
+  a:link, a:visited, a:hover, a:active, a:focus {
+    color: black; }
 
 .row {
   width: 100%;
@@ -218,7 +220,7 @@ p.wwa-bio {
   line-height: normal;
   color: #00abd6; }
 
-#contact-form {
+form.block-auto {
   max-width: 460px; }
 
 .textfield,
@@ -258,20 +260,34 @@ textarea {
   #field-submit:hover, #field-submit:active, #field-submit:focus {
     outline: none; }
 
-#form-messages {
+.form-messages {
   display: none;
   width: 100%;
   padding: 10px 0;
   text-align: center;
   color: #00abd6;
   font-weight: 600; }
-  #form-messages p {
+  .form-messages p {
     margin: 0; }
-    #form-messages p.success {
+    .form-messages p.success {
       font-weight: 200;
       font-size: 30px;
       line-height: normal; }
 
+#intern-form {
+  margin-top: 100px; }
+
+.form-sec-title {
+  margin-top: 36px;
+  margin-bottom: 0.5em;
+  font: 600 16px/normal "Source Sans Pro", Arial, sans-serif;
+  color: #303030; }
+
+label {
+  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif;
+  color: #303030;
+  cursor: pointer; }
+
 ::-webkit-input-placeholder {
   font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
 
@@ -295,6 +311,42 @@ textarea {
 
 :-ms-input-placeholder {
   color: #cbcbcb; }
+
+select,
+select.block-auto {
+  width: 100%;
+  margin-bottom: 1em;
+  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif;
+  color: #303030; }
+
+.sub-question::-webkit-input-placeholder {
+  font-style: italic; }
+
+.sub-question:-moz-placeholder {
+  font-style: italic; }
+
+.sub-question::-moz-placeholder {
+  font-style: italic; }
+
+.sub-question:-ms-input-placeholder {
+  font-style: italic; }
+
+.radios-overview.block-auto {
+  margin-top: 36px; }
+
+.radios-wrapper {
+  margin-bottom: 36px; }
+
+.radio-wrapper label {
+  padding-left: 10px;
+  font-size: 1.5em;
+  vertical-align: middle; }
+
+.file-label {
+  margin-top: 36px; }
+
+input[type="radio"] {
+  vertical-align: middle; }
 
 #popout-nav {
   display: block;

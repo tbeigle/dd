@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <slideshows>
 	<show page="home" autoslide="no">
-		<slide src="/images/slide-arr.jpg" alt="Screenshot of allravereviews.com homepage">
-			<title>All Rave Reviews</title>
-			<caption>Drupal 7, custom theme and modules</caption>
+		<slide src="/images/slide-sdt.jpg" alt="Screenshot of ScalableDisplay.com homepage">
+		  <title url="http://scalabledisplay.com/">ScalableDisplay.com</title>
+		  <caption>Site migration from Drupal 5 to Drupal 7</caption>
+		  <!--
+		  <testimonial>
+		    <quote>This is my first time working on a drupal project like this and it could have been so painful! But you were really helpful and a pleasure to work with. I think the website turned out great and we are very pleased on our end.</quote>
+		    <source>Aina Torralba</source>
+		  </testimonial>
+		  -->
 		</slide>
-		<slide src="/images/slide-dt.jpg" alt="Screenshot of de-tourist.com homepage">
-			<title>deTourist</title>
-			<caption>Drupal 7, responsive, e-commerce, in-place page editing</caption>
+		<slide src="/images/slide-psc.jpg" alt="Screenshot of the parkstreet.org homepage.">
+		  <title url="http://www.parkstreet.org/">ParkStreet.org</title>
+		  <caption>Drupal 7, responsive, custom modules, custom theme built from HTML templates provided by <a href='http://irontoiron.com/' target='_blank'>Iron to Iron</a></caption>
+		</slide>
+		<slide src="/images/slide-avida.jpg" alt="Screenshot of avidainc.com homepage">
+		  <title url="http://avidainc.com/">AvidaInc.com</title>
+		  <caption>Drupal 7, responsive, custom theme based on design provided by <a href='http://www.zbrastudios.com/' target='_blank'>Zbra Studios</a></caption>
 		</slide>
 		<slide src="/images/slide-cb.jpg" alt="Screenshot of corybishopmusic.com">
-			<title>CoryBishopMusic.com</title>
-			<caption>Drupal 7, responsive, in-place page editing, multiple API integrations</caption>
+			<title url="http://corybishopmusic.com/">CoryBishopMusic.com</title>
+			<caption>Original design, Drupal 7, responsive, in-place page editing, multiple API integrations</caption>
+		</slide>
+		<slide src="/images/slide-arr.jpg" alt="Screenshot of allravereviews.com homepage">
+			<title url="http://allravereviews.com/">AllRaveReviews.com</title>
+			<caption>Drupal 7, custom theme and modules</caption>
 		</slide>
   </show>
 </slideshows>

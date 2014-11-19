@@ -107,13 +107,13 @@
       <h2 id="ttu-title">Talk to Us</h2>
       
       <form name="contactForm" id="contact-form" class="block-auto" method="post" action="/includes/form-submit.php">
-        <div id="form-messages"></div> <!-- /#form-messages -->
+        <div class="form-messages"></div> <!-- /.form-messages -->
         <input type="text" name="name" id="field-name" class="textfield placeholder-label block-auto required" placeholder="What is your name?" tabindex="9">
         <input type="email" name="email" id="field-email" class="textfield placeholder-label block-auto required" placeholder="Email address?" tabindex="10">
         <input type="text" name="subject" id="field-subject" class="textfield placeholder-label block-auto required" placeholder="Subject" tabindex="1000">
         <textarea name="message" id="field-message" class="placeholder-label block-auto required" placeholder="Message" tabindex="11"></textarea>
         
-        <a id="field-submit" class="block-auto no-scroll form-submit" href="#contact-form" tabindex="12">send</a>
+        <a id="field-submit" class="block-auto no-scroll form-submit" href="#contact-form" tabindex="12" data-messages="#ttu-container .form-messages">send</a>
       </form> <!-- /#contact-form -->
     </section> <!-- /#ttu-container /.container -->
     
