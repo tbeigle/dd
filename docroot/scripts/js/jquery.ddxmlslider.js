@@ -91,7 +91,9 @@
           slide_markup += 'data-tsource="' + $testimonial.find('source').text() + '" ';
         }
         
-        slide_markup += 'data-caption="' + $slide.find('caption').html() + '">';
+        var caption = $slide.find('caption').html().replace(/Zbra Studios/, "<a href='http://zbrastudios.com' target='_blank'>Zbra Studios</a>");
+        
+        slide_markup += 'data-caption="' + caption + '">';
         slide_markup += '<img src="' + $slide.attr('src') + '" alt="' + $slide.attr('alt') + '">';
         slide_markup += '</li>';
         ++slide_count;
