@@ -1,0 +1,17 @@
+name = DD People
+core = 7.x
+package = DD
+dependencies[] = features
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = field_user_bio
+features[field_base][] = field_user_fn
+features[field_base][] = field_user_ln
+features[field_base][] = field_user_pos
+features[field_instance][] = user-user-field_user_bio
+features[field_instance][] = user-user-field_user_fn
+features[field_instance][] = user-user-field_user_pos
+features[user_role][] = administrator
+features[user_role][] = editor
+features[user_role][] = employee
+files[] = helpers/dd_people.wwa.inc

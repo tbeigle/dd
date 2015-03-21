@@ -1,5 +1,9 @@
 @import "mixins";
 
+#admin-menu {
+  z-index: 1001;
+}
+
 #popout-nav {
   display: block;
   position: absolute;

@@ -1,0 +1,82 @@
+<?php
+/**
+ * @file dd_people.module
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function dd_people_block_info() {
+  $items = array();
+  
+  $items['wwa'] = array(
+    'info' => t('Home: Who We Are'),
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function dd_people_block_view($delta = '') {
+  $block = array();
+  $mod_path = _dd_portfolio_mod_path();
+  
+  switch ($delta) {
+    case 'wwa': {
+      $block['subject'] = '';
+      $wwa = new _dd_people_wwa();
+      $block['content'] = array(
+        '#theme' => 'dd_people_wwa',
+        '#people' => $wwa->people,
+      );
+      
+      break;
+    }
+  }
+  
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function dd_people_theme($existing, $type, $theme, $path) {
+  $items = array();
+  
+  $items['dd_people_wwa'] = array(
+    'variables' => array(
+      'people' => array(),
+    ),
+    'template' => 'dd-people-wwa',
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function dd_people_form_webform_client_form_9_alter(&$form, &$form_state) {
+  $form['#attributes']['class'][] = 'block-auto';
+  $common_class = array(
+    'textfield',
+    'placeholder-label',
+    'block-auto',
+    'required',
+  );
+  
+  $form['submitted']['email_address']['#attributes']['class'] = $common_class;
+  $form['submitted']['what_is_your_name']['#attributes']['class'] = $common_class;
+  $form['submitted']['message']['#attributes']['class'] = array(
+    'placeholder-label',
+    'block-auto',
+    'required',
+  );
+  
+  foreach ($form['submitted'] as &$field) {
+    if (!is_array($field) || empty($field['#type'])) continue;
+    $field['#attributes']['placeholder'] = $field['#title'];
+  }
+}

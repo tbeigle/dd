@@ -75,7 +75,21 @@
 
 <?php if ($page['nav']): ?>
   <nav id="popout-nav" class="container">
-    <?php print render($page['nav']); ?>
+    <p id="popout-nav-toggle-wrapper" class="block-auto">
+      <a id="popout-nav-toggle" class="glyph no-scroll" href="#overlay-menu" tabindex="1">i</a>
+    </p> <!-- /#popout-nav-toggle-wrapper /.block-auto -->
+    
+    <nav id="fixed-menu-buttons">
+      <ul class="menu-buttons">
+      </ul> <!-- /.menu-buttons -->
+    </nav> <!-- /#fixed-menu-buttons -->
+    
+    <div id="overlay-menu">
+      <div class="inner">
+        <?php print render($page['nav']); ?>
+        <a class="close-me no-scroll" title="Click to close." href="#overlay-menu">x</a>
+      </div>
+    </div> <!-- /#overlay-menu -->
   </nav>
 <?php endif; ?>
 
@@ -111,7 +125,11 @@
 <?php if ($action_links): ?>
   <ul class="action-links"><?php print render($action_links); ?></ul>
 <?php endif; ?>
-<?php print render($page['content']); ?>
+
+<?php if ($page['content']): ?>
+  <?php print render($page['content']); ?>
+<?php endif; ?>
+
 <?php print $feed_icons; ?>
 
 <?php if ($page['secondary_content']): ?>

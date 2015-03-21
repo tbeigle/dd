@@ -159,6 +159,11 @@ a {
   margin: auto;
 }
 
+.clearfix {
+  clear: both;
+  @include clear();
+}
+
 #logo-title {
   position: relative;
   z-index: 5;
@@ -227,6 +232,14 @@ a {
   padding-bottom: 50px;
   background: url('../../images/bg-wwa-divider.png') center top repeat-y;
   
+  .row {
+    padding-top: 50px;
+    
+    &.row-1 {
+      padding-top: 0;
+    }
+  }
+  
   .column {
     padding-right: $padWWACols;
     text-align: center;
@@ -236,6 +249,19 @@ a {
         right: 0;
         left: $padWWACols;
       }
+    }
+    
+    &.clearfix {
+      float: none;
+      display: block;
+      background: #fff;
+      padding: {
+        top: 20px;
+        right: 4.3185%;
+        left: 4.3185%;
+      }
+      
+      margin: auto;
     }
   }
 }
@@ -318,17 +344,28 @@ textarea {
   display: none;
 }
 
-#field-submit {
-  margin-top: 52px;
+.form-actions {
+  margin: 52px auto 0;
+  text-align: center;
+}
+
+.form-submit {
+  border: none;
+  background: none;
   font: {
+    family: $fontFamMain;
     weight: $weightSSPExtraLight;
     size: 30px;
   }
+  
   line-height: normal;
+  cursor: pointer;
+  
   text: {
     align: center;
     transform: lowercase;
   }
+  color: $colHdLt;
   @include linkVisited(color, $colHdLt);
   @include hoverActiveFocus(color, $colBgWWD);
   @include hoverActiveFocus(outline, none);

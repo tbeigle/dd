@@ -123,6 +123,16 @@ a {
   display: block;
   margin: auto; }
 
+.clearfix {
+  clear: both; }
+  .clearfix:before, .clearfix:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  .clearfix:after {
+    clear: both; }
+
 #logo-title {
   position: relative;
   z-index: 5;
@@ -167,12 +177,24 @@ a {
   max-width: 822px;
   padding-bottom: 50px;
   background: url("../../images/bg-wwa-divider.png") center top repeat-y; }
+  #wwa-bios .row {
+    padding-top: 50px; }
+    #wwa-bios .row.row-1 {
+      padding-top: 0; }
   #wwa-bios .column {
     padding-right: 8.637%;
     text-align: center; }
     #wwa-bios .column.right {
       padding-right: 0;
       padding-left: 8.637%; }
+    #wwa-bios .column.clearfix {
+      float: none;
+      display: block;
+      background: #fff;
+      padding-top: 20px;
+      padding-right: 4.3185%;
+      padding-left: 4.3185%;
+      margin: auto; }
 
 .wwa-heading {
   font-size: 15px;
@@ -239,18 +261,26 @@ textarea {
 #field-subject {
   display: none; }
 
-#field-submit {
-  margin-top: 52px;
+.form-actions {
+  margin: 52px auto 0;
+  text-align: center; }
+
+.form-submit {
+  border: none;
+  background: none;
+  font-family: "Source Sans Pro", Arial, sans-serif;
   font-weight: 200;
   font-size: 30px;
   line-height: normal;
+  cursor: pointer;
   text-align: center;
-  text-transform: lowercase; }
-  #field-submit:link, #field-submit:visited {
+  text-transform: lowercase;
+  color: #00abd6; }
+  .form-submit:link, .form-submit:visited {
     color: #00abd6; }
-  #field-submit:hover, #field-submit:active, #field-submit:focus {
+  .form-submit:hover, .form-submit:active, .form-submit:focus {
     color: #303030; }
-  #field-submit:hover, #field-submit:active, #field-submit:focus {
+  .form-submit:hover, .form-submit:active, .form-submit:focus {
     outline: none; }
 
 .form-messages {
