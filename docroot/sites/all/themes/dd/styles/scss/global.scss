@@ -1,0 +1,417 @@
+@import "mixins";
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  overflow: scroll;
+  font: 14px/30px $fontFamMain;
+  color: $colTxtOnLT;
+}
+
+h1,h2,h3,h4 {
+  margin: auto;
+  font: {
+    weight: $weightSSPExtraLight;
+    family: $fontFamMain;
+  }
+  text-transform: uppercase;
+}
+
+a {
+  @include vendorize(transition, all 0.25s ease);
+  @include linkAllStates(text-decoration, none);
+  @include linkAllStates(color, #000);
+}
+
+.row {
+  width: 100%;
+  margin: auto;
+  @include clear;
+  overflow: hidden;
+}
+
+.column {
+  float: left;
+  margin: 0;
+  
+  &.right {
+    float: right;
+  }
+  
+  &.one {
+    width: 8.333%
+  }
+  
+  &.two {
+    width: 16.666%;
+  }
+  
+  &.three {
+    width: 25%;
+  }
+  
+  &.four {
+    width: 33.333%;
+  }
+  
+  &.five {
+    width: 41.666%;
+  }
+  
+  &.six {
+    width: 50%;
+  }
+  
+  &.seven {
+    width: 58.333%;
+  }
+  
+  &.eight {
+    width: 66.666%;
+  }
+  
+  &.nine {
+    width: 75%;
+  }
+  
+  &.ten {
+    width: 83.333%;
+  }
+  
+  &.eleven {
+    width: 91.666%;
+  }
+  
+  &.twelve {
+    float: none;
+    width: 100%;
+    @include clear();
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.container {
+  display: block;
+  padding: {
+    right: 20px;
+    left: 20px;
+  }
+  
+  &> .inner {
+    width: 100%;
+    max-width: 1102px;
+    margin: auto;
+    overflow: hidden;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.glyph {
+  font-family: $fontFamGlyph;
+}
+
+.scroll-nav-link {
+  position: relative;
+  z-index: 10;
+  width: 40px;
+  font: {
+    size: 75px;
+  }
+  line-height: 1;
+  
+  &.portfolio {
+    @include linkAllStates(color, $colArrwTp);
+  }
+  
+  &.wwd {
+    padding-top: 36px;
+    @include linkAllStates(color, #fff);
+  }
+  
+  &.wwa {
+    @include linkAllStates(color, $colScrollLinkWWA);
+  }
+  
+  @include linkAllStates(outline, none);
+}
+
+.block-auto {
+  display: block;
+  margin: auto;
+}
+
+#logo-title {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 490px;
+  padding: 22px 60px 0;
+  overflow: hidden;
+  margin: 0 auto 70px;
+  
+  .title-text {
+    position: absolute;
+    left: -9999px;
+  }
+}
+
+#logo {
+  width: 100%;
+  max-width: 370px;
+}
+
+// What we do
+#wwd-container {
+  background: $colBgWWD;
+  margin-bottom: 40px;
+  color: $colTxtOnDrk;
+  
+  &> .row {
+    max-width: 706px;
+    padding: 67px 0 36px;
+  }
+  
+  .section-title {
+    width: 46.0339%;
+    max-width: 309px;
+    font: {
+      size: 115px;
+    }
+    
+    line-height: normal;
+    color: $colHdLt;
+  }
+  
+  .section-text {
+    width: 53.966%;
+    padding-left: 4.1994%;
+    
+    p {
+      margin: 30px 0 0;
+      font-weight: $weightSSPLight;
+      
+      &:first-child {
+        //margin-top: 40px;
+      }
+    }
+  }
+}
+
+// Who We Are
+#wwa-container {
+  padding-top: 40px;
+  background: #fff;
+}
+
+#wwa-bios {
+  max-width: 822px;
+  padding-bottom: 50px;
+  background: url('../../images/bg-wwa-divider.png') center top repeat-y;
+  
+  .column {
+    padding-right: $padWWACols;
+    text-align: center;
+    
+    &.right {
+      padding: {
+        right: 0;
+        left: $padWWACols;
+      }
+    }
+  }
+}
+
+.wwa-heading {
+  font-size: 15px;
+  line-height: normal;
+  color: $colHdLt;
+}
+
+.wwa-name {
+  margin-bottom: 1em;
+  font: {
+    weight: $weightSSPSemiBold;
+    size: 40px;
+  }
+  
+  line-height: normal;
+  color: $colHdDrk;
+}
+
+p.wwa-bio {
+  font-size: 15px;
+  line-height: 2;
+}
+
+#wwa-scroll-nav-link {
+  width: 102px;
+  height: 102px;
+  padding-top: 13px;
+  border: 1px solid $colSLWWAWBorder;
+  @include vendorize(border-radius, 50%);
+  margin: 8px auto 59px;
+}
+
+// Talk to Us
+#ttu-container {
+  padding: {
+    top: 59px;
+    bottom: 180px;
+  }
+}
+
+#ttu-title {
+  margin-bottom: 90px;
+  text-align: center;
+  font: {
+    size: 60px;
+  }
+  line-height: normal;
+  color: $colHdLt;
+}
+
+form.block-auto {
+  max-width: 460px;
+}
+
+.textfield,
+textarea {
+  width: 100%;
+  padding: 11px 0;
+  margin: 0 0 36px;
+  border: none;
+  border-bottom: 1px solid $colFrmBrdrrs;
+  font: $weightSSPExtraLight 30px/normal $fontFamMain;
+  
+  @include hoverActiveFocus(outline, none);
+  
+  &.error {
+    border-color: $colHdLt;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+// honeypot field
+#field-subject {
+  display: none;
+}
+
+#field-submit {
+  margin-top: 52px;
+  font: {
+    weight: $weightSSPExtraLight;
+    size: 30px;
+  }
+  line-height: normal;
+  text: {
+    align: center;
+    transform: lowercase;
+  }
+  @include linkVisited(color, $colHdLt);
+  @include hoverActiveFocus(color, $colBgWWD);
+  @include hoverActiveFocus(outline, none);
+}
+
+.form-messages {
+  display: none;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  color: $colHdLt;
+  font: {
+    weight: $weightSSPSemiBold;
+  }
+  
+  p {
+    margin: 0;
+    
+    &.success {
+      font: {
+        weight: $weightSSPExtraLight;
+        size: 30px;
+      }
+      line-height: normal;
+    }
+  }
+}
+
+#intern-form {
+  margin-top: 100px;
+}
+
+.form-sec-title {
+  margin: {
+    top: 36px;
+    bottom: 0.5em;
+  }
+  font: $weightSSPSemiBold 16px/normal $fontFamMain;
+  color: $colBgWWD;
+}
+
+label {
+  font: $weightSSPExtraLight 30px/normal $fontFamMain;
+  color: $colBgWWD;
+  cursor: pointer;
+}
+
+@include vendorizePlaceholder(font, $weightSSPExtraLight 30px/normal $fontFamMain);
+@include vendorizePlaceholder(color, $colPlaceholder);
+
+select,
+select.block-auto {
+  width: 100%;
+  margin-bottom: 1em;
+  font: $weightSSPExtraLight 30px/normal $fontFamMain;
+  color: $colBgWWD;
+}
+
+@include vendorizePlaceholder(font-style, italic, ".sub-question");
+
+.radios-overview.block-auto {
+  margin-top: 36px;
+}
+
+.radios-wrapper {
+  margin-bottom: 36px;
+}
+
+.radio-wrapper {
+  label {
+    padding-left: 10px;
+    font-size: 1.5em;
+    vertical-align: middle;
+  }
+}
+
+.file-label {
+  margin-top: 36px;
+}
+
+input[type="file"] {
+}
+
+input[type="radio"] {
+  vertical-align: middle;
+}

@@ -1,0 +1,76 @@
+<?php
+/**
+ * @file
+ * Code for the DD Portfolio feature.
+ */
+
+include_once 'dd_portfolio.features.inc';
+
+/**
+ * Implements hook_block_info().
+ */
+function dd_portfolio_block_info() {
+  $items = array();
+  
+  $items['slider'] = array(
+    'info' => t('Portfolio Slideshow'),
+  );
+  
+  return $items;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function dd_portfolio_block_view($delta = '') {
+  $block = array();
+  $mod_path = _dd_portfolio_mod_path();
+  
+  switch ($delta) {
+    case 'slider': {
+      drupal_add_js($mod_path . '/js/dd-portfolio.js');
+      
+      $slider = new _dd_portfolio_slider();
+      
+      $block['subject'] = '';
+      $block['content'] = array(
+        '#theme' => 'dd_portfolio_slider',
+        '#slides' => $slider->slides,
+      );
+      
+      break;
+    }
+  }
+  
+  return $block;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function dd_portfolio_theme($existing, $type, $theme, $path) {
+  $items = array();
+  
+  $items['dd_portfolio_slider'] = array(
+    'variables' => array(
+      'slides' => array(),
+      'path' => $path,
+    ),
+    'template' => 'dd-portfolio-slider',
+  );
+  
+  return $items;
+}
+
+/**
+ * Helper function for storing and returning the module path
+ */
+function _dd_portfolio_mod_path() {
+  global $_dd_portfolio_mod_path;
+  
+  if (empty($_dd_portfolio_mod_path)) {
+    $_dd_portfolio_mod_path = drupal_get_path('module', 'dd_portfolio');
+  }
+    
+  return $_dd_portfolio_mod_path;
+}

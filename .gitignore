@@ -9,3 +9,14 @@ testing*
 *testing*
 private*
 *private
+# Ignore select Drupal files
+docroot/INSTALL.txt
+docroot/INSTALL.mysql.txt
+docroot/INSTALL.pgsql.txt
+docroot/INSTALL.sqlite.txt
+docroot/old/*
+docroot/install.php
+docroot/README.txt
+docroot/sites/README.txt
+docroot/sites/example.sites.php
+docroot/sites/default/default.settings.php
