@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the DD Blog feature.
+ */
+
+include_once 'dd_blog.features.inc';
