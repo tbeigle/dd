@@ -12,6 +12,40 @@ function is_string(str) {
 (function($) {
   Drupal.behaviors.dd = {
     attach: function(context, settings) {
+      function remove_hash () { 
+        var scrollV,
+            scrollH,
+            loc = window.location,
+            $target = $(loc.hash);
+          
+        $target = $target.length ? $target : $('[id=' + loc.hash.slice(1) +']');
+        if ($target.length) {
+          if (!$('body').hasClass('scrolling')) $('body').addClass('scrolling');
+          
+          $('html,body').animate({
+            scrollTop: $target.offset().top
+          }, 250, function() {
+            $('body').removeClass('scrolling');
+          });
+        }
+        /*
+        if ('pushState' in history) {
+          history.pushState("", document.title, loc.pathname + loc.search);
+        }
+        else {
+          // Prevent scrolling by storing the page's current scroll offset
+          scrollV = document.body.scrollTop;
+          scrollH = document.body.scrollLeft;
+      
+          loc.hash = '';
+      
+          // Restore the scroll offset, should be flicker free
+          document.body.scrollTop = scrollV;
+          document.body.scrollLeft = scrollH;
+        }
+        */
+      }
+      
       if (('#fixed-menu-buttons').length) {
         // Add the main-nav-link class to the flyout nav items
         $('#overlay-menu .block-menu .content .menu li a').addClass('main-nav-link');
@@ -59,6 +93,7 @@ function is_string(str) {
           win_width = $(window).outerWidth(),
           width_cutoff_1 = 765;
       
+      remove_hash();
       $overlayMenu.css({'min-height': win_height + 'px'}).hide();
       
       $('a[href*=#]:not([href=#])').on('click', function() {
@@ -181,5 +216,5 @@ function is_string(str) {
       
       $('body').removeClass('scrolling');
     }
-  }
+  };
 })(jQuery);

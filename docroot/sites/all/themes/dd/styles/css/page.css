@@ -13,5 +13,48 @@ body > .tabs {
       float: left;
       display: block;
       clear: both; }
+body.not-front #logo-title {
+  margin-bottom: 0; }
+body.not-front .region {
+  width: 100%;
+  padding: 20px; }
+body.not-front #page-title {
+  margin: 0.5em auto;
+  font-weight: 600; }
+body.not-front > #page-title {
+  width: 100%;
+  max-width: 800px; }
+body.not-front .region > div {
+  width: 100%;
+  max-width: 800px;
+  margin: auto; }
+
+.submitted-details {
+  line-height: normal; }
+  .submitted-details.author {
+    font-weight: 600; }
+  .submitted-details.date-posted {
+    font-style: italic; }
+
+.field-type-taxonomy-term-reference {
+  line-height: normal; }
+  .field-type-taxonomy-term-reference .field-items .field-item {
+    display: inline; }
+    .field-type-taxonomy-term-reference .field-items .field-item:before {
+      display: inline;
+      content: ', '; }
+    .field-type-taxonomy-term-reference .field-items .field-item:first-child:before {
+      display: none;
+      content: ''; }
+  .field-type-taxonomy-term-reference .field-items a {
+    font-style: italic; }
+    .field-type-taxonomy-term-reference .field-items a:link, .field-type-taxonomy-term-reference .field-items a:visited, .field-type-taxonomy-term-reference .field-items a:hover, .field-type-taxonomy-term-reference .field-items a:active, .field-type-taxonomy-term-reference .field-items a:focus {
+      color: #787878; }
+    .field-type-taxonomy-term-reference .field-items a:hover, .field-type-taxonomy-term-reference .field-items a:active, .field-type-taxonomy-term-reference .field-items a:focus {
+      text-decoration: underline; }
+
+.field-name-field-blog-post-body {
+  width: 100%;
+  max-width: 500px; }
 
 /*# sourceMappingURL=page.css.map */

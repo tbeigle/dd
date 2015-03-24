@@ -1,0 +1,4 @@
+name = DD Site
+core = 7.x
+package = DD
+dependencies[] = contextual

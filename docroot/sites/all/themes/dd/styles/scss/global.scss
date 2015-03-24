@@ -167,6 +167,7 @@ a {
 #logo-title {
   position: relative;
   z-index: 5;
+  display: block;
   width: 100%;
   max-width: 490px;
   padding: 22px 60px 0;
@@ -182,137 +183,6 @@ a {
 #logo {
   width: 100%;
   max-width: 370px;
-}
-
-// What we do
-#wwd-container {
-  background: $colBgWWD;
-  margin-bottom: 40px;
-  color: $colTxtOnDrk;
-  
-  &> .row {
-    max-width: 706px;
-    padding: 67px 0 36px;
-  }
-  
-  .section-title {
-    width: 46.0339%;
-    max-width: 309px;
-    font: {
-      size: 115px;
-    }
-    
-    line-height: normal;
-    color: $colHdLt;
-  }
-  
-  .section-text {
-    width: 53.966%;
-    padding-left: 4.1994%;
-    
-    p {
-      margin: 30px 0 0;
-      font-weight: $weightSSPLight;
-      
-      &:first-child {
-        //margin-top: 40px;
-      }
-    }
-  }
-}
-
-// Who We Are
-#wwa-container {
-  padding-top: 40px;
-  background: #fff;
-}
-
-#wwa-bios {
-  max-width: 822px;
-  padding-bottom: 50px;
-  background: url('../../images/bg-wwa-divider.png') center top repeat-y;
-  
-  .row {
-    padding-top: 50px;
-    
-    &.row-1 {
-      padding-top: 0;
-    }
-  }
-  
-  .column {
-    padding-right: $padWWACols;
-    text-align: center;
-    
-    &.right {
-      padding: {
-        right: 0;
-        left: $padWWACols;
-      }
-    }
-    
-    &.clearfix {
-      float: none;
-      display: block;
-      background: #fff;
-      padding: {
-        top: 20px;
-        right: 4.3185%;
-        left: 4.3185%;
-      }
-      
-      margin: auto;
-    }
-  }
-}
-
-.wwa-heading {
-  font-size: 15px;
-  line-height: normal;
-  color: $colHdLt;
-}
-
-.wwa-name {
-  margin-bottom: 1em;
-  font: {
-    weight: $weightSSPSemiBold;
-    size: 40px;
-  }
-  
-  line-height: normal;
-  color: $colHdDrk;
-}
-
-p.wwa-bio {
-  font-size: 15px;
-  line-height: 2;
-}
-
-#wwa-scroll-nav-link {
-  width: 102px;
-  height: 102px;
-  padding-top: 13px;
-  border: 1px solid $colSLWWAWBorder;
-  @include vendorize(border-radius, 50%);
-  margin: 8px auto 59px;
-}
-
-// Talk to Us
-#ttu-container {
-  padding: {
-    top: 59px;
-    bottom: 180px;
-  }
-}
-
-#ttu-title {
-  margin-bottom: 90px;
-  text-align: center;
-  font: {
-    size: 60px;
-  }
-  line-height: normal;
-  color: $colHdLt;
 }
 
 form.block-auto {
@@ -451,4 +321,26 @@ input[type="file"] {
 
 input[type="radio"] {
   vertical-align: middle;
+}
+
+ul.inline {
+  li {
+    &:first-child {
+      padding: {
+        left: 0;
+      }
+    }
+  }
+  
+  &.links {
+    li {
+      a {
+        @include linkAllStates(color, $colScrollLinkWWA);
+        @include hoverActiveFocus(text-decoration, underline);
+      }
+    }
+  }
+}
+ul.inline li:first-child {
+  padding-left: 0;
 }

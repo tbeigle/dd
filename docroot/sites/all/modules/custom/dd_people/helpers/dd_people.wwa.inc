@@ -36,6 +36,15 @@ class _dd_people_wwa {
     $users = entity_load('user', $uids);
     $toggle = 'right';
     $row = 0;
+    $ua = user_access('administer users');
+    $lt = t('edit');
+    $l_opts = array(
+      'attributes' => array('class' => array('wwa-edit-link')),
+      'query' => array(
+        'destination' => '#wwa-container',
+      ),
+    );
+    
     foreach ($users as $u) {
       if ($toggle == 'right') {
         $toggle = 'left';
@@ -45,11 +54,19 @@ class _dd_people_wwa {
         $toggle = 'right';
       }
       
+      if ($ua) {
+        $edit_link = l($lt, 'user/' . $u->uid . '/edit', $l_opts);
+      }
+      else {
+        $edit_link = '';
+      }
+      
       $uw = entity_metadata_wrapper('user', $u);
       $this->people[$row][] = (object) array(
         'name' => $uw->field_user_fn->value() . ' ' . $uw->field_user_ln->value(),
         'bio' => $uw->field_user_bio->value->value(),
         'css_class' => 'column six ' . $toggle,
+        'link' => !empty($edit_link) ? $edit_link : '',
       );
     }
   }

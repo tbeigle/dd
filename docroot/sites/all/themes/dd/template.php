@@ -48,17 +48,35 @@ function dd_preprocess_html(&$vars) {
  * Implements template_preprocess_node().
  */
 function dd_preprocess_node(&$vars) {
+  if (variable_get('node_submitted_' . $vars['node']->type, TRUE)) {
+    $date = format_date($vars['node']->created);
+    $vars['submitted'] =
+      '<div class="submitted-details author">' .
+        t('By !username', array('!username' => $vars['name'])) .
+      '</div>' .
+      '<div class="submitted-details date-posted">' .
+        $date .
+      '</div>';
+  }
 }
 
 /**
  * Implements template_preprocess_page().
  */
 function dd_preprocess_page(&$vars) {
+  $vars['show_title'] = !$vars['is_front'] && empty($vars['node']);
+  
   if ($vars['is_front'] && !empty($vars['page']['content']['system_main'])) {
     $sm = $vars['page']['content']['system_main'];
     
     if (!empty($sm['default_message'])) {
       unset($vars['page']['content']['system_main']);
+    }
+  }
+  
+  if (!$vars['is_front']) {
+    if (empty($vars['logo'])) {
+      $vars['logo'] = url(_dd_theme_path() . '/images/logo-watermark.png', array('absolute' => TRUE));
     }
   }
 }

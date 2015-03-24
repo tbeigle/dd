@@ -79,11 +79,12 @@
       <a id="popout-nav-toggle" class="glyph no-scroll" href="#overlay-menu" tabindex="1">i</a>
     </p> <!-- /#popout-nav-toggle-wrapper /.block-auto -->
     
-    <nav id="fixed-menu-buttons">
-      <ul class="menu-buttons">
-      </ul> <!-- /.menu-buttons -->
-    </nav> <!-- /#fixed-menu-buttons -->
-    
+    <?php if ($is_front): ?>
+      <nav id="fixed-menu-buttons">
+        <ul class="menu-buttons">
+        </ul> <!-- /.menu-buttons -->
+      </nav> <!-- /#fixed-menu-buttons -->
+    <?php endif; ?>
     <div id="overlay-menu">
       <div class="inner">
         <?php print render($page['nav']); ?>
@@ -94,15 +95,18 @@
 <?php endif; ?>
 
 <?php if ($logo && !$is_front): ?>
-  <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-    <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+  <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo-title">
+    <span class="title-text">Designated Developers</span>
+    <img id="logo" src="<?php print $logo; ?>" alt="Watermark logo for Designated Developers" />
   </a>
 <?php endif; ?>
 
 <?php print render($page['header']); ?>
 
 <?php if ($breadcrumb): ?>
-  <div id="breadcrumb"><?php print $breadcrumb; ?></div>
+  <!--
+  <div id="breadcrumb"><?php //print $breadcrumb; ?></div>
+  -->
 <?php endif; ?>
 
 <?php print $messages; ?>
@@ -110,11 +114,11 @@
 <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
 <a id="main-content"></a>
 
-<?php if ($title && !$is_front): ?>
-  <?php print render($title_prefix); ?>
+<?php print render($title_prefix); ?>
+<?php if ($title && $show_title): ?>
   <h1 class="title" id="page-title"><?php print $title; ?></h1>
-  <?php print render($title_suffix); ?>
 <?php endif; ?>
+<?php print render($title_suffix); ?>
 
 <?php if ($tabs): ?>
   <div class="tabs"><?php print render($tabs); ?></div>

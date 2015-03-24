@@ -2,6 +2,11 @@
   width: 100%;
   background: url("../../images/bg-portfolio-shadow.png") center 324px no-repeat;
   overflow: hidden; }
+  #portfolio-container .contextual-links-wrapper {
+    right: auto;
+    top: auto;
+    left: 100px;
+    bottom: 50px; }
   #portfolio-container .portfolio-top-text {
     width: 100%;
     max-width: 500px;

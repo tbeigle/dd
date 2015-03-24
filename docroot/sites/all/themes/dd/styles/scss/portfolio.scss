@@ -6,6 +6,13 @@
   background:  url('../../images/bg-portfolio-shadow.png') center 324px no-repeat;
   overflow: hidden;
   
+  .contextual-links-wrapper {
+    right: auto;
+    top: auto;
+    left: 100px;
+    bottom: 50px;
+  }
+  
   .portfolio-top-text {
     width: 100%;
     max-width: 500px;

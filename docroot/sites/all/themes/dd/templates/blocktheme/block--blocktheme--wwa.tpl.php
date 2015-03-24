@@ -47,11 +47,11 @@
 <section id="wwa-container" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <img id="wwa-logo" class="block-auto" src="<?php print $img_path; ?>" alt="Designated Developers logo in blue">
   <div class="content"<?php print $content_attributes; ?>>
+    <?php print render($title_prefix); ?>
     <?php if ($block->subject): ?>
-      <?php print render($title_prefix); ?>
       <h2<?php print $title_attributes; ?>><?php print $block->subject ?></h2>
-      <?php print render($title_suffix); ?>
     <?php endif;?>
+    <?php print render($title_suffix); ?>
     
     <?php print $content ?>
   </div>

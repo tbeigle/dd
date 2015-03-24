@@ -54,7 +54,7 @@ function dd_portfolio_theme($existing, $type, $theme, $path) {
   $items['dd_portfolio_slider'] = array(
     'variables' => array(
       'slides' => array(),
-      'path' => $path,
+      'path' => '/' . drupal_get_path('theme', 'dd'),
     ),
     'template' => 'dd-portfolio-slider',
   );

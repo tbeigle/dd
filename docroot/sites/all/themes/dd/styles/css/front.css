@@ -1,3 +1,94 @@
+#wwd-container {
+  background: #303030;
+  margin-bottom: 40px;
+  color: #ededed; }
+  #wwd-container > .row {
+    max-width: 706px;
+    padding: 67px 0 36px; }
+  #wwd-container .section-title {
+    width: 46.0339%;
+    max-width: 309px;
+    font-size: 115px;
+    line-height: normal;
+    color: #00abd6; }
+  #wwd-container .section-text {
+    width: 53.966%;
+    padding-left: 4.1994%; }
+    #wwd-container .section-text p {
+      margin: 30px 0 0;
+      font-weight: 300; }
 
+#wwa-container {
+  padding-top: 40px;
+  background: #fff; }
+
+.wwa-edit-link {
+  position: absolute;
+  top: 0;
+  right: 8.637%;
+  display: none; }
+  .wwa-edit-link:link, .wwa-edit-link:visited, .wwa-edit-link:hover, .wwa-edit-link:active, .wwa-edit-link:focus {
+    color: #787878; }
+  .wwa-edit-link:hover, .wwa-edit-link:active, .wwa-edit-link:focus {
+    text-decoration: underline; }
+
+#wwa-bios {
+  max-width: 822px;
+  padding-bottom: 50px;
+  background: url("../../images/bg-wwa-divider.png") center top repeat-y; }
+  #wwa-bios .row {
+    padding-top: 50px; }
+    #wwa-bios .row.row-1 {
+      padding-top: 0; }
+  #wwa-bios .column {
+    position: relative;
+    padding-right: 8.637%;
+    text-align: center; }
+    #wwa-bios .column.right {
+      padding-right: 0;
+      padding-left: 8.637%; }
+      #wwa-bios .column.right .wwa-edit-link {
+        right: 0; }
+    #wwa-bios .column:hover .wwa-edit-link {
+      display: inline-block; }
+
+.wwa-heading {
+  font-size: 15px;
+  line-height: normal;
+  color: #00abd6; }
+
+.wwa-name {
+  margin-bottom: 1em;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: normal;
+  color: #000003; }
+
+p.wwa-bio {
+  font-size: 15px;
+  line-height: 2; }
+
+#wwa-scroll-nav-link {
+  width: 102px;
+  height: 102px;
+  padding-top: 13px;
+  border: 1px solid #e2e2e2;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  margin: 8px auto 59px; }
+
+#ttu-container {
+  padding-top: 59px;
+  padding-bottom: 180px; }
+
+#ttu-title {
+  margin-bottom: 90px;
+  text-align: center;
+  font-size: 60px;
+  line-height: normal;
+  color: #00abd6; }
 
 /*# sourceMappingURL=front.css.map */

@@ -48,6 +48,7 @@ function dd_people_theme($existing, $type, $theme, $path) {
   $items['dd_people_wwa'] = array(
     'variables' => array(
       'people' => array(),
+      'wwahead' => t('Who We Are'),
     ),
     'template' => 'dd-people-wwa',
   );

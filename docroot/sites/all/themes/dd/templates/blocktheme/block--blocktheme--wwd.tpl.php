@@ -46,9 +46,11 @@
 ?>
 <section id="wwd-container" class="<?php print $classes; ?>"<?php print $attributes; ?>>
   <div class="content row"<?php print $content_attributes; ?>>
+    <?php print render($title_prefix); ?>
     <?php if ($block->subject): ?>
       <h2 id="wwd-title" class="column five section-title"><?php print $block->subject ?></h2>
     <?php endif;?>
+    <?php print render($title_suffix); ?>
     
     <div id="wwd-text" class="column right seven section-text">
       <?php print $content ?>
