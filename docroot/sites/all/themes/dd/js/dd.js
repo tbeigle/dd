@@ -46,7 +46,7 @@ function is_string(str) {
         */
       }
       
-      if (('#fixed-menu-buttons').length) {
+      if (('#fixed-menu-buttons').length && !$('#fixed-menu-buttons .menu-buttons li').length) {
         // Add the main-nav-link class to the flyout nav items
         $('#overlay-menu .block-menu .content .menu li a').addClass('main-nav-link');
         // Build the section dots
@@ -202,15 +202,17 @@ function is_string(str) {
       });
       
       $('.close-me').on('click', function() {
-        $($(this).attr('href')).fadeToggle(dur_toggle);
+        $($(this).attr('href')).fadeOut(dur_toggle);
         $('body').addClass('no-overlay');
+        $('#popout-nav-toggle').show();
         return false;
       });
       
       $('#popout-nav-toggle').on('click', function() {
         win_height = $(window).height;
-        $overlayMenu.css({'height': win_height + 'px'}).fadeToggle(dur_toggle);
+        $overlayMenu.css({'height': win_height + 'px'}).fadeIn(dur_toggle);
         $('body').removeClass('no-overlay');
+        $(this).hide();
         return false;
       });
       
