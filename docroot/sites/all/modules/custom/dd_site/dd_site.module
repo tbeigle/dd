@@ -11,4 +11,3 @@ function dd_site_init() {
     drupal_goto('<front>');
   }
 }
-
