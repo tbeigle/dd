@@ -49,6 +49,8 @@
     <?php print render($title_prefix); ?>
     <?php if ($block->subject): ?>
       <h2 id="wwd-title" class="column five section-title"><?php print $block->subject ?></h2>
+      <h2 id="wwd-title-fixed" class="column five section-title"><?php print $block->subject ?></h2>
+      <h2 id="wwd-title-bottom" class="column five section-title"><?php print $block->subject ?></h2>
     <?php endif;?>
     <?php print render($title_suffix); ?>
     

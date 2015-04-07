@@ -70,7 +70,12 @@
     max-width: none;
     padding: 0; }
   #wwd-container .section-title {
-    font-size: 72px; } }
+    font-size: 72px; }
+
+  body.show-wwd-title-fixed #wwd-title, body.show-wwd-title-bottom #wwd-title {
+    display: block; }
+    body.show-wwd-title-fixed #wwd-title-fixed, body.show-wwd-title-fixed #wwd-title-bottom, body.show-wwd-title-bottom #wwd-title-fixed, body.show-wwd-title-bottom #wwd-title-bottom {
+      display: none; } }
 @media screen and (max-width: 660px) {
   #fixed-menu-buttons {
     display: none; } }

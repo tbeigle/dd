@@ -172,14 +172,36 @@ function is_string(str) {
         var last_section_key = 'block-dd-portfolio-slider';
       }
       
+      if ($('#wwd-container').length) {
+        var wwdoff = $('#wwd-container').offset(),
+            wwdbottomcut = wwdoff.top + $('#wwd-container').outerHeight() - 67,
+            wwdtitleheight = $('#wwd-title').outerHeight(),
+            wwdcutoff = wwdbottomcut - wwdtitleheight;
+      }
+      
       $(document).scroll(function() {
         if ($('body').hasClass('scrolling')) return;
         
         var current_scrolltop = $(document).scrollTop(),
             to_trigger = '',
-            scrolling_down = (current_scrolltop > last_scrolltop);
+            scrolling_down = (current_scrolltop > last_scrolltop),
+            scroll_bottom = current_scrolltop + $(window).height();
         
         if (current_scrolltop == 0) return;
+        
+        if ($('#wwd-container').length) {
+          if (current_scrolltop > wwdoff.top) {
+            if (scroll_bottom < wwdbottomcut) {
+              $('body').removeClass('show-wwd-title-bottom').addClass('show-wwd-title-fixed');
+            }
+            else {
+              $('body').removeClass('show-wwd-title-fixed').addClass('show-wwd-title-bottom');
+            }
+          }
+          else {
+            $('body').removeClass('show-wwd-title-fixed').removeClass('show-wwd-title-bottom');
+          }
+        }
         
         // Update the last scroll top
         last_scrolltop = current_scrolltop;

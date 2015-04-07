@@ -1,4 +1,5 @@
 #wwd-container {
+  position: relative;
   background: #303030;
   margin-bottom: 40px;
   color: #ededed; }
@@ -17,6 +18,23 @@
     #wwd-container .section-text p {
       margin: 30px 0 0;
       font-weight: 300; }
+
+body #wwd-title {
+  position: absolute; }
+  body #wwd-title-fixed, body #wwd-title-bottom {
+    display: none; }
+  body #wwd-title-fixed {
+    position: fixed;
+    top: 67px; }
+  body #wwd-title-bottom {
+    position: absolute;
+    bottom: 67px; }
+body.show-wwd-title-fixed #wwd-title, body.show-wwd-title-bottom #wwd-title {
+  display: none; }
+body.show-wwd-title-fixed #wwd-title-fixed {
+  display: block; }
+body.show-wwd-title-bottom #wwd-title-bottom {
+  display: block; }
 
 #wwa-container {
   padding-top: 40px;

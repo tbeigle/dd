@@ -2,6 +2,7 @@
 
 // What we do
 #wwd-container {
+  position: relative;
   background: $colBgWWD;
   margin-bottom: 40px;
   color: $colTxtOnDrk;
@@ -32,6 +33,48 @@
       
       &:first-child {
         //margin-top: 40px;
+      }
+    }
+  }
+}
+
+body {
+  #wwd-title {
+    position: absolute;
+    
+    &-fixed,
+    &-bottom {
+      display: none;
+    }
+    
+    &-fixed {
+      position: fixed;
+      top: 67px;
+    }
+    
+    &-bottom {
+      position: absolute;
+      bottom: 67px;
+    }
+  }
+  
+  &.show-wwd-title {
+    &-fixed,
+    &-bottom {
+      #wwd-title {
+        display: none;
+      }
+    }
+    
+    &-fixed {
+      #wwd-title-fixed {
+        display: block;
+      }
+    }
+    
+    &-bottom {
+      #wwd-title-bottom {
+        display: block;
       }
     }
   }

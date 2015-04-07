@@ -502,6 +502,7 @@ body.not-front .region > div {
   max-width: 500px; }
 
 #wwd-container {
+  position: relative;
   background: #303030;
   margin-bottom: 40px;
   color: #ededed; }
@@ -520,6 +521,23 @@ body.not-front .region > div {
     #wwd-container .section-text p {
       margin: 30px 0 0;
       font-weight: 300; }
+
+body #wwd-title {
+  position: absolute; }
+  body #wwd-title-fixed, body #wwd-title-bottom {
+    display: none; }
+  body #wwd-title-fixed {
+    position: fixed;
+    top: 67px; }
+  body #wwd-title-bottom {
+    position: absolute;
+    bottom: 67px; }
+body.show-wwd-title-fixed #wwd-title, body.show-wwd-title-bottom #wwd-title {
+  display: none; }
+body.show-wwd-title-fixed #wwd-title-fixed {
+  display: block; }
+body.show-wwd-title-bottom #wwd-title-bottom {
+  display: block; }
 
 #wwa-container {
   padding-top: 40px;
@@ -801,7 +819,12 @@ p.wwa-bio {
     max-width: none;
     padding: 0; }
   #wwd-container .section-title {
-    font-size: 72px; } }
+    font-size: 72px; }
+
+  body.show-wwd-title-fixed #wwd-title, body.show-wwd-title-bottom #wwd-title {
+    display: block; }
+    body.show-wwd-title-fixed #wwd-title-fixed, body.show-wwd-title-fixed #wwd-title-bottom, body.show-wwd-title-bottom #wwd-title-fixed, body.show-wwd-title-bottom #wwd-title-bottom {
+      display: none; } }
 @media screen and (max-width: 660px) {
   #fixed-menu-buttons {
     display: none; } }

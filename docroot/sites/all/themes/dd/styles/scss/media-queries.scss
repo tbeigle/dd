@@ -133,8 +133,23 @@
     }
     
     .section-title {
-      //text-align: center;
       font-size: 72px;
+    }
+  }
+  
+  body {
+    &.show-wwd-title {
+      &-fixed,
+      &-bottom {
+        #wwd-title {
+          display: block;
+          
+          &-fixed,
+          &-bottom {
+            display: none;
+          }
+        }
+      }
     }
   }
 }
