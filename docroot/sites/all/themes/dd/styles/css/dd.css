@@ -761,15 +761,20 @@ p.wwa-bio {
     #wwa-bios .column {
       float: none;
       clear: both;
-      width: 100%; }
+      width: 100%;
+      border-bottom: 3px solid #00abd6;
+      margin-bottom: 1em; }
       #wwa-bios .column.six {
         padding-right: 0; }
       #wwa-bios .column.right {
         padding-left: 0; }
-      #wwa-bios .column:first-child {
-        padding-top: 40px;
-        border-bottom: 3px solid #00abd6;
-        margin-bottom: 1em; } }
+    #wwa-bios .row {
+      padding-top: 0; }
+      #wwa-bios .row:first-child .column:first-child {
+        padding-top: 40px; }
+      #wwa-bios .row:last-child .column:last-child {
+        border-bottom: none;
+        margin-bottom: 0; } }
 @media screen and (max-width: 765px) {
   #portfolio-slider-wrapper {
     min-height: 400px;

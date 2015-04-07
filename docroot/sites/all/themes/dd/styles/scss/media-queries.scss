@@ -60,6 +60,8 @@
       float: none;
       clear: both;
       width: 100%;
+      border-bottom: 3px solid $colHdLt;
+      margin-bottom: 1em;
       
       &.six {
         padding-right: 0;
@@ -68,12 +70,26 @@
       &.right {
         padding-left: 0;
       }
+    }
+    
+    .row {
+      padding-top: 0;
       
       &:first-child {
-        padding-top: 40px;
-        
-        border-bottom: 3px solid $colHdLt;
-        margin-bottom: 1em;
+        .column {
+          &:first-child {
+            padding-top: 40px;
+          }
+        }
+      }
+      
+      &:last-child {
+        .column {
+          &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+          }
+        }
       }
     }
   }
