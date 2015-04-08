@@ -20,6 +20,10 @@
     }
     
     line-height: normal;
+  }
+  
+  .section-title,
+  h3 {
     color: $colHdLt;
   }
   
@@ -35,6 +39,12 @@
         //margin-top: 40px;
       }
     }
+  }
+  
+  h3 {
+    position: relative;
+    top: 30px;
+    font-weight: bold;
   }
 }
 
@@ -107,6 +117,24 @@ body {
     &.row-1 {
       padding-top: 0;
     }
+  }
+  
+  &.with-header {
+    .row-1 {
+      padding-top: 50px;
+    }
+  }
+  
+  #wwa-header {
+    position: relative;
+    padding: 20px 20px 0;
+    border: 3px solid $colHdLt;
+    border: {
+      left: none;
+      right: none;
+    }
+    background: #fff;
+    margin-top: 20px;
   }
   
   .column {

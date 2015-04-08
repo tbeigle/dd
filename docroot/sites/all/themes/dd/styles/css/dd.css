@@ -513,7 +513,9 @@ body.not-front .region > div {
     width: 46.0339%;
     max-width: 309px;
     font-size: 115px;
-    line-height: normal;
+    line-height: normal; }
+  #wwd-container .section-title,
+  #wwd-container h3 {
     color: #00abd6; }
   #wwd-container .section-text {
     width: 53.966%;
@@ -521,6 +523,10 @@ body.not-front .region > div {
     #wwd-container .section-text p {
       margin: 30px 0 0;
       font-weight: 300; }
+  #wwd-container h3 {
+    position: relative;
+    top: 30px;
+    font-weight: bold; }
 
 body #wwd-title {
   position: absolute; }
@@ -561,6 +567,16 @@ body.show-wwd-title-bottom #wwd-title-bottom {
     padding-top: 50px; }
     #wwa-bios .row.row-1 {
       padding-top: 0; }
+  #wwa-bios.with-header .row-1 {
+    padding-top: 50px; }
+  #wwa-bios #wwa-header {
+    position: relative;
+    padding: 20px 20px 0;
+    border: 3px solid #00abd6;
+    border-left: none;
+    border-right: none;
+    background: #fff;
+    margin-top: 20px; }
   #wwa-bios .column {
     position: relative;
     padding-right: 8.637%;

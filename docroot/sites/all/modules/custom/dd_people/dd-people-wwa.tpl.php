@@ -9,7 +9,15 @@
 ?>
 
 <?php if (!empty($people)): ?>
-  <div id="wwa-bios" class="row">
+  <div id="wwa-bios" class="row<?php if (!empty($header)) print ' with-header'; ?>">
+    <?php if (!empty($header)): ?>
+      <div id="wwa-header" class="row">
+        <h4 class="wwa-heading"><?php print $wwahead; ?></h4>
+        
+        <?php print $header; ?>
+      </div> <!-- /#wwa-header /.row -->
+    <?php endif; ?>
+    
     <?php foreach ($people as $index => $row): ?>
       <div class="row row-<?php print $index; ?>">
         <?php foreach ($row as $person): ?>
