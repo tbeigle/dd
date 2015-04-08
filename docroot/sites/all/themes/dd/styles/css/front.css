@@ -74,6 +74,8 @@ body.show-wwd-title-bottom #wwd-title-bottom {
     border-right: none;
     background: #fff;
     margin-top: 20px; }
+    #wwa-bios #wwa-header .wwa-heading {
+      text-align: center; }
   #wwa-bios .column {
     position: relative;
     padding-right: 8.637%;
