@@ -22,7 +22,7 @@
 body #wwd-title {
   position: absolute; }
   body #wwd-title-fixed, body #wwd-title-bottom {
-    display: none; }
+    visibility: hidden; }
   body #wwd-title-fixed {
     position: fixed;
     top: 67px; }
@@ -30,11 +30,11 @@ body #wwd-title {
     position: absolute;
     bottom: 67px; }
 body.show-wwd-title-fixed #wwd-title, body.show-wwd-title-bottom #wwd-title {
-  display: none; }
+  visibility: hidden; }
 body.show-wwd-title-fixed #wwd-title-fixed {
-  display: block; }
+  visibility: visible; }
 body.show-wwd-title-bottom #wwd-title-bottom {
-  display: block; }
+  visibility: visible; }
 
 #wwa-container {
   padding-top: 40px;

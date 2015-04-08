@@ -19,6 +19,7 @@
     #portfolio-container .portfolio-top-text strong {
       font-weight: 700; }
   #portfolio-container #portfolio-slider-wrapper {
+    display: none;
     position: relative;
     z-index: 5;
     width: 100%;

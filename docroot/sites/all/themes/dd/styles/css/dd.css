@@ -525,7 +525,7 @@ body.not-front .region > div {
 body #wwd-title {
   position: absolute; }
   body #wwd-title-fixed, body #wwd-title-bottom {
-    display: none; }
+    visibility: hidden; }
   body #wwd-title-fixed {
     position: fixed;
     top: 67px; }
@@ -533,11 +533,11 @@ body #wwd-title {
     position: absolute;
     bottom: 67px; }
 body.show-wwd-title-fixed #wwd-title, body.show-wwd-title-bottom #wwd-title {
-  display: none; }
+  visibility: hidden; }
 body.show-wwd-title-fixed #wwd-title-fixed {
-  display: block; }
+  visibility: visible; }
 body.show-wwd-title-bottom #wwd-title-bottom {
-  display: block; }
+  visibility: visible; }
 
 #wwa-container {
   padding-top: 40px;
@@ -633,6 +633,7 @@ p.wwa-bio {
     #portfolio-container .portfolio-top-text strong {
       font-weight: 700; }
   #portfolio-container #portfolio-slider-wrapper {
+    display: none;
     position: relative;
     z-index: 5;
     width: 100%;
@@ -746,6 +747,9 @@ p.wwa-bio {
     width: 100%;
     height: 394px;
     background: url("../../images/laptop.png") center 0 no-repeat; }
+
+.js #portfolio-container #portfolio-slider-wrapper {
+  display: block; }
 
 @media screen and (min-width: 661px) and (max-width: 920px) {
   #wwa-bios {

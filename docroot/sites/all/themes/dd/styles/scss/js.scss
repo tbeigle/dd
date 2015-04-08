@@ -1,1 +1,9 @@
 @import "mixins";
+
+.js {
+  #portfolio-container {
+    #portfolio-slider-wrapper {
+      display: block;
+    }
+  }
+}

@@ -44,7 +44,7 @@ body {
     
     &-fixed,
     &-bottom {
-      display: none;
+      visibility: hidden;
     }
     
     &-fixed {
@@ -62,19 +62,19 @@ body {
     &-fixed,
     &-bottom {
       #wwd-title {
-        display: none;
+        visibility: hidden;
       }
     }
     
     &-fixed {
       #wwd-title-fixed {
-        display: block;
+        visibility: visible;
       }
     }
     
     &-bottom {
       #wwd-title-bottom {
-        display: block;
+        visibility: visible;
       }
     }
   }
