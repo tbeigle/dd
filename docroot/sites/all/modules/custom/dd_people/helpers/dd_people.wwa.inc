@@ -64,6 +64,7 @@ class _dd_people_wwa {
       $uw = entity_metadata_wrapper('user', $u);
       $this->people[$row][] = (object) array(
         'name' => $uw->field_user_fn->value() . ' ' . $uw->field_user_ln->value(),
+        'position' => $uw->field_user_pos->value(),
         'bio' => $uw->field_user_bio->value->value(),
         'css_class' => 'column six ' . $toggle,
         'link' => !empty($edit_link) ? $edit_link : '',

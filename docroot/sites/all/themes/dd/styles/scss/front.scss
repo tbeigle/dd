@@ -180,6 +180,14 @@ body {
   
   line-height: normal;
   color: $colHdDrk;
+  
+  .wwa-heading {
+    text-transform: lowercase;
+    font: {
+      weight: 200;
+      size: 13px;
+    }
+  }
 }
 
 p.wwa-bio {
