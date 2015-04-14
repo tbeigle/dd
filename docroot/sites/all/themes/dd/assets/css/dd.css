@@ -522,6 +522,10 @@ body.not-front .region > div {
   width: 37.5%;
   max-width: 300px;
   padding-left: 20px; }
+  .node-right-col img,
+  .field-name-field-blog-post-img img {
+    display: block;
+    margin-botom: 10px; }
 
 /* Pages
  * -----------------------------------------------------------------------------*/
