@@ -18,7 +18,7 @@ function dd_preprocess_block(&$vars) {
         
         if ($vars['blocktheme'] == 'wwa') {
           $tp = _dd_theme_path();
-          $vars['img_path'] = $tp . '/images/logo-wwa.png';
+          $vars['img_path'] = $tp . '/assets/images/logo-wwa.png';
         }
       }
     }
@@ -76,7 +76,7 @@ function dd_preprocess_page(&$vars) {
   
   if (!$vars['is_front']) {
     if (empty($vars['logo'])) {
-      $vars['logo'] = url(_dd_theme_path() . '/images/logo-watermark.png', array('absolute' => TRUE));
+      $vars['logo'] = url(_dd_theme_path() . '/assets/images/logo-watermark.png', array('absolute' => TRUE));
     }
   }
 }
