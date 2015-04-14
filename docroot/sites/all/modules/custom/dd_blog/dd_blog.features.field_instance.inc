@@ -10,6 +10,52 @@
 function dd_blog_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'node-blog_post-field_blog_post_banner'
+  $field_instances['node-blog_post-field_blog_post_banner'] = array(
+    'bundle' => 'blog_post',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 6,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_blog_post_banner',
+    'label' => 'Banner',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 1,
+      'default_image' => 0,
+      'file_directory' => 'blog-post-banner',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 4,
+    ),
+  );
+
   // Exported field_instance: 'node-blog_post-field_blog_post_body'
   $field_instances['node-blog_post-field_blog_post_body'] = array(
     'bundle' => 'blog_post',
@@ -25,9 +71,12 @@ function dd_blog_field_default_field_instances() {
         'weight' => 0,
       ),
       'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 250,
+        ),
+        'type' => 'text_summary_or_trimmed',
         'weight' => 0,
       ),
     ),
@@ -70,7 +119,7 @@ function dd_blog_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'node',
@@ -89,6 +138,56 @@ function dd_blog_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-blog_post-field_blog_post_img'
+  $field_instances['node-blog_post-field_blog_post_img'] = array(
+    'bundle' => 'blog_post',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
+        'module' => 'image',
+        'settings' => array(
+          'image_link' => '',
+          'image_style' => 'medium',
+        ),
+        'type' => 'image',
+        'weight' => 5,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_blog_post_img',
+    'label' => 'Blog Image(s)',
+    'required' => 0,
+    'settings' => array(
+      'alt_field' => 1,
+      'default_image' => 0,
+      'file_directory' => 'blog-post',
+      'file_extensions' => 'png gif jpg jpeg',
+      'max_filesize' => '',
+      'max_resolution' => '',
+      'min_resolution' => '',
+      'title_field' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'image',
+      'settings' => array(
+        'preview_image_style' => 'thumbnail',
+        'progress_indicator' => 'throbber',
+      ),
+      'type' => 'image_image',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'node-blog_post-field_blog_post_tags'
   $field_instances['node-blog_post-field_blog_post_tags'] = array(
     'bundle' => 'blog_post',
@@ -101,13 +200,13 @@ function dd_blog_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'node',
@@ -131,6 +230,8 @@ function dd_blog_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Banner');
+  t('Blog Image(s)');
   t('Body');
   t('Category');
   t('Tags');

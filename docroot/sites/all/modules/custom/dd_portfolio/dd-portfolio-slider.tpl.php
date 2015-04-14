@@ -9,7 +9,7 @@
 ?>
 <h1 id="logo-title">
   <span class="title-text">Designated Developers</span>
-  <img id="logo" class="block-auto" src="<?php print $path; ?>/images/logo-watermark.png" alt="Watermark logo for Designated Developers">
+  <img id="logo" class="block-auto" src="<?php print $path; ?>/assets/images/logo-watermark.png" alt="Watermark logo for Designated Developers">
 </h1>
 
 <?php if (!empty($slides)): ?>

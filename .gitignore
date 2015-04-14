@@ -20,3 +20,4 @@ docroot/README.txt
 docroot/sites/README.txt
 docroot/sites/example.sites.php
 docroot/sites/default/default.settings.php
+docroot/sites/all/themes/dd/assets/node_modules/
