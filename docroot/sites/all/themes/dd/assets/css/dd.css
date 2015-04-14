@@ -525,7 +525,7 @@ body.not-front .region > div {
   .node-right-col img,
   .field-name-field-blog-post-img img {
     display: block;
-    margin-botom: 10px; }
+    margin-bottom: 10px; }
 
 /* Pages
  * -----------------------------------------------------------------------------*/
@@ -878,7 +878,30 @@ p.wwa-bio {
   body.show-wwd-title-fixed #wwd-title, body.show-wwd-title-bottom #wwd-title {
     display: block; }
     body.show-wwd-title-fixed #wwd-title-fixed, body.show-wwd-title-fixed #wwd-title-bottom, body.show-wwd-title-bottom #wwd-title-fixed, body.show-wwd-title-bottom #wwd-title-bottom {
-      display: none; } }
+      display: none; }
+
+  .field-name-field-blog-post-body {
+    float: none;
+    clear: both;
+    width: 100%;
+    max-width: none; }
+
+  .node-right-col,
+  .field-name-field-blog-post-img {
+    float: none;
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    overflow: hidden; }
+    .node-right-col img,
+    .field-name-field-blog-post-img img {
+      float: left;
+      max-width: 50%;
+      margin-bottom: 0;
+      margin-right: 5px;
+      margin-left: 5px; } }
 @media screen and (max-width: 660px) {
   #fixed-menu-buttons {
     display: none; } }
@@ -910,7 +933,27 @@ p.wwa-bio {
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   .slider-caption {
     padding-right: 60px;
-    padding-left: 60px; } }
+    padding-left: 60px; }
+
+  .node-right-col,
+  .field-name-field-blog-post-img {
+    float: none;
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    overflow: hidden;
+    text-align: center; }
+    .node-right-col img,
+    .field-name-field-blog-post-img img {
+      width: 100%;
+      float: none;
+      clear: both;
+      max-width: none;
+      margin-bottom: 10px;
+      margin-right: 0;
+      margin-left: 0; } }
 .lte-ie-9 #portfolio-container {
   background-image: url("../images/lte-ie-9_bg-portfolio-shadow.jpg"); }
 .lte-ie-9 .ie-placeholder {
