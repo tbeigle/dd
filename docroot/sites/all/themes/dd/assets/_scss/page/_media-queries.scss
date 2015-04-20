@@ -109,8 +109,10 @@
       }
     }
   }
-  .slider-nav {
-    bottom: -66px;
+  
+  #portfolio-container .slider-nav {
+    top: auto;
+    bottom: -120px;
     
     .arrows {
       max-width: none;
@@ -123,6 +125,7 @@
   #wwd-container {
     .section-title,
     .section-text {
+      position: relative;
       float: none;
       clear: both;
       width: 100%;
@@ -132,6 +135,16 @@
     
     .section-title {
       font-size: 72px;
+    }
+    
+    #wwd-title {
+      display: block;
+      visibility: visible;
+      
+      &-fixed,
+      &-bottom {
+        display: none;
+      }
     }
   }
   
@@ -215,6 +228,10 @@
   
   .portfolio-top-text {
     font-size: 23px;
+  }
+  
+  #portfolio-container .slider-nav {
+    display: none;
   }
 }
 
