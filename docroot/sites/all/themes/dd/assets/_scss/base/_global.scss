@@ -178,6 +178,12 @@ a {
   }
 }
 
+.no-overlay {
+  #logo-title {
+    z-index: 1001;
+  }
+}
+
 #logo {
   width: 100%;
   max-width: 370px;

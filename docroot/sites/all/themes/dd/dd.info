@@ -4,7 +4,6 @@ core = 7.x
 
 ; FEATURES
 features[] = logo
-features[] = hours
 features[] = favicon
 features[] = main_menu
 features[] = secondary_menu
