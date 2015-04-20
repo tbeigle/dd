@@ -14,11 +14,14 @@ function dd_blog_default_fe_block_settings() {
 
   $export['views-blog_banners-block'] = array(
     'cache' => -1,
-    'css_class' => '',
+    'css_class' => 'blog-post-banner',
+    'custom' => 0,
     'delta' => 'blog_banners-block',
     'module' => 'views',
-    'node_types' => array(),
-    'pages' => '',
+    'node_types' => array(
+      0 => 'blog_post',
+    ),
+    'pages' => 'blog/*',
     'roles' => array(),
     'themes' => array(
       'bartik' => array(
@@ -28,12 +31,14 @@ function dd_blog_default_fe_block_settings() {
         'weight' => 0,
       ),
       'dd' => array(
-        'region' => '',
-        'status' => 0,
+        'region' => 'highlighted',
+        'status' => 1,
         'theme' => 'dd',
         'weight' => 0,
       ),
     ),
+    'title' => '',
+    'visibility' => 1,
   );
 
   return $export;
