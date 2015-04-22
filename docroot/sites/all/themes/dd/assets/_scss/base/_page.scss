@@ -75,6 +75,7 @@ body {
   
   &.date-posted {
     font-style: italic;
+    margin-bottom: 1em;
   }
 }
 
@@ -108,33 +109,11 @@ body {
   overflow: hidden;
 }
 
-.field-name-field-blog-post-body {
-  float: left;
-  width: 62.5%;
-  max-width: 500px;
+.node-right-col {
+  @include nodeRightCol;
 }
 
-.node-right-col,
-.field-name-field-blog-post-img {
-  float: right;
-  width: 37.5%;
-  max-width: 300px;
-  padding: {
-    left: 20px;
-  }
-  
-  img {
-    display: block;
-    margin-bottom: 10px;
-  }
-  
-  .field-label {
-    //color: $colScrollLinkWWA;
-  }
-}
-
-.region-content {
-  &> .block {
-    
-  }
+img {
+  max-width: 100%;
+  height: auto;
 }
