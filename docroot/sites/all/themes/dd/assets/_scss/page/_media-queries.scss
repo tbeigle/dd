@@ -18,6 +18,19 @@
   }
 }
 
+@media only screen and (max-width: 585px) {
+  .no-overlay {
+    #popout-nav {
+      top: 0;
+      right: 0;
+      left: auto;
+      width: 50px;
+      padding-left: 0;
+      z-index: 1010;
+    }
+  }
+}
+
 @media only screen and (max-width: 529px) {
   #portfolio-container {
     background: #fff;

@@ -1,0 +1,10 @@
+.field-name-field-blog-post-body {
+  float: left;
+  width: 62.5%;
+  max-width: 500px;
+}
+
+.field-name-field-blog-post-img {
+  @include nodeRightCol;
+}
+
