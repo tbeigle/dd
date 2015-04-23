@@ -10,41 +10,71 @@
 function dd_blog_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-blog_post-field_blog_image'
-  $field_instances['node-blog_post-field_blog_image'] = array(
-    'bundle' => 'blog_post',
+  // Exported field_instance:
+  // 'field_collection_item-field_blog_post_img-field_fc_bpi_cutline'
+  $field_instances['field_collection_item-field_blog_post_img-field_fc_bpi_cutline'] = array(
+    'bundle' => 'field_blog_post_img',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_fc_bpi_cutline',
+    'label' => 'Cutline',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 32,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_blog_post_img-field_fc_bpi_img'
+  $field_instances['field_collection_item-field_blog_post_img-field_fc_bpi_img'] = array(
+    'bundle' => 'field_blog_post_img',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 4,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
         'weight' => 0,
       ),
     ),
-    'entity_type' => 'node',
-    'field_name' => 'field_blog_image',
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_fc_bpi_img',
     'label' => 'Image',
     'required' => 0,
     'settings' => array(
-      'alt_field' => 0,
+      'alt_field' => 1,
       'default_image' => 0,
-      'file_directory' => '',
+      'file_directory' => 'blog-post',
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
-      'min_resolution' => '300x300',
+      'min_resolution' => '',
       'title_field' => 0,
       'user_register_form' => FALSE,
     ),
@@ -56,7 +86,7 @@ function dd_blog_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => 7,
+      'weight' => 31,
     ),
   );
 
@@ -118,7 +148,7 @@ function dd_blog_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 1,
       ),
       'teaser' => array(
         'label' => 'hidden',
@@ -191,18 +221,18 @@ function dd_blog_field_default_field_instances() {
   // Exported field_instance: 'node-blog_post-field_blog_post_img'
   $field_instances['node-blog_post-field_blog_post_img'] = array(
     'bundle' => 'blog_post',
+    'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'image',
+        'module' => 'field_collection',
         'settings' => array(
-          'image_link' => '',
-          'image_style' => 'medium',
+          'view_mode' => 'full',
         ),
-        'type' => 'image',
-        'weight' => 1,
+        'type' => 'field_collection_fields',
+        'weight' => 0,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -213,28 +243,17 @@ function dd_blog_field_default_field_instances() {
     ),
     'entity_type' => 'node',
     'field_name' => 'field_blog_post_img',
-    'label' => 'Blog Image(s)',
+    'label' => 'Blog Content Image',
     'required' => 0,
     'settings' => array(
-      'alt_field' => 1,
-      'default_image' => 0,
-      'file_directory' => 'blog-post',
-      'file_extensions' => 'png gif jpg jpeg',
-      'max_filesize' => '',
-      'max_resolution' => '',
-      'min_resolution' => '',
-      'title_field' => 0,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
-      'active' => 1,
-      'module' => 'image',
-      'settings' => array(
-        'preview_image_style' => 'thumbnail',
-        'progress_indicator' => 'throbber',
-      ),
-      'type' => 'image_image',
-      'weight' => 5,
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 7,
     ),
   );
 
@@ -281,9 +300,10 @@ function dd_blog_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Banner');
-  t('Blog Image(s)');
+  t('Blog Content Image');
   t('Body');
   t('Category');
+  t('Cutline');
   t('Image');
   t('Tags');
 
