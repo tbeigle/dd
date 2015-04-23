@@ -185,6 +185,48 @@
       }
     }
   }
+  
+  .social-media {
+    width: 210px;
+    padding-bottom: 111px;
+    margin: auto;
+    overflow: hidden;
+    
+    li {
+      float: left;
+      margin-left: 12px;
+      font-size: 0;
+      line-height: 0;
+      width: 62px;
+      height: 62px;
+      
+      &:first-child {
+        margin-left: 0;
+      }
+      
+      a,
+      img {
+        display: block;
+      }
+      
+      a {
+        width: 62px;
+        height: 62px;
+        border: 4px solid #fff;
+        @include vendorize(border-radius, 50%);
+        overflow: hidden;
+        
+        &:hover,
+        &:active,
+        &:focus {
+          border-color: transparent;
+          //img {
+            //opacity: 0.8;
+          //}
+        }
+      }
+    }
+  }
 }
 
 .nav-popout-link {
