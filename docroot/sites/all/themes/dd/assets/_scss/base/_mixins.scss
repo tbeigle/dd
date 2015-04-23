@@ -65,3 +65,20 @@
     #{$property}: $value;
   }
 }
+
+@mixin nodeRightCol() {
+  float: right;
+  width: 37.5%;
+  max-width: 300px;
+  padding: {
+    left: 20px;
+  }
+  
+  img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    margin-bottom: 10px;
+  }
+}

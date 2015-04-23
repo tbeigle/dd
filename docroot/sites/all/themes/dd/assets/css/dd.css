@@ -489,7 +489,8 @@ body.not-front .region > div {
   .submitted-details.author {
     font-weight: 600; }
   .submitted-details.date-posted {
-    font-style: italic; }
+    font-style: italic;
+    margin-bottom: 1em; }
 
 .field-type-taxonomy-term-reference {
   line-height: normal; }
@@ -511,21 +512,21 @@ body.not-front .region > div {
 .node > .content {
   overflow: hidden; }
 
-.field-name-field-blog-post-body {
-  float: left;
-  width: 62.5%;
-  max-width: 500px; }
-
-.node-right-col,
-.field-name-field-blog-post-img {
+.node-right-col {
   float: right;
   width: 37.5%;
   max-width: 300px;
   padding-left: 20px; }
-  .node-right-col img,
-  .field-name-field-blog-post-img img {
+  .node-right-col img {
     display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
     margin-bottom: 10px; }
+
+img {
+  max-width: 100%;
+  height: auto; }
 
 /* Pages
  * -----------------------------------------------------------------------------*/
@@ -797,6 +798,23 @@ p.wwa-bio {
     width: 100%;
     height: 394px;
     background: url("../images/laptop.png") center 0 no-repeat; }
+
+.field-name-field-blog-post-body {
+  float: left;
+  width: 62.5%;
+  max-width: 500px; }
+
+.field-name-field-blog-post-img {
+  float: right;
+  width: 37.5%;
+  max-width: 300px;
+  padding-left: 20px; }
+  .field-name-field-blog-post-img img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    margin-bottom: 10px; }
 
 .js #portfolio-container #portfolio-slider-wrapper {
   display: block; }
