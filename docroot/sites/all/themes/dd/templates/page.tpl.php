@@ -85,10 +85,21 @@
         </ul> <!-- /.menu-buttons -->
       </nav> <!-- /#fixed-menu-buttons -->
     <?php endif; ?>
+    
     <div id="overlay-menu">
       <div class="inner">
         <?php print render($page['nav']); ?>
         <a class="close-me no-scroll" title="Click to close." href="#overlay-menu">x</a>
+        
+        <ul class="social-media">
+          <?php foreach ($dd_sm as $name => $data): ?>
+            <li>
+              <a href="<?php print $data['url']; ?>" target="_blank">
+                <img src="<?php print $data['img']; ?>" alt="<?php print $name; ?>">
+              </a>
+            </li>
+          <?php endforeach; ?>
+        </ul> <!-- /.social-media -->
       </div>
     </div> <!-- /#overlay-menu -->
   </nav>

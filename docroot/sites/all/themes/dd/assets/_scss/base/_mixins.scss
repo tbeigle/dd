@@ -82,3 +82,7 @@
     margin-bottom: 10px;
   }
 }
+
+@mixin formText() {
+  font: $weightSSPExtraLight 30px/1.2666 $fontFamMain;
+}

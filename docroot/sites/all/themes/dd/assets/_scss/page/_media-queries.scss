@@ -18,6 +18,63 @@
   }
 }
 
+@media only screen and (max-width: 720px) {
+  .small-form {
+    .form-item {
+      &.webform-component--markup {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  body {
+    &.not-front {
+      .region {
+        &.region-footer {
+          &> div.small-form {
+            max-width: 460px;
+            
+            .form {
+              &-item,
+              &-actions {
+                float: none;
+                clear: both;
+                width: 100%;
+              }
+              
+              &-item {
+                &.signup-input-wrapper {
+                  width: 100%;
+                  margin: {
+                    right: 0;
+                    bottom: 36px;
+                  }
+                }
+                
+                &.webform-component--markup {
+                  font-size: 1.2rem;
+                  text-align: left;
+                }
+              }
+              
+              &-actions {
+                width: 100%;
+                
+                .form-submit {
+                  display: inline-block;
+                  padding: 2px 6px 3px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 585px) {
   .no-overlay {
     #popout-nav {
@@ -182,6 +239,10 @@
     clear: both;
     width: 100%;
     max-width: none;
+  }
+  
+  .field-name-field-blog-post-img {
+    display: none;
   }
   
   .node-right-col,

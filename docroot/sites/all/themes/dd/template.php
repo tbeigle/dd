@@ -66,6 +66,24 @@ function dd_preprocess_node(&$vars) {
 function dd_preprocess_page(&$vars) {
   $vars['show_title'] = !$vars['is_front'] && empty($vars['node']);
   
+  // Social media links
+  $tp = _dd_theme_path();
+  $imgs_path = $tp . '/assets/images/';
+  $vars['dd_sm'] = array(
+    'Facebook' => array(
+      'img' => url($imgs_path . 'sm-facebook.jpg'),
+      'url' => 'https://www.facebook.com/DesignatedDevelopers',
+    ),
+    'LinkedIn' =>  array(
+      'img' => url($imgs_path . 'sm-linkedin.jpg'),
+      'url' => 'https://www.linkedin.com/company/designated-developers',
+    ),
+    'Twitter' =>  array(
+      'img' => url($imgs_path . 'sm-twitter.jpg'),
+      'url' => 'https://twitter.com/desdevelopers',
+    ),
+  );
+  
   if ($vars['is_front'] && !empty($vars['page']['content']['system_main'])) {
     $sm = $vars['page']['content']['system_main'];
     
@@ -76,7 +94,7 @@ function dd_preprocess_page(&$vars) {
   
   if (!$vars['is_front']) {
     if (empty($vars['logo'])) {
-      $vars['logo'] = url(_dd_theme_path() . '/assets/images/logo-watermark.png', array('absolute' => TRUE));
+      $vars['logo'] = url($imgs_path . 'logo-watermark.png', array('absolute' => TRUE));
     }
   }
 }

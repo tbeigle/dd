@@ -161,142 +161,6 @@ a {
   width: 100%;
   max-width: 370px; }
 
-form.block-auto {
-  max-width: 460px; }
-
-.textfield,
-textarea {
-  width: 100%;
-  padding: 11px 0;
-  margin: 0 0 36px;
-  border: none;
-  border-bottom: 1px solid #ebebeb;
-  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
-  .textfield:hover, .textfield:active, .textfield:focus,
-  textarea:hover,
-  textarea:active,
-  textarea:focus {
-    outline: none; }
-  .textfield.error,
-  textarea.error {
-    border-color: #00abd6; }
-
-textarea {
-  resize: none; }
-
-#field-subject {
-  display: none; }
-
-.form-actions {
-  margin: 52px auto 0;
-  text-align: center; }
-
-.form-submit {
-  border: none;
-  background: none;
-  font-family: "Source Sans Pro", Arial, sans-serif;
-  font-weight: 200;
-  font-size: 30px;
-  line-height: normal;
-  cursor: pointer;
-  text-align: center;
-  text-transform: lowercase;
-  color: #00abd6; }
-  .form-submit:link, .form-submit:visited {
-    color: #00abd6; }
-  .form-submit:hover, .form-submit:active, .form-submit:focus {
-    color: #303030; }
-  .form-submit:hover, .form-submit:active, .form-submit:focus {
-    outline: none; }
-
-.form-messages {
-  display: none;
-  width: 100%;
-  padding: 10px 0;
-  text-align: center;
-  color: #00abd6;
-  font-weight: 600; }
-  .form-messages p {
-    margin: 0; }
-    .form-messages p.success {
-      font-weight: 200;
-      font-size: 30px;
-      line-height: normal; }
-
-#intern-form {
-  margin-top: 100px; }
-
-.form-sec-title {
-  margin-top: 36px;
-  margin-bottom: 0.5em;
-  font: 600 16px/normal "Source Sans Pro", Arial, sans-serif;
-  color: #303030; }
-
-label {
-  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif;
-  color: #303030;
-  cursor: pointer; }
-
-::-webkit-input-placeholder {
-  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
-
-:-moz-placeholder {
-  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
-
-::-moz-placeholder {
-  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
-
-:-ms-input-placeholder {
-  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
-
-::-webkit-input-placeholder {
-  color: #cbcbcb; }
-
-:-moz-placeholder {
-  color: #cbcbcb; }
-
-::-moz-placeholder {
-  color: #cbcbcb; }
-
-:-ms-input-placeholder {
-  color: #cbcbcb; }
-
-select,
-select.block-auto {
-  width: 100%;
-  margin-bottom: 1em;
-  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif;
-  color: #303030; }
-
-.sub-question::-webkit-input-placeholder {
-  font-style: italic; }
-
-.sub-question:-moz-placeholder {
-  font-style: italic; }
-
-.sub-question::-moz-placeholder {
-  font-style: italic; }
-
-.sub-question:-ms-input-placeholder {
-  font-style: italic; }
-
-.radios-overview.block-auto {
-  margin-top: 36px; }
-
-.radios-wrapper {
-  margin-bottom: 36px; }
-
-.radio-wrapper label {
-  padding-left: 10px;
-  font-size: 1.5em;
-  vertical-align: middle; }
-
-.file-label {
-  margin-top: 36px; }
-
-input[type="radio"] {
-  vertical-align: middle; }
-
 ul.inline li:first-child {
   padding-left: 0; }
 ul.inline.links li a:link, ul.inline.links li a:visited, ul.inline.links li a:hover, ul.inline.links li a:active, ul.inline.links li a:focus {
@@ -306,6 +170,9 @@ ul.inline.links li a:hover, ul.inline.links li a:active, ul.inline.links li a:fo
 
 ul.inline li:first-child {
   padding-left: 0; }
+
+p:first-child {
+  margin-top: 0; }
 
 #admin-menu {
   z-index: 1001; }
@@ -442,6 +309,35 @@ ul.inline li:first-child {
       text-transform: uppercase; }
       #overlay-menu .menu li a.active, #overlay-menu .menu li a:hover, #overlay-menu .menu li a:active, #overlay-menu .menu li a:focus {
         font-weight: 600; }
+  #overlay-menu .social-media {
+    width: 210px;
+    padding-bottom: 111px;
+    margin: auto;
+    overflow: hidden; }
+    #overlay-menu .social-media li {
+      float: left;
+      margin-left: 12px;
+      font-size: 0;
+      line-height: 0;
+      width: 62px;
+      height: 62px; }
+      #overlay-menu .social-media li:first-child {
+        margin-left: 0; }
+      #overlay-menu .social-media li a,
+      #overlay-menu .social-media li img {
+        display: block; }
+      #overlay-menu .social-media li a {
+        width: 62px;
+        height: 62px;
+        border: 4px solid #fff;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+        border-radius: 50%;
+        overflow: hidden; }
+        #overlay-menu .social-media li a:hover, #overlay-menu .social-media li a:active, #overlay-menu .social-media li a:focus {
+          border-color: transparent; }
 
 .nav-popout-link {
   width: 100%;
@@ -471,8 +367,6 @@ body.not-front .region {
     padding: 0; }
     body.not-front .region.region-highlighted #block-views-blog-banners-block > .content {
       text-align: center; }
-      body.not-front .region.region-highlighted #block-views-blog-banners-block > .content img {
-        margin-bottom: 20px; }
 body.not-front #page-title {
   margin: 0.5em auto;
   font-weight: 600; }
@@ -483,6 +377,9 @@ body.not-front .region > div {
   width: 100%;
   max-width: 800px;
   margin: auto; }
+body.not-front .region.region-footer {
+  border-top: 1px solid #cbcbcb;
+  margin-top: 20px; }
 
 .submitted-details {
   line-height: normal; }
@@ -490,9 +387,10 @@ body.not-front .region > div {
     font-weight: 600; }
   .submitted-details.date-posted {
     font-style: italic;
-    margin-bottom: 1em; }
+    margin-bottom: 1rem; }
 
 .field-type-taxonomy-term-reference {
+  padding-top: 1rem;
   line-height: normal; }
   .field-type-taxonomy-term-reference .field-items .field-item {
     display: inline; }
@@ -527,6 +425,183 @@ body.not-front .region > div {
 img {
   max-width: 100%;
   height: auto; }
+
+.field-name-field-fc-bpi-cutline {
+  font-style: italic;
+  line-height: 1.3; }
+
+form.block-auto {
+  max-width: 460px; }
+
+.form-text,
+textarea {
+  width: 100%;
+  padding: 11px 0;
+  margin: 0 0 36px;
+  border: none;
+  border-bottom: 1px solid #ebebeb;
+  font: 200 30px/1.2666 "Source Sans Pro", Arial, sans-serif; }
+  .form-text:hover, .form-text:active, .form-text:focus,
+  textarea:hover,
+  textarea:active,
+  textarea:focus {
+    outline: none; }
+  .form-text.error,
+  textarea.error {
+    border-color: #00abd6; }
+
+textarea {
+  resize: none; }
+
+#field-subject {
+  display: none; }
+
+.form-actions {
+  margin: 52px auto 0;
+  text-align: center; }
+
+.form-submit {
+  border: none;
+  background: none;
+  font: 200 30px/1.2666 "Source Sans Pro", Arial, sans-serif;
+  cursor: pointer;
+  text-align: center;
+  text-transform: lowercase;
+  color: #00abd6; }
+  .form-submit:link, .form-submit:visited {
+    color: #00abd6; }
+  .form-submit:hover, .form-submit:active, .form-submit:focus {
+    color: #303030; }
+  .form-submit:hover, .form-submit:active, .form-submit:focus {
+    outline: none; }
+
+.form-messages {
+  display: none;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  color: #00abd6;
+  font-weight: 600; }
+  .form-messages p {
+    margin: 0; }
+    .form-messages p.success {
+      font-weight: 200;
+      font-size: 30px;
+      line-height: normal; }
+
+#intern-form {
+  margin-top: 100px; }
+
+.form-sec-title {
+  margin-top: 36px;
+  margin-bottom: 0.5em;
+  font: 600 16px/normal "Source Sans Pro", Arial, sans-serif;
+  color: #303030; }
+
+label {
+  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif;
+  color: #303030;
+  cursor: pointer; }
+
+::-webkit-input-placeholder {
+  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
+
+:-moz-placeholder {
+  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
+
+::-moz-placeholder {
+  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
+
+:-ms-input-placeholder {
+  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif; }
+
+::-webkit-input-placeholder {
+  color: #cbcbcb; }
+
+:-moz-placeholder {
+  color: #cbcbcb; }
+
+::-moz-placeholder {
+  color: #cbcbcb; }
+
+:-ms-input-placeholder {
+  color: #cbcbcb; }
+
+select,
+select.block-auto {
+  width: 100%;
+  margin-bottom: 1em;
+  font: 200 30px/normal "Source Sans Pro", Arial, sans-serif;
+  color: #303030; }
+
+.sub-question::-webkit-input-placeholder {
+  font-style: italic; }
+
+.sub-question:-moz-placeholder {
+  font-style: italic; }
+
+.sub-question::-moz-placeholder {
+  font-style: italic; }
+
+.sub-question:-ms-input-placeholder {
+  font-style: italic; }
+
+.radios-overview.block-auto {
+  margin-top: 36px; }
+
+.radios-wrapper {
+  margin-bottom: 36px; }
+
+.radio-wrapper label {
+  padding-left: 10px;
+  font-size: 1.5em;
+  vertical-align: middle; }
+
+.file-label {
+  margin-top: 36px; }
+
+input[type="radio"] {
+  vertical-align: middle; }
+
+.small-form {
+  width: 100%;
+  max-width: 800px;
+  padding-bottom: 1rem;
+  margin: auto; }
+  .small-form form {
+    display: block;
+    width: 100%;
+    overflow: hidden; }
+  .small-form .form-item, .small-form .form-actions {
+    float: left;
+    margin: 0; }
+  .small-form .form-item.webform-component--markup {
+    float: none;
+    clear: both;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    line-height: 1.1;
+    color: #00abd6; }
+    .small-form .form-item.webform-component--markup p {
+      margin: 0; }
+  .small-form .form-item.signup-input-wrapper {
+    width: 40%;
+    margin-right: 2.5%; }
+    .small-form .form-item.signup-input-wrapper .form-text {
+      display: block;
+      margin: 0;
+      width: 100%; }
+  .small-form .form-actions {
+    width: 15%; }
+    .small-form .form-actions .form-submit {
+      display: block;
+      padding-top: 12px;
+      padding-bottom: 12px; }
+  .small-form p {
+    margin-top: 0;
+    margin-bottom: 0.5rem; }
 
 /* Pages
  * -----------------------------------------------------------------------------*/
@@ -799,11 +874,6 @@ p.wwa-bio {
     height: 394px;
     background: url("../images/laptop.png") center 0 no-repeat; }
 
-.field-name-field-blog-post-body {
-  float: left;
-  width: 62.5%;
-  max-width: 500px; }
-
 .field-name-field-blog-post-img {
   float: right;
   width: 37.5%;
@@ -828,6 +898,28 @@ p.wwa-bio {
 @media only screen and (min-width: 661px) and (max-width: 790px) {
   #wwd-container {
     padding: 0 63px; } }
+@media only screen and (max-width: 720px) {
+  .small-form .form-item.webform-component--markup {
+    font-size: 1rem; } }
+@media only screen and (max-width: 650px) {
+  body.not-front .region.region-footer > div.small-form {
+    max-width: 460px; }
+    body.not-front .region.region-footer > div.small-form .form-item, body.not-front .region.region-footer > div.small-form .form-actions {
+      float: none;
+      clear: both;
+      width: 100%; }
+    body.not-front .region.region-footer > div.small-form .form-item.signup-input-wrapper {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 36px; }
+    body.not-front .region.region-footer > div.small-form .form-item.webform-component--markup {
+      font-size: 1.2rem;
+      text-align: left; }
+    body.not-front .region.region-footer > div.small-form .form-actions {
+      width: 100%; }
+      body.not-front .region.region-footer > div.small-form .form-actions .form-submit {
+        display: inline-block;
+        padding: 2px 6px 3px; } }
 @media only screen and (max-width: 585px) {
   .no-overlay #popout-nav {
     top: 0;
@@ -918,6 +1010,9 @@ p.wwa-bio {
     clear: both;
     width: 100%;
     max-width: none; }
+
+  .field-name-field-blog-post-img {
+    display: none; }
 
   .node-right-col,
   .field-name-field-blog-post-img {

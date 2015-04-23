@@ -4,15 +4,10 @@
 @import "base/mixins";
 @import "base/fonts";
 @import "base/global";
-@import "base/nav";
 @import "base/page";
-@import "base/forms";
 
 /* Pages
  * -----------------------------------------------------------------------------*/
-@import "page/front";
-@import "page/portfolio";
 @import "page/blog";
-@import "page/js";
-@import "page/media-queries";
 @import "page/ie";
+@import "page/wysiwyg";
