@@ -12,11 +12,11 @@ function dd_blog_default_fe_block_settings() {
 
   $export['version'] = '2.0';
 
-  $export['nodeblock-12'] = array(
+  $export['nodeblock-11'] = array(
     'cache' => 1,
     'css_class' => 'small-form email-signup-form',
     'custom' => 0,
-    'delta' => 12,
+    'delta' => 11,
     'module' => 'nodeblock',
     'node_types' => array(),
     'pages' => 'blog
