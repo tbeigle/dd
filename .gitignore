@@ -23,3 +23,5 @@ docroot/sites/default/default.settings.php
 docroot/web.config
 *.sql
 docroot/sites/all/themes/dd/assets/node_modules/
+tmp
+*.ignore/
