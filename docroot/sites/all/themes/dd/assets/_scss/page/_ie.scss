@@ -1,0 +1,10 @@
+.lte-ie-9 {
+  #portfolio-container {
+    background-image: url('../images/lte-ie-9_bg-portfolio-shadow.jpg');
+  }
+  
+  .ie-placeholder {
+    font: $weightSSPExtraLight 30px/normal $fontFamMain;
+    color: $colPlaceholder;
+  }
+}

@@ -1,0 +1,26 @@
+div.blog-post-img,
+img.blog-post-img,
+p.blog-post-img,
+p.img-cutline {
+  &-right {
+    float: right;
+    width: 350px;
+    margin: 0 0 1rem 1rem;
+  }
+  
+  &-left {
+    float: left;
+    width: 350px;
+    margin: 0 1rem 1rem 0;
+  }
+}
+
+p.img-cutline {
+  &-left {
+    clear: left;
+  }
+  
+  &-right {
+    clear: right;
+  }
+}

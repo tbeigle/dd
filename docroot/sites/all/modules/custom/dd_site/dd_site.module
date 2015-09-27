@@ -1,0 +1,13 @@
+<?php
+/**
+ * @file dd_site.module
+ */
+
+/**
+ * Implements hook_init().
+ */
+function dd_site_init() {
+  if ($_GET['q'] == 'user' && !user_is_logged_in()) {
+    drupal_goto('<front>');
+  }
+}

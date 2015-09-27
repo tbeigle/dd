@@ -1,0 +1,218 @@
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  background: #fff;
+  padding: 0;
+  margin: 0;
+  overflow: scroll;
+  font: 14px/30px $fontFamMain;
+  color: $colTxtOnLT;
+}
+
+h1,h2,h3,h4 {
+  margin: auto;
+  font: {
+    weight: $weightSSPExtraLight;
+    family: $fontFamMain;
+  }
+  text-transform: uppercase;
+}
+
+a {
+  @include vendorize(transition, all 0.25s ease);
+  @include linkAllStates(text-decoration, none);
+  @include linkAllStates(color, #000);
+}
+
+.row {
+  width: 100%;
+  margin: auto;
+  @include clear;
+  overflow: hidden;
+}
+
+.column {
+  float: left;
+  margin: 0;
+  
+  &.right {
+    float: right;
+  }
+  
+  &.one {
+    width: 8.333%
+  }
+  
+  &.two {
+    width: 16.666%;
+  }
+  
+  &.three {
+    width: 25%;
+  }
+  
+  &.four {
+    width: 33.333%;
+  }
+  
+  &.five {
+    width: 41.666%;
+  }
+  
+  &.six {
+    width: 50%;
+  }
+  
+  &.seven {
+    width: 58.333%;
+  }
+  
+  &.eight {
+    width: 66.666%;
+  }
+  
+  &.nine {
+    width: 75%;
+  }
+  
+  &.ten {
+    width: 83.333%;
+  }
+  
+  &.eleven {
+    width: 91.666%;
+  }
+  
+  &.twelve {
+    float: none;
+    width: 100%;
+    @include clear();
+  }
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.container {
+  display: block;
+  padding: {
+    right: 20px;
+    left: 20px;
+  }
+  
+  &> .inner {
+    width: 100%;
+    max-width: 1102px;
+    margin: auto;
+    overflow: hidden;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.glyph {
+  font-family: $fontFamGlyph;
+}
+
+.scroll-nav-link {
+  position: relative;
+  z-index: 10;
+  width: 40px;
+  font: {
+    size: 75px;
+  }
+  line-height: 1;
+  
+  &.portfolio {
+    @include linkAllStates(color, $colArrwTp);
+  }
+  
+  &.wwd {
+    padding-top: 36px;
+    @include linkAllStates(color, #fff);
+  }
+  
+  &.wwa {
+    @include linkAllStates(color, $colScrollLinkWWA);
+  }
+  
+  @include linkAllStates(outline, none);
+}
+
+.block-auto {
+  display: block;
+  margin: auto;
+}
+
+.clearfix {
+  clear: both;
+  @include clear();
+}
+
+#logo-title {
+  position: relative;
+  z-index: 5;
+  display: block;
+  width: 100%;
+  max-width: 490px;
+  padding: 22px 60px 0;
+  overflow: hidden;
+  margin: 0 auto 70px;
+  
+  .title-text {
+    position: absolute;
+    left: -9999px;
+  }
+}
+
+.no-overlay {
+  #logo-title {
+    z-index: 1001;
+  }
+}
+
+#logo {
+  width: 100%;
+  max-width: 370px;
+}
+
+ul.inline {
+  li {
+    &:first-child {
+      padding: {
+        left: 0;
+      }
+    }
+  }
+  
+  &.links {
+    li {
+      a {
+        @include linkAllStates(color, $colScrollLinkWWA);
+        @include hoverActiveFocus(text-decoration, underline);
+      }
+    }
+  }
+}
+ul.inline li:first-child {
+  padding-left: 0;
+}
+
+p {
+  &:first-child {
+    margin-top: 0;
+  }
+}

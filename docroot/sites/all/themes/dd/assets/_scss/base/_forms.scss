@@ -1,0 +1,198 @@
+form.block-auto {
+  max-width: 460px;
+}
+
+.form-text,
+textarea {
+  width: 100%;
+  padding: 11px 0;
+  margin: 0 0 36px;
+  border: none;
+  border-bottom: 1px solid $colFrmBrdrrs;
+  @include formText();
+  
+  @include hoverActiveFocus(outline, none);
+  
+  &.error {
+    border-color: $colHdLt;
+  }
+}
+
+textarea {
+  resize: none;
+}
+
+// honeypot field
+#field-subject {
+  display: none;
+}
+
+.form-actions {
+  margin: 52px auto 0;
+  text-align: center;
+}
+
+.form-submit {
+  border: none;
+  background: none;
+  @include formText();
+  cursor: pointer;
+  
+  text: {
+    align: center;
+    transform: lowercase;
+  }
+  color: $colHdLt;
+  @include linkVisited(color, $colHdLt);
+  @include hoverActiveFocus(color, $colBgWWD);
+  @include hoverActiveFocus(outline, none);
+}
+
+.form-messages {
+  display: none;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  color: $colHdLt;
+  font: {
+    weight: $weightSSPSemiBold;
+  }
+  
+  p {
+    margin: 0;
+    
+    &.success {
+      font: {
+        weight: $weightSSPExtraLight;
+        size: 30px;
+      }
+      line-height: normal;
+    }
+  }
+}
+
+#intern-form {
+  margin-top: 100px;
+}
+
+.form-sec-title {
+  margin: {
+    top: 36px;
+    bottom: 0.5em;
+  }
+  font: $weightSSPSemiBold 16px/normal $fontFamMain;
+  color: $colBgWWD;
+}
+
+label {
+  font: $weightSSPExtraLight 30px/normal $fontFamMain;
+  color: $colBgWWD;
+  cursor: pointer;
+}
+
+@include vendorizePlaceholder(font, $weightSSPExtraLight 30px/normal $fontFamMain);
+@include vendorizePlaceholder(color, $colPlaceholder);
+
+select,
+select.block-auto {
+  width: 100%;
+  margin-bottom: 1em;
+  font: $weightSSPExtraLight 30px/normal $fontFamMain;
+  color: $colBgWWD;
+}
+
+@include vendorizePlaceholder(font-style, italic, ".sub-question");
+
+.radios-overview.block-auto {
+  margin-top: 36px;
+}
+
+.radios-wrapper {
+  margin-bottom: 36px;
+}
+
+.radio-wrapper {
+  label {
+    padding-left: 10px;
+    font-size: 1.5em;
+    vertical-align: middle;
+  }
+}
+
+.file-label {
+  margin-top: 36px;
+}
+
+input[type="radio"] {
+  vertical-align: middle;
+}
+
+.small-form {
+  width: 100%;
+  max-width: 800px;
+  padding-bottom: 1rem;
+  margin: auto;
+  
+  form {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .form {
+    &-item,
+    &-actions {
+      float: left;
+      margin: 0;
+    }
+    
+    &-item {
+      &.webform-component--markup {
+        float: none;
+        clear: both;
+        margin-bottom: 0.5rem;
+        text: {
+          align: center;
+          transform: uppercase;
+        }
+        font-size: 1.2rem;
+        line-height: 1.1;
+        color: $colHdLt;
+        
+        p {
+          margin: 0;
+        }
+      }
+      
+      &.signup-input-wrapper {
+        width: 40%;
+        margin-right: 2.5%;
+        
+        .form-text {
+          display: block;
+          margin: 0;
+          width: 100%;
+        }
+      }
+    }
+    
+    &-actions {
+      width: 15%;
+      
+      .form-submit {
+        display: block;
+        padding: {
+          top: 12px;
+          bottom: 12px;
+        }
+      }
+    }
+  }
+  
+  p {
+    margin: {
+      top: 0;
+      bottom: 0.5rem;
+    }
+  }
+}

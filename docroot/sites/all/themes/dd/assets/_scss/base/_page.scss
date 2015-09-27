@@ -1,0 +1,131 @@
+body {
+  &> .messages {
+    position: relative;
+    z-index: 1003;
+  }
+  
+  &> .tabs {
+    position: fixed;
+    z-index: 1002;
+    left: 0;
+    top: 130px;
+    white-space: normal;
+    
+    .tabs {
+      border: none;
+      
+      li {
+        float: left;
+        display: block;
+        clear: both;
+      }
+    }
+  }
+  
+  &.not-front {
+    #logo-title {
+      margin-bottom: 0;
+    }
+    
+    .region {
+      width: 100%;
+      padding: 20px;
+      
+      &.region-highlighted {
+        padding: 0;
+        
+        #block-views-blog-banners-block {
+          &> .content {
+            text-align: center;
+            
+            img {
+              //margin-bottom: 20px;
+            }
+          }
+        }
+      }
+    }
+    
+    #page-title {
+      margin: 0.5em auto;
+      font-weight: 600;
+    }
+    
+    &> #page-title {
+      width: 100%;
+      max-width: 800px;
+    }
+    
+    .region {
+      &> div {
+        width: 100%;
+        max-width: 800px;
+        margin: auto;
+      }
+      
+      &.region-footer {
+        border-top: 1px solid $colPlaceholder;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+
+.submitted-details {
+  line-height: normal;
+  
+  &.author {
+    font-weight: 600;
+  }
+  
+  &.date-posted {
+    font-style: italic;
+    margin-bottom: 1rem;
+  }
+}
+
+.field-type-taxonomy-term-reference {
+  padding-top: 1rem;
+  line-height: normal;
+  
+  .field-items {
+    .field-item {
+      display: inline;
+      &:before {
+        display: inline;
+        content: ', ';
+      }
+      
+      &:first-child {
+        &:before {
+          display: none;
+          content: '';
+        }
+      }
+    }
+    a {
+      font-style: italic;
+      @include linkAllStates(color, $colScrollLinkWWA);
+      @include hoverActiveFocus(text-decoration, underline);
+    }
+  }
+}
+
+.node > .content {
+  overflow: hidden;
+}
+
+.node-right-col {
+  @include nodeRightCol;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.field-name-field-fc-bpi-cutline {
+  font-style: italic;
+  line-height: 1.3;
+  //color: $colPlaceholder;
+}
