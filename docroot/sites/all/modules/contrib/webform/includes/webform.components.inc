@@ -386,7 +386,6 @@ function webform_component_edit_form($form, $form_state, $node, $component, $clo
   drupal_set_title(t('Edit component: @name', array('@name' => $component['name'])), PASS_THROUGH);
 
   $form['#node'] = $node;
-  $form['#attached']['library'][] = array('webform', 'admin');
   $form['#tree'] = TRUE;
 
   // Print the correct field type specification.
@@ -473,6 +472,17 @@ function webform_component_edit_form($form, $form_state, $node, $component, $clo
     }
     $form['display']['title_display']['#weight'] = 8;
     $form['display']['title_display']['#parents'] = array('extra', 'title_display');
+  }
+
+  if (webform_component_feature($component['type'], 'description')) {
+    $form['display']['description_above'] = array(
+      '#type' => 'checkbox',
+      '#default_value' => !empty($component['extra']['description_above']),
+      '#title' => t('Description above field'),
+      '#description' => t('Place the description above &mdash; rather than below &mdash; the field.'),
+      '#weight' => 8.5,
+      '#parents' => array('extra', 'description_above'),
+    );
   }
 
   if (webform_component_feature($component['type'], 'private')) {
@@ -590,6 +600,9 @@ function webform_component_edit_form($form, $form_state, $node, $component, $clo
     unset($form['validation']);
   }
   $form = array_merge($form, $additional_form_elements);
+  // Ensure that the webform admin library is attached, possibly in addition to
+  // component-specific attachments.
+  $form['#attached']['library'][] = array('webform', 'admin');
 
   // Add the submit button.
   $form['actions'] = array(
@@ -672,13 +685,12 @@ function webform_component_edit_form_submit($form, &$form_state) {
 
   // Since Webform components have been updated but the node itself has not
   // been saved, it is necessary to explicitly clear the cache to make sure
-  // the updated webform is visible to anonymous users.
+  // the updated webform is visible to anonymous users. This resets the page
+  // and block caches (only);
   cache_clear_all();
 
-  // Clear the entity cache if Entity Cache module is installed.
-  if (module_exists('entitycache')) {
-    entity_get_controller('node')->resetCache(array($node->nid));
-  }
+  // Refresh the entity cache, should it be cached in persistent storage.
+  entity_get_controller('node')->resetCache(array($node->nid));
 
   $form_state['redirect'] = array('node/' . $node->nid . '/webform/components', isset($cid) ? array('query' => array('cid' => $cid)) : array());
 }
@@ -727,13 +739,12 @@ function webform_component_delete_form_submit($form, &$form_state) {
 
   // Since Webform components have been updated but the node itself has not
   // been saved, it is necessary to explicitly clear the cache to make sure
-  // the updated webform is visible to anonymous users.
+  // the updated webform is visible to anonymous users. This resets the page
+  // and block caches (only);
   cache_clear_all();
 
-  // Clear the entity cache if Entity Cache module is installed.
-  if (module_exists('entitycache')) {
-    entity_get_controller('node')->resetCache(array($node->nid));
-  }
+  // Refresh the entity cache, should it be cached in persistent storage.
+  entity_get_controller('node')->resetCache(array($node->nid));
 
   $form_state['redirect'] = 'node/' . $node->nid . '/webform/components';
 }
