@@ -18,7 +18,8 @@
 
 #popout-nav-toggle-wrapper {
   width: 100%;
-  max-width: 980px;
+  //max-width: 980px;
+  max-width: 1216px;
   padding-top: 85px;
   text-align: right;
   @include noText();
@@ -43,7 +44,8 @@
   .menu-buttons {
     display: block;
     width: 100%;
-    max-width: 1020px;
+    //max-width: 1020px;
+    max-width: 1256px;
     padding: 0 20px 0;
     margin: 0 auto;
     pointer-events: none;
@@ -125,7 +127,8 @@
     position: relative;
     width: 100%;
     //max-width: 1142px;
-    max-width: 1020px;
+    //max-width: 1020px;
+    max-width: 1256px;
     padding: 0 20px;
     margin: auto;
   }

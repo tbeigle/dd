@@ -91,7 +91,6 @@ body {
 // Who We Are
 #wwa-container {
   padding-top: 40px;
-  background: #fff;
 }
 
 .wwa-edit-link {
@@ -218,4 +217,141 @@ p.wwa-bio {
   }
   line-height: normal;
   color: $colHdLt;
+}
+
+// Blog
+#hb-container {
+  width: 100%;
+  background: $colBgWWD;
+  text-align: center;
+  letter-spacing: 2px;
+  
+  &> .content {
+    padding: 62px 0;
+    color: #fff;
+    
+    h2 {
+      margin: {
+        bottom: 72px;
+      }
+      
+      text: {
+        transform: uppercase;
+      }
+      
+      a {
+        @include linkAllStates(color, $colHdLt);
+      }
+      
+      line-height: 1;
+      
+      font: {
+        weight: $weightSSPLight;
+        size: 78px;
+      }
+    }
+    
+    .view.view-blog {
+      width: 100%;
+      max-width: 1256px;
+      padding: 0 23px;
+      margin: auto;
+      
+      .view-content {
+        overflow: hidden;
+        
+        .views-row {
+          float: left;
+          width: 28.6184%;
+          margin: 0;
+          
+          &-1 {
+          }
+          
+          &-2 {
+            margin: 0 7.0724%;
+          }
+          
+          &-3 {
+            float: right;
+          }
+          
+          h3 {
+            margin: 0 0 24px;
+            font: {
+              weight: bold;
+              size: 24px;
+            }
+            
+            line-height: normal;
+            
+            a {
+              @include linkAllStates(color, #fff);
+            }
+            
+            &:after {
+              content: "";
+              display: block;
+              width: 64.6551%;
+              height: 1px;
+              background: $colFrontBlogTitleBrdr;
+              margin: 20px auto 0;
+            }
+          }
+          
+          .post-body--front {
+            font: {
+              size: 16px;
+            }
+            
+            line-height: 1.4375;
+          }
+          
+          .views-more-link {
+            display: block;
+            margin-top: 30px;
+            text-transform: uppercase;
+            @include linkAllStates(color, $colFrontReadMore);
+            @include linkAllStates(text-decoration, underline);
+            font: {
+              weight: bold;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+#hb-container > .content .more-link {
+  @include clear();
+  margin-top: 72px;
+  text-align: center;
+  color: $colFrontReadMore;
+  font: {
+    weight: bold;
+    size: 24px;
+  }
+  
+  line-height: normal;
+  
+  a {
+    @include linkAllStates(color, $colFrontBlogMore);
+    @include hoverActiveFocus(text-decoration, underline);
+  }
+  
+  &:before,
+  &:after {
+    display: inline;
+    width: auto;
+    height: auto;
+  }
+  
+  &:before {
+    content: "[ ";
+  }
+  
+  &:after {
+    content: "] ";
+  }
 }

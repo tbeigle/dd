@@ -198,7 +198,7 @@ p:first-child {
 
 #popout-nav-toggle-wrapper {
   width: 100%;
-  max-width: 980px;
+  max-width: 1216px;
   padding-top: 85px;
   text-align: right;
   font-size: 0;
@@ -221,7 +221,7 @@ p:first-child {
   #fixed-menu-buttons .menu-buttons {
     display: block;
     width: 100%;
-    max-width: 1020px;
+    max-width: 1256px;
     padding: 0 20px 0;
     margin: 0 auto;
     pointer-events: none; }
@@ -281,7 +281,7 @@ p:first-child {
   #overlay-menu > .inner {
     position: relative;
     width: 100%;
-    max-width: 1020px;
+    max-width: 1256px;
     padding: 0 20px;
     margin: auto; }
   #overlay-menu .close-me {
@@ -650,8 +650,7 @@ body.show-wwd-title-bottom #wwd-title-bottom {
   visibility: visible; }
 
 #wwa-container {
-  padding-top: 40px;
-  background: #fff; }
+  padding-top: 40px; }
 
 .wwa-edit-link {
   position: absolute;
@@ -738,9 +737,94 @@ p.wwa-bio {
   line-height: normal;
   color: #00abd6; }
 
+#hb-container {
+  width: 100%;
+  background: #303030;
+  text-align: center;
+  letter-spacing: 2px; }
+  #hb-container > .content {
+    padding: 62px 0;
+    color: #fff; }
+    #hb-container > .content h2 {
+      margin-bottom: 72px;
+      text-transform: uppercase;
+      line-height: 1;
+      font-weight: 300;
+      font-size: 78px; }
+      #hb-container > .content h2 a:link, #hb-container > .content h2 a:visited, #hb-container > .content h2 a:hover, #hb-container > .content h2 a:active, #hb-container > .content h2 a:focus {
+        color: #00abd6; }
+    #hb-container > .content .view.view-blog {
+      width: 100%;
+      max-width: 1256px;
+      padding: 0 23px;
+      margin: auto; }
+      #hb-container > .content .view.view-blog .view-content {
+        overflow: hidden; }
+        #hb-container > .content .view.view-blog .view-content .views-row {
+          float: left;
+          width: 28.6184%;
+          margin: 0; }
+          #hb-container > .content .view.view-blog .view-content .views-row-2 {
+            margin: 0 7.0724%; }
+          #hb-container > .content .view.view-blog .view-content .views-row-3 {
+            float: right; }
+          #hb-container > .content .view.view-blog .view-content .views-row h3 {
+            margin: 0 0 24px;
+            font-weight: bold;
+            font-size: 24px;
+            line-height: normal; }
+            #hb-container > .content .view.view-blog .view-content .views-row h3 a:link, #hb-container > .content .view.view-blog .view-content .views-row h3 a:visited, #hb-container > .content .view.view-blog .view-content .views-row h3 a:hover, #hb-container > .content .view.view-blog .view-content .views-row h3 a:active, #hb-container > .content .view.view-blog .view-content .views-row h3 a:focus {
+              color: #fff; }
+            #hb-container > .content .view.view-blog .view-content .views-row h3:after {
+              content: "";
+              display: block;
+              width: 64.6551%;
+              height: 1px;
+              background: #676767;
+              margin: 20px auto 0; }
+          #hb-container > .content .view.view-blog .view-content .views-row .post-body--front {
+            font-size: 16px;
+            line-height: 1.4375; }
+          #hb-container > .content .view.view-blog .view-content .views-row .views-more-link {
+            display: block;
+            margin-top: 30px;
+            text-transform: uppercase;
+            font-weight: bold; }
+            #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:link, #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:visited, #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:hover, #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:active, #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:focus {
+              color: #43a6cd; }
+            #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:link, #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:visited, #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:hover, #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:active, #hb-container > .content .view.view-blog .view-content .views-row .views-more-link:focus {
+              text-decoration: underline; }
+
+#hb-container > .content .more-link {
+  margin-top: 72px;
+  text-align: center;
+  color: #43a6cd;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: normal; }
+  #hb-container > .content .more-link:before, #hb-container > .content .more-link:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden; }
+  #hb-container > .content .more-link:after {
+    clear: both; }
+  #hb-container > .content .more-link a:link, #hb-container > .content .more-link a:visited, #hb-container > .content .more-link a:hover, #hb-container > .content .more-link a:active, #hb-container > .content .more-link a:focus {
+    color: #92cee5; }
+  #hb-container > .content .more-link a:hover, #hb-container > .content .more-link a:active, #hb-container > .content .more-link a:focus {
+    text-decoration: underline; }
+  #hb-container > .content .more-link:before, #hb-container > .content .more-link:after {
+    display: inline;
+    width: auto;
+    height: auto; }
+  #hb-container > .content .more-link:before {
+    content: "[ "; }
+  #hb-container > .content .more-link:after {
+    content: "] "; }
+
 #portfolio-container {
   width: 100%;
-  background: url("../images/bg-portfolio-shadow.png") center 324px no-repeat;
+  background: #fff url("../images/bg-portfolio-shadow.png") center 324px no-repeat;
   overflow: hidden; }
   #portfolio-container .contextual-links-wrapper {
     right: auto;
