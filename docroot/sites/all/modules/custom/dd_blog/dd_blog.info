@@ -13,6 +13,7 @@ dependencies[] = views
 dependencies[] = wysiwyg
 features[ctools][] = views:views_default:3.0
 features[fe_block_settings][] = nodeblock-11
+features[fe_block_settings][] = views-blog-block_1
 features[fe_block_settings][] = views-blog_banners-block
 features[features_api][] = api:2
 features[field_base][] = field_blog_post_banner

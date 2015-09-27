@@ -40,6 +40,33 @@ blog/*',
     'visibility' => 1,
   );
 
+  $export['views-blog-block_1'] = array(
+    'cache' => -1,
+    'css_class' => '',
+    'custom' => 0,
+    'delta' => 'blog-block_1',
+    'module' => 'views',
+    'node_types' => array(),
+    'pages' => '<front>',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'dd' => array(
+        'region' => 'content',
+        'status' => 1,
+        'theme' => 'dd',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 1,
+  );
+
   $export['views-blog_banners-block'] = array(
     'cache' => -1,
     'css_class' => 'blog-post-banner',
