@@ -16,9 +16,12 @@ function dd_preprocess_block(&$vars) {
       if ($vars['blocktheme'] !== 'port') {
         if (!in_array('container', $vars['classes_array'])) $vars['classes_array'][] = 'container';
         
-        if ($vars['blocktheme'] == 'wwa') {
-          $tp = _dd_theme_path();
-          $vars['img_path'] = $tp . '/assets/images/logo-wwa.png';
+        switch ($vars['blocktheme']) {
+          case 'wwa': {
+            $tp = _dd_theme_path();
+            $vars['img_path'] = $tp . '/assets/images/logo-wwa.png';
+            break;
+          }
         }
       }
     }
